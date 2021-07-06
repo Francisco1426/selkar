@@ -4,6 +4,7 @@
             <ul class="nav">
                 <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li><a href="{{route('productos.index')}}" class=""><i class="lnr lnr-car"></i> <span>Productos</span></a></li>
+                <li><a href="{{route('clientes.index')}}" class=""><i class="lnr lnr-user"></i> <span>Clientes</span></a></li>
                 <li><a href="elements.html" class=""><i class="lnr lnr-rocket"></i> <span>Fases</span></a></li>
                 <li><a href="elements.html" class=""><i class="lnr lnr-magic-wand"></i> <span>Unidades de
                             medida</span></a>
