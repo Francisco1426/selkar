@@ -27,4 +27,19 @@ class ClientesController extends Controller
                     ->withSuccess("El cliente $cliente->nombre ha sido creado exitosamente");
     }
 
+    public function edit(cliente $cliente)
+    {
+        return view('system.clientes.edit',[
+            'cliente' => $cliente,
+        ]);
+    }
+
+    public function update(ClienteRequest $request, cliente $cliente)
+    {
+        $cliente->update($request->validated());
+        $cliente->save();
+        return redirect()
+                ->route('clientes.index')
+                ->withSucess("El cliente $cliente->nombre ha siso modificado exitosamente");
+    }
 }

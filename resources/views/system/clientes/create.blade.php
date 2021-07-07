@@ -7,8 +7,8 @@
                 <!-- OVERVIEW -->
                 <div class="panel panel-headline">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Reporte Clientes</h3>
-                        <p class="panel-subtitle">Listado de productos</p>
+                        <h3 class="panel-title">Alta de  Clientes</h3>
+                        <p class="panel-subtitle">Registro de clientes</p>
                     </div>
                     <div class="panel-body">
                         <form action="{{ route('clientes.store') }}" method="POST">
