@@ -2,15 +2,23 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{route('Inicio')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li><a href="{{route('productos.index')}}" class=""><i class="lnr lnr-car"></i> <span>Productos</span></a></li>
                 <li><a href="{{route('clientes.index')}}" class=""><i class="lnr lnr-user"></i> <span>Clientes</span></a></li>
+<<<<<<< HEAD
                 <li><a href="{{route('procesos.index')}}" class=""><i class="lnr lnr-user"></i> <span>Procesos</span></a></li>
                 <li><a href="{{route('materiales.index')}}" class=""><i class="lnr lnr-user"></i> <span>Materiales</span></a></li>
                 <li><a href="{{route('fases.index')}}" class=""><i class="lnr lnr-rocket"></i> <span>Fases</span></a></li>
                 <li><a href="{{route('tipomateriales.index')}}" class=""><i class="lnr lnr-user"></i> <span>Tipo de materiales</span></a></li>
                 <li><a href="{{route('unidadesmedida.index')}}" class=""><i class="lnr lnr-magic-wand"></i> <span>Unidades de medida</span></a></li>
 
+=======
+                <li><a href="{{route('procesos.index')}}" class=""><i class="lnr lnr-car"></i> <span>Procesos</span></a></li>
+                <li><a href="elements.html" class=""><i class="lnr lnr-rocket"></i> <span>Fases</span></a></li>
+                <li><a href="elements.html" class=""><i class="lnr lnr-magic-wand"></i> <span>Unidades de
+                            medida</span></a>
+                </li>
+>>>>>>> Eduardo
                 <li>
                     <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i>
                         <span>Produccion</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
