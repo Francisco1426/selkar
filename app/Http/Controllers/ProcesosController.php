@@ -3,23 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-
-class ProcesosController extends Controller
-{
-    public function index()
-    {
-        return view("system.procesos.index");
-    }
-
-    public function create()
-    {
-        return view("system.procesos.create");
-    }
-
-
-}
-=======
 use App\Http\Requests\ProcesosRequest;
 use App\Models\Proceso;
 
@@ -60,4 +43,3 @@ class ProcesosController extends Controller
 }
 
 
->>>>>>> Eduardo
