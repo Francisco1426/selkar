@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente;
@@ -10,7 +9,9 @@ class ClientesController extends Controller
 {
     public function index()
     {
-        return view('system.clientes.index');
+
+        $cliente = Cliente::all();
+        return view('system.clientes.index', compact('cliente'));
     }
 
     public function create()
@@ -23,8 +24,8 @@ class ClientesController extends Controller
     {
         $cliente = Cliente::create($request->validated());
                     return redirect()
-                    ->route('clientes.index')
-                    ->withSuccess("El cliente $cliente->nombre ha sido creado exitosamente");
+                            ->route('clientes.index')
+                            ->withSuccess("El cliente $cliente->nombre ha sido creado exitosamente");
     }
 
     public function edit(cliente $cliente)
