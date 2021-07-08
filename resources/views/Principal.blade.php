@@ -47,7 +47,7 @@
         <script src="{{asset('scripts/klorofil-common.js')}}"></script>
 
         <!-- Modal -->
-        <script>
+       <!-- <script>
         $(function() {
             var data, options;
 
@@ -166,7 +166,7 @@
             }
 
         });
-        </script>
+        </script> -->
 
         <div id="contenido">
             @yield('contenido')
