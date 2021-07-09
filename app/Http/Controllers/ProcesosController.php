@@ -25,20 +25,23 @@ class ProcesosController extends Controller
                     ->withSuccess("El proceso $proceso->nombre ha sido creado exitosamente");
     }
 
-    public function edit(Proceso $procesos)
+    public function edit(Proceso $proceso)
     {
-        return view('system.procesos.edit', [
-            'procesos' => $procesos,
-        ]);
+        return view('system.procesos.edit', compact('proceso'));
     }
 
-    public function update(ProcesosRequest $request, procesos $procesos)
+    public function update(Request $request, Proceso $proceso)
     {
-        $procesos->update($request->validated());
-        $procesos->save();
-        return redirect()
-                ->route('procesos.index')
-                ->withSuccess("El proceso $procesos->nombre ha sido modificado exitosamente");
+        $proceso->nombre = $request -> nombre;
+        $proceso->descripcion = $request -> descripcion;
+        $proceso->save();
+        return redirect()->route('procesos.index');
+    }
+
+    public function destroy(Proceso $proceso)
+    {
+        $proceso->delete();
+        return redirect()->route('procesos.index');
     }
 }
 

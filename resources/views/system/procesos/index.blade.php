@@ -8,7 +8,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Reporte Procesos</h3>
-                    <p class="panel-subtitle">Listado de productos</p>
+                    <p class="panel-subtitle">Listado de procesos</p>
                 </div>
                 <div class="panel-body">
                     <a href="{{route('procesos.create')}}" class="btn btn-primary">Crear Proceso</a>
@@ -31,8 +31,12 @@
                             <td>{{$proceso -> nombre}}</td>
                             <td>{{$proceso -> descripcion}}</td>
                             <td>
-                                <a href="{{route('procesos.edit', $procesos)}}" class="btn btn-warning">Modificar</a>
-                                
+                                <a href="{{route('procesos.edit', $proceso)}}" class="btn btn-warning">Modificar</a>
+                                <form action="{{route('procesos.destroy', $proceso)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
                         </tr>
                         
                     @endforeach
