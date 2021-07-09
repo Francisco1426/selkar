@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Proceso extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
-=======
     protected $fillable = [
-        'nombre','descripcion'
+        'nombre','descripcion','estatus_id'
     ];
->>>>>>> Eduardo
 }

@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Material extends Model
+class Produccion extends Model
 {
     use HasFactory;
-    protected $table='materiales';
     protected $fillable = [
-        'nombre','medida','tipomaterial','descripcion','estatus_id'
+        'nombre','porcentaje','descripcion','ventas_id','fases_id','fecha_inicial','fecha_final'
     ];
 }

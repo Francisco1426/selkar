@@ -22,6 +22,9 @@ class CreateClientesTable extends Migration
             $table->string('cp');
             $table->string('representante');
             $table->string('tipocliente');
+            $table->foreignId('estatus_id')
+            ->refrences('id')
+            ->on('estatus');
             $table->timestamps();
         });
     }

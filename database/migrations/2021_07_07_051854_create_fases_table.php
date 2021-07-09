@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CretaFasesTable extends Migration
+class CreateFasesTable extends Migration
 {
 
     public function up()
@@ -13,6 +13,9 @@ class CretaFasesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion');
+            $table->foreignId('estatus_id')
+                    ->refrences('id')
+                    ->on('estatus');
             $table->timestamps();
         });
     }

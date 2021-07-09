@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Materiales extends Model
+class detalleproduccion extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre',
-        'medida',
-        'tipomaterial',
+        'materialadicional','razones','producciones_id'
     ];
 }

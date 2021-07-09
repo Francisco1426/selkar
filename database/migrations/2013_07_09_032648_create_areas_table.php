@@ -4,23 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProcesosTable extends Migration
+class CreateAreasTable extends Migration
 {
 
     public function up()
     {
-        Schema::create('procesos', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->text('descripcion');
             $table->timestamps();
-            $table->foreignId('estatus_id')
-                  ->refrences('id')
-                  ->on('estatus');
         });
     }
 
 
     public function down()
     {
-        Schema::dropIfExists('procesos');
+        Schema::dropIfExists('areas');
     }
 }

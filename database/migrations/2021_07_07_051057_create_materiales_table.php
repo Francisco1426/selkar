@@ -15,6 +15,9 @@ class CreateMaterialesTable extends Migration
             $table->string('medida');
             $table->string('tipomaterial');
             $table->text('descripcion');
+            $table->foreignId('estatus_id')
+            ->refrences('id')
+            ->on('estatus');
             $table->timestamps();
         });
     }
