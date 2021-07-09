@@ -4,28 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaterialesTable extends Migration
+class CretaFasesTable extends Migration
 {
-    
+
     public function up()
     {
-        Schema::create('materiales', function (Blueprint $table) {
+        Schema::create('fases', function (Blueprint $table){
             $table->id();
             $table->string('nombre');
-            $table->string('medida');
-            $table->string('tipomaterial');
             $table->text('descripcion');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('materiales');
+        Schema::dropIfExists('fases');
     }
 }
