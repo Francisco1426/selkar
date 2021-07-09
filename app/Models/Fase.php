@@ -11,5 +11,6 @@ class Fase extends Model
     protected $fillable =[
         'nombre',
         'descripcion',
+        'estatus_id'
     ];
 }

@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Unidad extends Model
+class Detallematerial extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nombre',
-        'abreviatura',
-    ];
+    protected $fillable = ['nombre','cantidad','materiales_id','productos_id'];
 }
