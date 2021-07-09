@@ -9,6 +9,10 @@ class Estatu extends Model
 {
     use HasFactory;
     protected $fillable = [
+<<<<<<< HEAD
         'nombre', 'descripcion'
+=======
+        'nombre','descripcion'
+>>>>>>> Eduardo
     ];
 }
