@@ -29,7 +29,7 @@
                         <span>Produccion</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="subPages" class="collapse ">
                         <ul class="nav">
-                            <li><a href="page-profile.html" class="">Lista de materiales</a></li>
+                            <li><a href="page-profile.html" class="">Lista de materialesff</a></li>
                             <li><a href="page-login.html" class="">Materilaes</a></li>
                         </ul>
                     </div>
