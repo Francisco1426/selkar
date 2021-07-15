@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMaterialesTable extends Migration
 {
-
+    
     public function up()
     {
         Schema::create('materiales', function (Blueprint $table) {
@@ -16,13 +16,13 @@ class CreateMaterialesTable extends Migration
             $table->string('tipomaterial');
             $table->text('descripcion');
             $table->foreignId('estatus_id')
-            ->refrences('id')
-            ->on('estatus');
+                ->references('id')
+                ->on('estatus');
             $table->timestamps();
         });
     }
 
-
+   
     public function down()
     {
         Schema::dropIfExists('materiales');

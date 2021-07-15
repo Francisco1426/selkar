@@ -71,6 +71,19 @@
                                 </div>
 
                             </div>
+
+                            <div class="col-md-4">
+                                <label for="estatus_id" class="col-md-6 col-form-label">Estatus</label>
+                                <select class="form-control  @error('estatus_id') is-invalid @enderror" name="estatus_id" id="estatus_id">
+                                    @foreach ($estatus as $estatu)
+                                   <option value="{{$estatu->id}}">{{$estatu->nombre}}</option>
+                                   @endforeach                                    
+                                </select>
+                                @error('estatu_id')
+                                    <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            
                         </div>
                         <div class="col-md-11">
                             <div class="form-group">

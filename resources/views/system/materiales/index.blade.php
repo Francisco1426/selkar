@@ -17,12 +17,15 @@
             </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
                                     <th scope="col">Clave</th>
                                     <th scope="col">Nombre</th>
+                                    <th scope="col">Unidad Medida</th>
+                                    <th scope="col">Tipo Material</th>
                                     <th scope="col">Descripcion</th>
+                                    <th scope="col">Estatus</th>
                                     <th scope="col">Operaciones</th>
                                 </tr>
                             </thead> 
@@ -34,8 +37,16 @@
                                         <td scope="col">{{$material->medida}}</td>
                                         <td scope="col">{{$material->tipomaterial}}</td>
                                         <td scope="col">{{$material->descripcion}}</td>
+                                        <td scope="col">{{$material->estatus->nombre}}</td>
+                                        
                                         <td scope="col">
                                             <a href="{{route('materiales.edit', $material->id)}}" class="btn btn-success lnr lnr-pencil"></a>
+                                            <form action="{{route('materiales.destroy',$material->id)}}" method="post" style="display: inline-block;">
+                                                @csrf
+                                                @method('delete')
+                                                <input type="submit" class="btn btn-danger" value="Eliminar">
+                                            </form>
+                                           
                                         </td>
                                     </tr>
                                 @endforeach

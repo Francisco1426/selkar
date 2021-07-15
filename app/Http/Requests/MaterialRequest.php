@@ -14,10 +14,11 @@ class MaterialRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => ['required'],
-            'medida' => ['required'],
+            'nombre' => ['required' , "regex:/^[A-Z][A-z,a-z, ,á,é,í,ó,ú]+$/"],
+            'medida' => ['required' , "regex:/^[A-Z][A-z,a-z, ,á,é,í,ó,ú]+$/"],
             'tipomaterial' => ['required'],
-            'descripcion' => ['required']
+            'descripcion' => ['required' , "regex:/^[A-Z][A-z,a-z, ,á,é,í,ó,ú]+$/"],
+            'estatus_id' => ['required'],
         ];
     }
 }

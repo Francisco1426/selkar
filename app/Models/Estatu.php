@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Estatu extends Model
 {
     use HasFactory;
+    protected $table = 'estatus';
     protected $fillable = [
-<<<<<<< HEAD
-        'nombre', 'descripcion'
-=======
         'nombre','descripcion'
->>>>>>> Eduardo
     ];
+    public function materiales()
+    {
+        return $this->hasOne(Material::class);
+    }
 }

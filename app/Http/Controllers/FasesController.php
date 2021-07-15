@@ -41,4 +41,12 @@ class FasesController extends Controller
         return redirect()->route('fases.index');
     }
 
+    public function destroy($id)
+    {
+        $fase = Fase::findOrFail($id);
+        $fase->delete();
+        return redirect()->route('fases.index');
+
+    }
+
 }

@@ -20,6 +20,9 @@
                                         <input type="text" class="form-control @error('nombre') is-invalid @enderror"
                                             name="nombre" id="nombre" value="" placeholder="Escriba el nombre....">
                                     </div>
+                                    @error('nombre')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
 
                                 </div>
                                 <div class="col-md-4">
@@ -28,6 +31,9 @@
                                         <input type="text" class="form-control @error('descripcion') is-invalid @enderror"
                                             name="descripcion" id="descripcion" value="" placeholder="Escriba la descripcion....">
                                     </div>
+                                    @error('descripcion')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
 
                                 </div>
                                

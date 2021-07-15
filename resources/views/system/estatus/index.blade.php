@@ -14,7 +14,7 @@
                     <a href="{{route('estatus.create')}}" class="btn btn-primary">Crear Estatus</a>
                 </div>
             </div>
-            <table class="table table-striped table-inverse mt-3 responsive" id="table">
+            <table id="example" class="table table-striped" style="width:100%">
                 <thead class="thead-inverse">
                     <tr>
                         <th>Clave</th>
@@ -31,7 +31,11 @@
                         <td>{{$estatu->descripcion}}</td>
                         <td>
                             <a href="{{route('estatus.edit', $estatu->id)}}" class="btn btn-warning">Modificar</a>
-                            
+                            <form action="{{route('estatus.destroy',$estatu->id)}}" method="post" style="display: inline-block">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" class="btn btn-danger" value="Eliminar">
+                            </form>     
                     </tr>
                     
                 @endforeach

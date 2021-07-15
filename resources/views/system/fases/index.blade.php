@@ -14,7 +14,7 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <table class="table table-striped table-inverse mt-3 responsive" id="clientes">
+                        <table id="example" class="table table-striped" style="width:100%">
                             <thead class="thead-inverse">
                                 <tr>
                                     <th>Clave</th>
@@ -32,6 +32,11 @@
                                         <td scope="col">{{$fase->descripcion}}</td>
                                         <td>
                                             <a href="{{route('fases.edit',$fase->id)}}" class="btn btn-success lnr lnr-pencil"></a>
+                                            <form action="{{route('fases.destroy',$fase->id)}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <input type="submit" class="btn btn-danger" value="Eliminar">
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
