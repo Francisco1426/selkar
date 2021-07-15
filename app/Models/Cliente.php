@@ -10,12 +10,23 @@ class Cliente extends Model
     use HasFactory;
     protected $fillable = [
 
-        'razonsocial','rfc','telefono','celular','email','domicilio','colonia','municipio','cp','representante','tipocliente','estatus_id'
+        'razonsocial',
+        'rfc',
+        'telefono',
+        'email',
+        'direccion',
+        'colonia',
+        'municipio',
+        'cp',
+        'representante',
+        'celular',
+        'estatus_id',
+        'tipocliente'
     ];
 
     public function estatus()
     {
-        return $this->belongsTo(Estatu::class, 'estatus_id');
+        return $this->belongsTo(Estatu::class);
     }
 
 

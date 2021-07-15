@@ -17,13 +17,13 @@
                             <div class="col-md-4">
                                 <label for="nombre" class="col-sm-1-12 col-form-label">Estatus</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" id="nombre" value="" placeholder="Escriba el nombre....">
+                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" id="nombre" value="{{old('nombre')}}" placeholder="Escriba el nombre....">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="nombre" class="col-sm-1-12 col-form-label">Descripcion</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="" placeholder="Escriba el nombre....">
+                                    <input type="text" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="{{old('descripcion')}}" placeholder="Escriba el nombre....">
                                 </div>
                             </div>
                         </div>

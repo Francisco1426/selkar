@@ -9,6 +9,18 @@ class Estatu extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre', 'descripcion'
+        'nombre',
+        'descripcion'
     ];
+
+    public function clientes()
+    {
+        return $this->hasOne(Cliente::class);
+    }
+
+    public function categorias()
+    {
+        return $this->hasOne(Categoria::class);
+    }
+
 }
