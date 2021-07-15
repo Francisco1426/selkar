@@ -14,8 +14,13 @@ class ProductoRequest extends FormRequest
     public function rules()
     {
         return [
+            'clave' => ['required'],
             'nombre' => ['required'],
+            'precio' => ['required'],
+            'imagen' => ['required'],
+            'estatus' => ['required'],
+            'categoria' => ['required'],
             'descripcion' => ['required']
-        ]; 
+        ];
     }
 }

@@ -16,8 +16,6 @@
                 <div class="panel-body">
                     <a href="{{route('productos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Producto</a>
                     <br><br>
-
-
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -30,22 +28,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   @foreach($productos as $producto)
-                                    <tr>
-                                        <th scope="row">{{$producto->id}}</th>
-                                        <td>{{$producto->nombre}}</td>
-                                        <td>{{$producto->descripcion}}</td>
-                                        <td>
-                                            <a href="{{route('productos.edit', $producto)}}" class="btn btn-warning">Modificar</a>
 
-                                            <form action="{{route('productos.destroy', $producto)}}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
                                 </tbody>
                             </table>
                         </div>
