@@ -24,15 +24,6 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon.png')}}">
 
-<<<<<<< HEAD
-
-    {{-- Data tables --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">  --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
-
-
-=======
->>>>>>> 08a18248812432d4b309b4ec1ef12cf0c82ed9f2
 </head>
 
 <body>
@@ -47,8 +38,6 @@
         <script src="{{asset('vendor/chartist/js/chartist.min.js')}}"></script>
         <script src="{{asset('scripts/klorofil-common.js')}}"></script>
 
-<<<<<<< HEAD
-=======
         <!--datatables-->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -56,7 +45,6 @@
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
 
->>>>>>> 08a18248812432d4b309b4ec1ef12cf0c82ed9f2
 
       {{-- Data TABLE --}}
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
