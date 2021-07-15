@@ -14,10 +14,10 @@
                     <p class="panel-subtitle">Listado de productos</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('productos.create')}}" class="btn btn-primary">Nuevo Producto</a>
+                    <a href="{{route('productos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Producto</a>
                     <br><br>
-                    
-                   
+
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -45,7 +45,7 @@
                                             </form>
                                         </td>
                                     </tr>
-                                @endforeach 
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -56,5 +56,5 @@
     </div>
 </div>
 <!-- END MAIN CONTENT -->
-    
+
 @endsection

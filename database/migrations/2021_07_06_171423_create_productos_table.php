@@ -12,11 +12,16 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('clave');
+            $table->float('precio');
             $table->string('nombre');
+            $table->string('imagen');
             $table->string('descripcion');
             $table->foreignId('estatus_id')
-            ->refrences('id')
-            ->on('estatus');
+                    ->references('id')
+                    ->on('estatus');
+            $table->foreignId('categorias_id')
+                    ->references('id')
+                    ->on('categorias');
             $table->timestamps();
         });
     }

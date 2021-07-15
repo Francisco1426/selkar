@@ -14,20 +14,21 @@ class CreateClientesTable extends Migration
             $table->string('razonsocial');
             $table->string('rfc');
             $table->string('telefono');
-            $table->string('celular');
             $table->string('email');
-            $table->string('domicilio');
+            $table->string('direccion');
             $table->string('colonia');
             $table->string('municipio');
             $table->string('cp');
             $table->string('representante');
-            $table->string('tipocliente');
+            $table->string('celular');
             $table->foreignId('estatus_id')
-            ->refrences('id')
-            ->on('estatus');
+                    ->references('id')
+                    ->on('estatus');
+            $table->string('tipocliente');
             $table->timestamps();
         });
     }
+
 
 
     public function down()
