@@ -5,26 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Http\Requests\ProductoRequest;
+use App\Models\Categoria;
+use App\Models\Estatu;
 
 class ProductosController extends Controller
 {
     public function index()
     {
-        $productos = Producto::paginate();
-        return view('system.productos.index', compact('productos'));
+        return view('system.productos.index');
     }
 
     public function create()
     {
-        return view('system.productos.create');
+        return view('system.productos.create',[
+            'categorias' => Categoria::select('id','nombre')->get(),
+            'estatus' => Estatu::select('id','nombre')->get()
+        ]);
     }
 
     public function store(ProductoRequest $request)
     {
         $producto = Producto::create($request->validated());
-            return redirect()
-            ->route('productos.index')
-            ->withSuccess("El producto $producto->nombre ha sido creado satisfactoriamente");
+        return redirect()
+                ->route('productos.index');
+
     }
 
     public function edit(Producto $producto)
