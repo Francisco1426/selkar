@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Estatu;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteRequest;
-use App\Models\Cliente;
+
 
 class ClientesController extends Controller
 {
@@ -16,22 +19,30 @@ class ClientesController extends Controller
 
     public function create()
     {
-        return view('system.clientes.create');
+        return view('system.clientes.create', [
+            'estatus' => Estatu::select('id', 'nombre')->get()
 
+        ]);
     }
-
+    public function show()
+    {
+        //return  view('system.clientes.edit');
+    }
     public function store(ClienteRequest $request)
     {
+        //dd( $request->all() );
+
         $cliente = Cliente::create($request->validated());
-                    return redirect()
-                            ->route('clientes.index')
-                            ->withSuccess("El cliente $cliente->nombre ha sido creado exitosamente");
+        return redirect()
+            ->route('clientes.index');
+
     }
 
     public function edit(cliente $cliente)
     {
-        return view('system.clientes.edit',[
+        return view('system.clientes.edit', [
             'cliente' => $cliente,
+            'estatus' => Estatu::select('id','nombre')->get()
         ]);
     }
 
@@ -40,7 +51,19 @@ class ClientesController extends Controller
         $cliente->update($request->validated());
         $cliente->save();
         return redirect()
-                ->route('clientes.index')
-                ->withSucess("El cliente $cliente->nombre ha siso modificado exitosamente");
+            ->route('clientes.index');
     }
+
+    public function RegistrosDatatables()
+    {
+       return datatables()
+              ->eloquent(
+                    Cliente::query()
+                    ->with([
+                        'estatus'
+                    ])
+              )
+              ->toJson();
+    }
+
 }

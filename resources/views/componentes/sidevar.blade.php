@@ -3,12 +3,17 @@
         <nav>
             <ul class="nav">
                 <li><a href="{{route('Inicio')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                <li><a href="{{route('productos.index')}}" class=""><i class="lnr lnr-car"></i> <span>Productos</span></a></li>
+                <li><a href="{{route('productos.index')}}" class=""><i class="fas fa-truck"></i> <span>Productos</span></a></li>
+                <li><a href="{{route('categorias.index')}}" class=""><i class="fas fa-dolly"></i> <span>Categorias</span></a></li>
                 <li><a href="{{route('clientes.index')}}" class=""><i class="lnr lnr-user"></i> <span>Clientes</span></a></li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <li><a href="{{route('materiales.index')}}" class=""><i class="lnr lnr-user"></i> <span>Materiales</span></a></li>
+=======
+                <li><a href="{{route('materiales.index')}}" class=""><i class="fas fa-tools"></i> <span>Materiales</span></a></li>
+>>>>>>> Omar
                 <li><a href="{{route('fases.index')}}" class=""><i class="lnr lnr-rocket"></i> <span>Fases</span></a></li>
-                <li><a href="{{route('estatus.index')}}" class=""><i class="lnr lnr-rocket"></i> <span>Estaus</span></a></li>
+                <li><a href="{{route('estatus.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Estaus</span></a></li>
 
 =======
                 <li><a href="{{route('estatus.index')}}" class=""><i class="lnr lnr-user"></i> <span>Estatus</span></a></li>

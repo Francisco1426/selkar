@@ -16,13 +16,19 @@ class ClienteRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => ['required'],
-            'app' => ['required'],
-            'apm' => ['required'],
-            'email' => ['required'],
-            'telefono' => ['required'],
+            'razonsocial' => ['required'],
             'rfc' => ['required'],
-            'tipocliente' => ['required']
+            'telefono' => ['required'],
+            'celular' => ['required'],
+            'email' => ['required'],
+            'direccion' => ['required'],
+            'colonia' => ['required'],
+            'municipio' => ['required'],
+            'cp' => ['required'],
+            'representante' => ['required'],
+            'tipocliente' => ['required'],
+            'estatus_id' => ['required']
+
         ];
     }
 }
