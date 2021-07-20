@@ -1,5 +1,8 @@
 @extends('principal')
-
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+@endsection
 @section('contenido')
 
 
@@ -15,29 +18,74 @@
                 </div>
                 <div class="panel-body">
                     <a href="{{route('productos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Producto</a>
-                    <br><br>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Clave</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Descripcion</th>
-                                        <th scope="col">Operaciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
             </div>
+            <div class="card">
+                    <div class="card-body">
+                        <table class="table table-striped table-inverse mt-3 responsive" id="productos">
+                            <thead class="thead-inverse bg-primary responsive">
+                                <tr>
+                                    <th>Clave</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Imagen</th>
+                                    <th>Categoria</th>
+                                    <th>Estatus</th>
+                                    <th>Operaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        @section('js')
+                        <script>
+                            $('#productos').DataTable({
+                                "responsive": true,
+                                "processing": true,
+                                "serverSide": true,
+                                "autoWidth": false,
+                                "ajax": "{{route('productos.datatables')}}",
+                                "columns": [{
+                                        data: 'id'
+                                    },
+                                    {
+                                        data: 'nombre'
+                                    },
+                                    {
+                                        data: 'precio'
+                                    },
+                                    {
+                                        data: 'imagen'
+                                    },
+                                    {
+                                        data: 'categorias.nombre'
+                                    },
+                                    {
+                                        data: 'estatus.nombre'
+                                    },
+                                    {
+                                        data: 'id',
+                                        render: function(data, type, full, meta) {
+                                            return `
+                                                 <a href="/productos/${data}/edit"
+                                                class="btn btn-success"
+                                                ${full.deleted_at ? 'hidden' : ''}>
+                                                <i class="fas fa-edit"></i>
+                                                </a>`
+
+                                        }
+                                    }
+                                ]
+                            });
+
+                            function reloadTable() {
+                                $('#productos').DataTable().ajax.reload();
+                            }
+                        </script>
+                        @endsection
+                    </div>
+                </div>
         </div>
     </div>
 </div>
-<!-- END MAIN CONTENT -->
-
 @endsection

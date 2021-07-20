@@ -14,6 +14,11 @@ class Categoria extends Model
 
    public function estatus()
    {
-       return $this->belongsTo(Estatu::class);
+         return $this->belongsTo(Estatu::class);
+   }
+
+   public function productos()
+   {
+       return $this->hasMany(Producto::class);
    }
 }

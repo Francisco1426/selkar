@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Estatu;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use App\Http\Requests\ClienteRequest;
 
 

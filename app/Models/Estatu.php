@@ -23,4 +23,8 @@ class Estatu extends Model
         return $this->hasOne(Categoria::class);
     }
 
+    public function productos()
+    {
+        return $this->hasOne(Producto::class);
+    }
 }

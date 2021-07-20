@@ -18,15 +18,17 @@
                 </div>
                 <div class="panel-body">
 
-                    <form action="{{route('productos.store')}}" method="POST">
+                    <form action="{{route('productos.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
                             <div class="col-md-4">
                                 <label for="app" class="col-sm-1-12 col-form-label">Clave:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control name="" id=" clave" name="clave" value="{{old('clave')}}" placeholder=" Escriba la clave">
+                                    <input type="text" class="form-control" id="clave" name="clave" value="{{old('clave')}}" placeholder=" Escriba la clave">
                                 </div>
-
+                                @error('clave')
+                                <small class="text-danger"> {{ $message }} </small>
+                                @enderror
                             </div>
                             <div class="col-md-4">
                                 <label for="nombre" class="col-sm-1-12 col-form-label">Nombre(Producto):</label>
@@ -49,7 +51,7 @@
                             <div class="col-md-4 my-3">
                                 <label for="imagen">Elija una imagen</label>
                                 <div class="form-group">
-                                    <input id="imagen" type="file" class="form-control @error('imagen') is-invalid @enderror name=" imagen">
+                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="imagen" class="hidden">
                                 </div>
                                 @error('imagen')
                                 <small class="text-danger"> {{ $message }} </small>
@@ -57,7 +59,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="categorias">Categoria</label>
-                                <select class="form-control  @error('estatus_id') is-invalid @enderror" name="categorias" id="categorias">
+                                <select class="form-control  @error('estatus_id') is-invalid @enderror" name="categorias_id" id="categorias_id">
                                     @foreach($categorias as $categoria)
                                     <option {{ old('categoria_id') == $categoria->id ? 'selected' : '' }} value="{{ $categoria->id }}">
                                         {{$categoria->nombre}}
@@ -69,7 +71,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="estatus">Estatus</label>
-                                <select class="form-control  @error('estatus') is-invalid @enderror" name="estatus" id="estatus">
+                                <select class="form-control  @error('estatus') is-invalid @enderror" name="estatus_id" id="estatus_id">
                                     <option>--Seleccione uno--</option>
                                     @foreach($estatus as $estatu)
                                     <option {{old('estatu_id') == $estatu->id ? 'selected' : ''}} value="{{$estatu->id}}">
@@ -84,7 +86,7 @@
                             <div class="col-md-12">
                                 <label for="descripcion">Descripcion</label>
                                 <div class="form-group">
-                                    <input type="hidden" id="descripcion" name="descripcion" value="{{old('descripcion')}}">
+                                    <input type="hidden" name="descripcion" id="descripcion" value="{{old('descripcion')}}">
                                     <trix-editor input="descripcion"></trix-editor>
                                 </div>
                                 @error('descripcion')
@@ -103,4 +105,15 @@
 @endsection
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
+<script>
+    $(document).ready(function(e){
+        $('#imagen').change(function(){
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#imagenSeleccionada').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    });
+</script>
 @endsection

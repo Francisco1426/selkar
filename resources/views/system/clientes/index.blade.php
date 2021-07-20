@@ -88,7 +88,6 @@
 
                             ]
                         });
-
                         function reloadTable() {
                             $('#clientes').DataTable().ajax.reload();
                         }
