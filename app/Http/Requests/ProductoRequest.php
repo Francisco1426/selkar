@@ -17,9 +17,9 @@ class ProductoRequest extends FormRequest
             'clave' => ['required'],
             'nombre' => ['required'],
             'precio' => ['required'],
-            'imagen' => ['required'],
-            'estatus' => ['required'],
-            'categoria' => ['required'],
+            'imagen' => ["nullable", "image"],
+            'categorias_id' => ['required'],
+            'estatus_id' => ['required'],
             'descripcion' => ['required']
         ];
     }
