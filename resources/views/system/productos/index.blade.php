@@ -21,70 +21,75 @@
                 </div>
             </div>
             <div class="card">
-                    <div class="card-body">
-                        <table class="table table-striped table-inverse mt-3 responsive" id="productos">
-                            <thead class="thead-inverse bg-primary responsive">
-                                <tr>
-                                    <th>Clave</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th>Imagen</th>
-                                    <th>Categoria</th>
-                                    <th>Estatus</th>
-                                    <th>Operaciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                        @section('js')
-                        <script>
-                            $('#productos').DataTable({
-                                "responsive": true,
-                                "processing": true,
-                                "serverSide": true,
-                                "autoWidth": false,
-                                "ajax": "{{route('productos.datatables')}}",
-                                "columns": [{
-                                        data: 'id'
-                                    },
-                                    {
-                                        data: 'nombre'
-                                    },
-                                    {
-                                        data: 'precio'
-                                    },
-                                    {
-                                        data: 'imagen'
-                                    },
-                                    {
-                                        data: 'categorias.nombre'
-                                    },
-                                    {
-                                        data: 'estatus.nombre'
-                                    },
-                                    {
-                                        data: 'id',
-                                        render: function(data, type, full, meta) {
-                                            return `
+                <div class="card-body">
+                    <table class="table table-striped table-inverse mt-3 responsive" id="productos">
+                        <thead class="thead-inverse bg-primary responsive">
+                            <tr>
+                                <th>Clave</th>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Categoria</th>
+                                <th>Estatus</th>
+                                <th>Operaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    @section('js')
+                    <script>
+                        $('#productos').DataTable({
+                            "responsive": true,
+                            "processing": true,
+                            "serverSide": true,
+                            "autoWidth": false,
+                            "ajax": "{{route('productos.datatables')}}",
+                            "columns": [{
+                                    data: 'id'
+                                },
+                                {
+                                    data: 'id',
+                                    render: function(data, type, full, meta) {
+                                        const ImagenPorDefecto = `https://www.amaltasindia.in/UploadPhoto/no_img.jpg`;
+                                        return `<img src="${full.image ?  `/storage/images/${full.image.path}` : ImagenPorDefecto}" width="80" height="80">`
+                                    }
+
+                                },
+                                {
+                                    data: 'nombre'
+                                },
+                                {
+                                    data: 'precio'
+                                },
+                                {
+                                    data: 'categorias.nombre'
+                                },
+                                {
+                                    data: 'estatus.nombre'
+                                },
+                                {
+                                    data: 'id',
+                                    render: function(data, type, full, meta) {
+                                        return `
                                                  <a href="/productos/${data}/edit"
                                                 class="btn btn-success"
                                                 ${full.deleted_at ? 'hidden' : ''}>
                                                 <i class="fas fa-edit"></i>
                                                 </a>`
 
-                                        }
                                     }
-                                ]
-                            });
+                                }
+                            ]
+                        });
 
-                            function reloadTable() {
-                                $('#productos').DataTable().ajax.reload();
-                            }
-                        </script>
-                        @endsection
-                    </div>
+                        function reloadTable() {
+                            $('#productos').DataTable().ajax.reload();
+                        }
+                    </script>
+                    @endsection
                 </div>
+            </div>
         </div>
     </div>
 </div>

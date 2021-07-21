@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoriaRequest;
 use App\Models\Categoria;
 use App\Models\Estatu;
-
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller

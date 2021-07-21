@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MaterialRequest;
 use App\Models\Estatu;
 use App\Models\Material;
-
+use Illuminate\Routing\Controller;
 
 
 class MaterialesController extends Controller
