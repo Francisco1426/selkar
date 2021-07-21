@@ -14,7 +14,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Reporte Productos</h3>
-                    <p class="panel-subtitle">Listado de productos</p>
+                    <p class="panel-subtitle">Listado de productos generales</p>
                 </div>
                 <div class="panel-body">
                     <a href="{{route('productos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Producto</a>
