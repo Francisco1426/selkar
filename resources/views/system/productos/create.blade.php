@@ -22,7 +22,7 @@
                         @csrf
                         <div class="form-row">
                             <div class="col-md-4">
-                                <label for="app" class="col-sm-1-12 col-form-label">Clave:</label>
+                                <label for="app" class="col-sm-1-12 col-form-label">Clave de producto/servicio:</label>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="clave" name="clave" value="{{old('clave')}}" placeholder=" Escriba la clave">
                                 </div>
@@ -51,7 +51,7 @@
                             <div class="col-md-4 my-3">
                                 <label for="imagen">Elija una imagen</label>
                                 <div class="form-group">
-                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="imagen" class="hidden">
+                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="imagen">
                                 </div>
                                 @error('imagen')
                                 <small class="text-danger"> {{ $message }} </small>
@@ -105,9 +105,10 @@
 @endsection
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-    $(document).ready(function(e){
-        $('#imagen').change(function(){
+    $(document).ready(function(e) {
+        $('#imagen').change(function() {
             let reader = new FileReader();
             reader.onload = (e) => {
                 $('#imagenSeleccionada').attr('src', e.target.result);

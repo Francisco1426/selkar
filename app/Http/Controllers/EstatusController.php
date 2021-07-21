@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EstatusRequest;
 use App\Models\Estatu;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class EstatusController extends Controller
 {

@@ -7,6 +7,8 @@ use App\Models\Producto;
 use App\Http\Requests\ProductoRequest;
 use App\Models\Categoria;
 use App\Models\Estatu;
+use Illuminate\Routing\Controller;
+
 
 class ProductosController extends Controller
 {
