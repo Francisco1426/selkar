@@ -21,6 +21,10 @@
                                             name="nombre" id="nombre" value="" placeholder="Escriba el nombre....">
                                     </div>
 
+                                    @error('nombre')
+                                        <small class="text-danger">{{$message}}</small> 
+                                    @enderror
+
                                 </div>
                                 <div class="col-md-4">
                                     <label for="app" class="col-sm-1-12 col-form-label">Descripcion</label>
@@ -29,19 +33,10 @@
                                             name="descripcion" id="descripcion" value="" placeholder="Escriba la descripcion....">
                                     </div>
 
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <label for="estatus" class="col-md-6 col-form-label">Estatus</label>
-                                    <select class="form-control  @error('status_id') is-invalid @enderror" name="status_id"
-                                        id="status_id">
-                                        <option value="">Seleciona uno</option>
-
-                                        </option>
-                                    </select>
-                                    @error('statu_id')
-                                        <small class="text-danger"> {{ $message }} </small>
+                                    @error('descripcion')
+                                    <small class="text-danger">{{$message}}</small> 
                                     @enderror
+
                                 </div>
                                
                             </div>

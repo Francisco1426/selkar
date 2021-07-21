@@ -38,10 +38,19 @@ class ProcesosController extends Controller
         return redirect()->route('procesos.index');
     }
 
-    public function destroy(Proceso $proceso)
+   // public function destroy(Proceso $proceso)
+   // {
+      //  $proceso->delete();
+      //  return redirect()->route('procesos.index');
+    //}
+
+    public function RegistrosDatatables()
     {
-        $proceso->delete();
-        return redirect()->route('procesos.index');
+        return datatables()
+                ->eloquent(
+                    Proceso::query()
+                )
+                ->toJson();
     }
 }
 

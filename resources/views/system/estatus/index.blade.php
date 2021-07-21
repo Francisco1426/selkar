@@ -15,7 +15,7 @@
                 </div>
             </div>
             <table class="table table-striped table-inverse mt-3 responsive" id="table">
-                <thead class="thead-inverse">
+                <thead class="thead-inverse bg-primary responsive">
                     <tr>
                         <th>Clave</th>
                         <th>Nombre</th>

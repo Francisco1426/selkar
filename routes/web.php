@@ -12,5 +12,7 @@ Route::get('/', [InicioController::class,'Inicio'])->name('Inicio');
 
 Route::resource('productos', ProductosController::class);
 Route::resource('clientes', ClientesController::class);
+
 Route::resource('procesos', ProcesosController::class);
+Route::get('datatables/procesos',[ProcesosController::class,'RegistrosDatatables'])->name('procesos.datatables');
 Route::resource('estatus', EstatusController::class);
