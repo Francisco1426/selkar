@@ -14,8 +14,8 @@
                     <a href="{{route('estatus.create')}}" class="btn btn-primary">Crear Estatus</a>
                 </div>
             </div>
-            <table id="example" class="table table-striped" style="width:100%">
-                <thead class="thead-inverse">
+            <table class="table table-striped table-inverse mt-3 responsive" id="table">
+                <thead class="thead-inverse bg-primary responsive">
                     <tr>
                         <th>Clave</th>
                         <th>Nombre</th>

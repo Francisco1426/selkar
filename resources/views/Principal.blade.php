@@ -43,35 +43,7 @@
         <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
-
-
-      {{-- Data TABLE --}}
-      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-      <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
-      <script>
-          $(document).ready(function() {
-          $('#example').DataTable({
-              "language": {
-                  "lengthMenu": "Mostrar _MENU_ registros por pagina",
-                  "zeroRecords": "Nada encontrado - disculpa",
-                  "info": "Mostrando la pagina _PAGE_ de _PAGES_",
-                  "infoEmpty": "No records available",
-                  "infoFiltered": "(filtrado de _MAX_ registros totales)",
-                  "search": "Buscar:",
-                  "paginate":{
-                      "next":"Siguiente",
-                      "previous":"Anterior"
-                  }
-              }
-          });
-      } );
-      </script>
-
-      
-      
-        
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>        
         
         <div id="contenido">
             @yield('contenido')

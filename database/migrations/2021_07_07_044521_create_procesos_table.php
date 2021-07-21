@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProcesosTable extends Migration
 {
-
+    
     public function up()
     {
         Schema::create('procesos', function (Blueprint $table) {
@@ -17,7 +17,6 @@ class CreateProcesosTable extends Migration
                   ->on('estatus');
         });
     }
-
 
     public function down()
     {
