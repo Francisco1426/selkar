@@ -14,7 +14,7 @@ class CreateDetallesproduccionesTable extends Migration
             $table->text('materialadicional');
             $table->text('razones');
             $table->foreignId('producciones_id')
-                    ->refrences('id')
+                    ->references('id')
                     ->on('producciones');
             $table->timestamps();
         });

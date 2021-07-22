@@ -19,9 +19,9 @@ class ProductosController extends Controller
 
     public function create()
     {
-        return view('system.productos.create',[
-            'categorias' => Categoria::select('id','nombre')->get(),
-            'estatus' => Estatu::select('id','nombre')->get()
+        return view('system.productos.create', [
+            'categorias' => Categoria::select('id', 'nombre')->get(),
+            'estatus' => Estatu::select('id', 'nombre')->get()
         ]);
     }
 
@@ -30,45 +30,58 @@ class ProductosController extends Controller
         //dd($request->all());
         //$producto = Producto::create($request->validated());
         $producto = $request->all();
-        if($imagen = $request->file('imagen')){
+        if ($imagen = $request->file('imagen')) {
             $rutaGuardarImg = 'imagen/';
-            $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenProducto);
             $producto['imagen'] = "$imagenProducto";
         }
         Producto::create($producto, $request->validated());
         return redirect()
-                ->route('productos.index');
-
+            ->route('productos.index');
     }
 
     public function edit(Producto $producto)
     {
-        return view('system.productos.edit', compact('producto'));
+        return view('system.productos.edit', [
+            'producto' => $producto,
+            'estatus' => Estatu::select('id', 'nombre')->get(),
+            'categorias' => Categoria::select('id', 'nombre')->get()
+
+        ]);
     }
 
-    public function update(Request $request, Producto $producto)
+    public function update(ProductoRequest $request,  producto $producto)
     {
-        //
+        $prod = $request->all();
+        if ($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/';
+            $imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenProducto);
+            $prod['imagen'] = "$imagenProducto";
+        } else {
+            unset($prod['imagen']);
+        }
+        $producto->update($prod);
+        return redirect()
+            ->route('productos.index');
     }
-
 
     public function destroy(Producto $producto)
     {
-       // $producto->delete();
-        //return redirect()->route('productos.index');
+        //
     }
 
     public function RegistrosDatatables()
     {
         return datatables()
-                ->eloquent(
-                    Producto::query()
-                        ->with([
-                            'categorias',
-                            'estatus'
-                        ])
-                )
-                ->toJson();
+            ->eloquent(
+                Producto::query()
+                    ->with([
+                        'categorias',
+                        'estatus'
+                    ])
+            )
+            ->toJson();
     }
 }

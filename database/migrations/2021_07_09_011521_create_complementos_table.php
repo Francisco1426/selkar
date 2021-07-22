@@ -16,7 +16,7 @@ class CreateComplementosTable extends Migration
                     ->refrences('id')
                     ->on('materiales');
             $table->foreignId('detallesmaterial_id')
-                    ->refrences('id')
+                    ->references('id')
                     ->on('detallesmaterial');
             $table->timestamps();
         });

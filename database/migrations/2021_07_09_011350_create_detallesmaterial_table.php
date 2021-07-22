@@ -14,7 +14,7 @@ class CreateDetallesmaterialTable extends Migration
             $table->string('nombre');
             $table->string('cantidad');
             $table->foreignId('materiales_id')
-                  ->refrences('id')
+                  ->references('id')
                   ->on('materiales');
             $table->foreignId('productos_id')
                   ->refrences('id')

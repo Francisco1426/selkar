@@ -49,11 +49,7 @@
                                     data: 'id'
                                 },
                                 {
-                                    data: 'id',
-                                    render: function(data, type, full, meta) {
-                                        const ImagenPorDefecto = `https://www.amaltasindia.in/UploadPhoto/no_img.jpg`;
-                                        return `<img src="${full.image ?  `/storage/images/${full.image.path}` : ImagenPorDefecto}" width="80" height="80">`
-                                    }
+                                    data: 'imagen'
 
                                 },
                                 {
