@@ -1,4 +1,8 @@
 @extends('principal')
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+@endsection
 @section('contenido')
     <div class="main">
         <div class="main-content">
@@ -9,39 +13,76 @@
                         <p class="panel-subtitle">Listado de fases</p>
                     </div>
                     <div class="panel-body">
-                        <a href="{{ route('fases.create') }}" class="btn btn-primary">Crear fase</a>
+                        <a href="{{ route('fases.create') }}" class="btn btn-primary"><i class="fas fa-plus"> Crear fase</i></a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <table id="example" class="table table-striped" style="width:100%">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th>Clave</th>
-                                    <th>Nombre</th>
-                                    <th>Descripcion</th>
-                                    <th>Operaciones</th>
-    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($fases as $fase)
+                        <div class="table-responsive">
+                            <table id="fases" class="table table-striped table-inverse mt-3 responsive">
+                                <thead class="thead-inverse bg-primary responsive">
                                     <tr>
-                                        <th scope="row">{{$fase->id}}</th>
-                                        <td scope="col">{{$fase->nombre}}</td>
-                                        <td scope="col">{{$fase->descripcion}}</td>
-                                        <td>
-                                            <a href="{{route('fases.edit',$fase->id)}}" class="btn btn-success lnr lnr-pencil"></a>
-                                            <form action="{{route('fases.destroy',$fase->id)}}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <input type="submit" class="btn btn-danger" value="Eliminar">
-                                            </form>
-                                        </td>
+                                        <th>Clave</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Estatus</th>
+                                        <th>Operaciones</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                            @section('js')
+                            <script>
+                                $('#fases').DataTable({
+                                    "responsive":true,
+                                    "processing":true,
+                                    "serverSide":true,
+                                    "autoWidth":false,
+                                    "ajax":"{{route('fases.datatables')}}",
+                                    "columns":[{
+                                        data:'id'
+                                    },
+                                    {
+                                        data:'nombre'
+                                    },
+                                    {
+                                        data:'descripcion'
+                                    },
+                                    {
+                                        data:'estatus.nombre'
+                                    },
+                                    {
+                                        data:'id',
+                                        render: function(data, type, full, meta){
+                                            return `
+                                            <a href="/fases/${data}/edit"
+                                            class="btn btn-success"
+                                            ${full.deleted_at ? 'hidden' : ''}>
+                                            <i class="fas fa-edit"></i>
+                                            </a>
+                                            
+                                            <a href="/fases/${data}/edit
+                                            class="btn btn-danger"
+                                            ${full.deleted_at ? 'hidden': ''}>
+                                            <i class="fas fa-trash"></i>
+                                            </a>
+                                            <a href="/fases/${data}/edit"
+                                            class="btn btn-primary"
+                                            ${full.deleted_at ? 'hidden' : ''}>
+                                            <i class="far fa-eye"></li>
+                                            </a>`
+                                        }
+                                    } 
+                                    ]
+                                });
+                                function reloadTable(){
+                                    $('#fases').DataTable().ajax.reload()
+                                }
+                            </script>
+                            @endsection
+                        </div>
                     </div>
                 </div>
             </div>

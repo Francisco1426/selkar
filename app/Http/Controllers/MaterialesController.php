@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MaterialRequest;
 use App\Models\Estatu;
 use App\Models\Material;
-
-
+use Illuminate\Support\Facades\DB;
 
 class MaterialesController extends Controller
 {
@@ -41,9 +40,11 @@ class MaterialesController extends Controller
        ]);
     }
 
-    public function show()
+    public function show($id)
     {
-
+        $material = Material::find($id);
+        dd($material);
+        return view('system.materiales.show', compact('material'));
     }
 
     public function update(MaterialRequest $request, $id)
@@ -58,23 +59,37 @@ class MaterialesController extends Controller
         return redirect()->route('materiales.index');
     }
 
-    public function destroy($id)
+    // public function destroy($id)
+    // {
+    //     $material = Material::findOrFail($id);
+    //     $material->delete();
+    //     return redirect()->route('materiales.index');
+    // }
+
+    public function RegistrosDatatables()
     {
-        $material = Material::findOrFail($id);
-        $material->delete();
-        return redirect()->route('materiales.index');
+        return datatables()
+                ->eloquent(
+                    Material::query()
+                    ->with([
+                        'estatus'
+                    ])
+                )
+                ->toJson();
     }
 
-    public function autocomplete(Request $request)
-    {   
-        $material = Material::select("medida")
-                                ->where("medida","LIKE","%{$request->terms}%")
-                                ->get();
-        return response()->json($material);
-    }
-
-
+    public function search(Request $request)
+    {
+          $term = $request->get('term');
+      
+          $result = Material::where('medida', 'LIKE', '%'. $term. '%')
+          ->select("medida")
+          ->groupBy("medida")
+          ->get();
+ 
+          return response()->json($result);
+            
+    } 
 
    
-
 }

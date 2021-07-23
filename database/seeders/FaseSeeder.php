@@ -17,6 +17,7 @@ class FaseSeeder extends Seeder
         DB::table('fases')->insert([
             'nombre' => 'Diseño',
             'descripcion' => 'Desarrollo del Dibujo',
+            'estatus_id' => '1',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

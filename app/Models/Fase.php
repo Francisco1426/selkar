@@ -13,4 +13,9 @@ class Fase extends Model
         'descripcion',
         'estatus_id'
     ];
+
+    public function estatus()
+    {
+        return $this->hasOne(Estatu::class);
+    }
 }
