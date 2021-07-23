@@ -13,7 +13,6 @@ class Estatu extends Model
         'nombre','descripcion'
     ];
 
-
     public function materiales()
     {
         return $this->hasOne(Material::class);
@@ -30,7 +29,12 @@ class Estatu extends Model
     }
 
 
-
-    
-
+    public function productos()
+    {
+        return $this->hasOne(Producto::class);
+    }
+    public function fases()
+    {
+        return $this->hasOne(Fase::class);
+    }
 }

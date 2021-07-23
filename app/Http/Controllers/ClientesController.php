@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Estatu;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use App\Http\Requests\ClienteRequest;
 
 
@@ -13,8 +14,7 @@ class ClientesController extends Controller
     public function index()
     {
 
-        $cliente = Cliente::all();
-        return view('system.clientes.index', compact('cliente'));
+        return view('system.clientes.index');
     }
 
     public function create()
@@ -34,7 +34,8 @@ class ClientesController extends Controller
 
         $cliente = Cliente::create($request->validated());
         return redirect()
-            ->route('clientes.index');
+            ->route('clientes.index')
+            ->withSuccess("El cliente $cliente->razonsocial se guardo correctamente");
 
     }
 
@@ -51,7 +52,8 @@ class ClientesController extends Controller
         $cliente->update($request->validated());
         $cliente->save();
         return redirect()
-            ->route('clientes.index');
+            ->route('clientes.index')
+            ->withSuccess("El cliente $cliente->razonsocial se modifico correctamente");
     }
 
     public function RegistrosDatatables()

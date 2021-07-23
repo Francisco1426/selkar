@@ -16,7 +16,7 @@
                     <p class="panel-subtitle">Listado de estatus</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('estatus.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i>Crear Estatus</a>
+                    <a href="{{route('estatus.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Estatus</a>
                 </div>
             </div>
             <table id="estatus" class="table table-striped table-inverse mt-3 responsive">
@@ -39,6 +39,9 @@
                     "processing":true,
                     "serverSide":true,
                     "autoWidth":false,
+                    language: {
+                                url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
+                            },
                     "ajax":"{{route('estatus.datatables')}}",
                     "columns":[{
                         data: 'id'

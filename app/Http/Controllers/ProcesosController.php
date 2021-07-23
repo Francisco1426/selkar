@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProcesosRequest;
 use App\Models\Proceso;
+use Illuminate\Routing\Controller;
 
 class ProcesosController extends Controller
 {
     public function index(){
         $procesos = Proceso::paginate();
-        return view ('system.procesos.index',compact('procesos'));
+        return view ('system.procesos.index');
     }
 
     public function create(){
@@ -38,10 +39,19 @@ class ProcesosController extends Controller
         return redirect()->route('procesos.index');
     }
 
-    public function destroy(Proceso $proceso)
+   // public function destroy(Proceso $proceso)
+   // {
+      //  $proceso->delete();
+      //  return redirect()->route('procesos.index');
+    //}
+
+    public function RegistrosDatatables()
     {
-        $proceso->delete();
-        return redirect()->route('procesos.index');
+        return datatables()
+                ->eloquent(
+                    Proceso::query()
+                )
+                ->toJson();
     }
 }
 

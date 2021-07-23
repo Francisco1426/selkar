@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoriaRequest;
 use App\Models\Categoria;
 use App\Models\Estatu;
-
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller
@@ -27,7 +27,8 @@ class CategoriasController extends Controller
         //dd( $request->all() );
         $categoria = Categoria::create($request->validated());
         return redirect()
-            ->route('categorias.index');
+            ->route('categorias.index')
+            ->withSuccess("La categoria $categoria->nombre se guardo correctamente");
     }
 
     public function edit(categoria $categoria)
@@ -43,7 +44,8 @@ class CategoriasController extends Controller
         $categoria->update($request->validated());
         $categoria->save();
         return redirect()
-                ->route('categorias.index');
+                ->route('categorias.index')
+                ->withSuccess("La ctaegoria $categoria->nombre se modifico correctamente");
     }
 
     public function RegistrosDatatables()

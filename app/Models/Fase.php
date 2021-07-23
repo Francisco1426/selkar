@@ -16,6 +16,6 @@ class Fase extends Model
 
     public function estatus()
     {
-        return $this->hasOne(Estatu::class);
+        return $this->belongsTo(Estatu::class);
     }
 }

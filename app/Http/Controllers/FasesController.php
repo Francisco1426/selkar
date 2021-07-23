@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FaseRequest;
 use App\Models\Estatu;
 use App\Models\Fase;
+use Illuminate\Routing\Controller;
 
 class FasesController extends Controller
 {
