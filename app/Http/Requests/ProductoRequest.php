@@ -16,11 +16,14 @@ class ProductoRequest extends FormRequest
         return [
             'clave' => ['required'],
             'nombre' => ['required'],
-            'precio' => ['required'],
-            'imagen' => ["nullable", "image"],
+            'precioinicial' => ['required'],
+            'stock' => ['required'],
+            'presentacion' => ['required'],
+            'imagen' => ["image"],
             'categorias_id' => ['required'],
             'estatus_id' => ['required'],
-            'descripcion' => ['required']
+            'descripcion' => ['required'],
+            'tipoproducto' => ['required']
         ];
     }
 }

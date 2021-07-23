@@ -13,7 +13,6 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string('clave');
             $table->string('nombre');
-            $table->float('precio');
             $table->string('imagen');
             $table->foreignId('categorias_id')
                     ->references('id')
@@ -21,7 +20,11 @@ class CreateProductosTable extends Migration
             $table->foreignId('estatus_id')
                     ->references('id')
                     ->on('estatus');
+            $table->string('stock');
+            $table->string('presentacion');
+            $table->float('precioinicial');
             $table->string('descripcion');
+            $table->string('tipoproducto');
             $table->timestamps();
         });
     }

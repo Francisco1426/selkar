@@ -36,9 +36,10 @@ class ProductosController extends Controller
             $imagen->move($rutaGuardarImg, $imagenProducto);
             $producto['imagen'] = "$imagenProducto";
         }
-        Producto::create($producto, $request->validated());
+       $producto=  Producto::create($producto, $request->validated());
         return redirect()
-            ->route('productos.index');
+            ->route('productos.index')
+            ->withSuccess("El producto $producto->nombre se gurado correctamente");
     }
 
     public function edit(Producto $producto)
@@ -53,6 +54,8 @@ class ProductosController extends Controller
 
     public function update(ProductoRequest $request,  producto $producto)
     {
+        //dd($request->all());
+        //$nombre = $request->nombre;
         $prod = $request->all();
         if ($imagen = $request->file('imagen')) {
             $rutaGuardarImg = 'imagen/';
@@ -64,7 +67,8 @@ class ProductosController extends Controller
         }
         $producto->update($prod);
         return redirect()
-            ->route('productos.index');
+            ->route('productos.index')
+            ->withSuccess("El producto $producto->nombre se a editado corectamente");
     }
 
     public function destroy(Producto $producto)
