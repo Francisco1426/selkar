@@ -28,7 +28,7 @@
                                 <th>Clave</th>
                                 <th>Imagen</th>
                                 <th>Nombre</th>
-                                <th>Precio</th>
+                                <th>Precio inicial</th>
                                 <th>Categoria</th>
                                 <th>Estatus</th>
                                 <th>Operaciones</th>
@@ -44,15 +44,18 @@
                             "processing": true,
                             "serverSide": true,
                             "autoWidth": false,
+                            language: {
+                                url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
+                            },
                             "ajax": "{{route('productos.datatables')}}",
                             "columns": [{
-                                    data: 'id'
+                                    data: 'clave'
                                 },
                                 {
-                                    data: 'id',
-                                    render: function(data, type, full, meta) {
+                                    data: 'imagen',
+                                    render: function(data, type, full, meta){
                                         const ImagenPorDefecto = `https://www.amaltasindia.in/UploadPhoto/no_img.jpg`;
-                                        return `<img src="${full.image ?  `/storage/images/${full.image.path}` : ImagenPorDefecto}" width="80" height="80">`
+                                        return `<img src="${full.imagen ?  `/imagen/${full.imagen}` : ImagenPorDefecto}" width="80" height="80">`
                                     }
 
                                 },
@@ -60,7 +63,7 @@
                                     data: 'nombre'
                                 },
                                 {
-                                    data: 'precio'
+                                    data: 'precioinicial'
                                 },
                                 {
                                     data: 'categorias.nombre'

@@ -34,7 +34,8 @@ class ClientesController extends Controller
 
         $cliente = Cliente::create($request->validated());
         return redirect()
-            ->route('clientes.index');
+            ->route('clientes.index')
+            ->withSuccess("El cliente $cliente->razonsocial se guardo correctamente");
 
     }
 
@@ -51,7 +52,8 @@ class ClientesController extends Controller
         $cliente->update($request->validated());
         $cliente->save();
         return redirect()
-            ->route('clientes.index');
+            ->route('clientes.index')
+            ->withSuccess("El cliente $cliente->razonsocial se modifico correctamente");
     }
 
     public function RegistrosDatatables()

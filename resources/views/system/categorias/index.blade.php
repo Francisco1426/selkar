@@ -37,6 +37,9 @@
                             "processing": true,
                             "serverSide": true,
                             "autoWidth": false,
+                            language: {
+                                url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
+                            },
                             "ajax": "{{route('categorias.datatables')}}",
                             "columns": [{
                                     data: 'id',

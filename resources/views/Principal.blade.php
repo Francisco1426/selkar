@@ -23,7 +23,7 @@
     <!-- ICONS -->
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon.png')}}">
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -43,8 +43,16 @@
         <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>        
-        
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+        @if ( session()->has('success') )
+                        <script>
+                            Swal.fire(
+                            'Exitoso!',
+                            '{{ session()->get('success') }}',
+                            'success'
+                            )
+                        </script>
+                    @endif
         <div id="contenido">
             @yield('contenido')
         </div>
