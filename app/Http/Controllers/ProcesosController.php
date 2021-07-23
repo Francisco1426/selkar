@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ProcesosRequest;
+use App\Http\Requests\ProcesoRequest;
+use App\Models\Estatu;
 use App\Models\Proceso;
 use Illuminate\Routing\Controller;
 
@@ -15,31 +16,39 @@ class ProcesosController extends Controller
     }
 
     public function create(){
-        return view ('system.procesos.create');
+        return view ('system.procesos.create',[
+            'estatus'=> Estatu::select('id','nombre')->get()
+        ]);
     }
 
-    public function store(ProcesosRequest $request)
+    public function store(ProcesoRequest $request)
     {
+        //dd( $request->all() );
         $proceso = Proceso::create($request->validated());
                     return redirect()
                     ->route('procesos.index')
                     ->withSuccess("El proceso $proceso->nombre ha sido creado exitosamente");
     }
 
-    public function edit(Proceso $proceso)
+    public function edit($id)
     {
-        return view('system.procesos.edit', compact('proceso'));
+        $proceso = Proceso::findOrFail($id);
+        return view ('system.procesos.edit',compact('proceso'),[
+            'estatus' => Estatu::select('id','nombre')->get()
+        ]);
     }
 
-    public function update(Request $request, Proceso $proceso)
+    public function update(Request $request, $id)
     {
+        $proceso = Proceso::findOrFail($id);
         $proceso->nombre = $request -> nombre;
         $proceso->descripcion = $request -> descripcion;
+        $proceso->estatus_id = $request-> estatus_id;
         $proceso->save();
         return redirect()->route('procesos.index');
     }
 
-   // public function destroy(Proceso $proceso)
+   // public function destroy(Proceso $proceso)     
    // {
       //  $proceso->delete();
       //  return redirect()->route('procesos.index');
@@ -48,10 +57,13 @@ class ProcesosController extends Controller
     public function RegistrosDatatables()
     {
         return datatables()
-                ->eloquent(
-                    Proceso::query()
-                )
-                ->toJson();
+        ->eloquent(
+            Proceso::query()
+            ->with([
+                'estatus'
+            ])
+        )
+        ->toJson();
     }
 }
 

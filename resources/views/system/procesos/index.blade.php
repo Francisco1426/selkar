@@ -24,6 +24,7 @@
                         <th>Clave</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
+                        <th>Estatus</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -46,6 +47,9 @@
                     },
                     {
                         data: 'descripcion'
+                    },
+                    {
+                        data: 'estatus.nombre'
                     },
                     {
                         data:'id',
