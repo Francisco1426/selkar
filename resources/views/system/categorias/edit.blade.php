@@ -31,7 +31,7 @@
                                 <label for="estatus_id" class="col-md-6 col-form-label">Estatus</label>
                                 <select class="form-control  @error('estatus_id') is-invalid @enderror" name="estatus_id" id="estatus_id">
                                     @foreach($estatus as $estatu)
-                                    <option value="{{$estatu->id}}">{{$estatu->nombre}}</option>
+                                    <option value="{{$estatu->id}}"{{$categoria->estatus_id == $estatu->id ? 'selected' : '' }}>{{$estatu->nombre}}</option>
                                     @endforeach
                                 </select>
                             </div>

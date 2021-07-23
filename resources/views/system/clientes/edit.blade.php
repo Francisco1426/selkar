@@ -112,7 +112,7 @@
                                 <label for="estatus_id" class="col-md-6 col-form-label">Estatus</label>
                                 <select class="form-control  @error('estatus_id') is-invalid @enderror" name="estatus_id" id="estatus_id">
                                     @foreach($estatus as $estatu)
-                                            <option value="{{$estatu->id}}">{{$estatu->nombre}}</option>
+                                    <option value="{{$estatu->id}}"{{$cliente->estatus_id == $estatu->id ? 'selected' : ''}}>{{$estatu->nombre}}</option>
                                     @endforeach
                                 </select>
                                 @error('estatu_id')
@@ -123,17 +123,18 @@
                                 <label for="tipocliente" class="col-sm-1-12 col-form-label">Tipo de cliente</label>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Empresa" {{ old('tipocliente') === 'empresa' ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Empresa" {{ old('tipocliente') === 'Empresa' ? 'checked' : ($cliente->tipocliente == 'Empresa'? 'checked' : '' ) }}>
+
                                         Empresa
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Particular" {{ old('tipocliente') === 'particular' ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Particular" {{ old('tipocliente') === 'Particular' ? 'checked' : ($cliente->tipocliente == 'Particular'? 'checked' : '' ) }}>
                                         Particular
                                     </label>
                                 </div>
-                                @error('tipocliente')
+                                @error('tipocliente') s
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>

@@ -29,6 +29,7 @@ class ProductosController extends Controller
     {
         //dd($request->all());
         //$producto = Producto::create($request->validated());
+
         $producto = $request->all();
         if ($imagen = $request->file('imagen')) {
             $rutaGuardarImg = 'imagen/';
