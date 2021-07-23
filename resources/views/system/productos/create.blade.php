@@ -65,7 +65,6 @@
                             <div class="col-md-6">
                                 <label for="estatus">Estatus</label>
                                 <select class="form-control form-group  @error('estatus') is-invalid @enderror" name="estatus_id" id="estatus_id">
-                                    <option>--Seleccione uno--</option>
                                     @foreach($estatus as $estatu)
                                     <option {{old('estatu_id') == $estatu->id ? 'selected' : ''}} value="{{$estatu->id}}">
                                         {{$estatu->nombre}}
@@ -148,24 +147,23 @@
 <script>
     $(document).ready(function(e) {
         document.getElementById("file").onchange = function(e) {
-        // Creamos el objeto de la clase FileReader
-        let reader = new FileReader();
+            // Creamos el objeto de la clase FileReader
+            let reader = new FileReader();
 
-        // Leemos el archivo subido y se lo pasamos a nuestro fileReader
-        reader.readAsDataURL(e.target.files[0]);
+            // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+            reader.readAsDataURL(e.target.files[0]);
 
-        // Le decimos que cuando este listo ejecute el código interno
-        reader.onload = function() {
-            let preview = document.getElementById('preview'),
-                image = document.createElement('img');
+            // Le decimos que cuando este listo ejecute el código interno
+            reader.onload = function() {
+                let preview = document.getElementById('preview'),
+                    image = document.createElement('img');
 
-            image.src = reader.result;
+                image.src = reader.result;
 
-            preview.innerHTML = '';
-            preview.append(image);
-        };
-    }
+                preview.innerHTML = '';
+                preview.append(image);
+            };
+        }
     });
-
 </script>
 @endsection

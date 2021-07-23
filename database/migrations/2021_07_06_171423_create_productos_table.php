@@ -20,7 +20,7 @@ class CreateProductosTable extends Migration
             $table->foreignId('estatus_id')
                     ->references('id')
                     ->on('estatus');
-            $table->string('stock');
+            $table->integer('stock');
             $table->string('presentacion');
             $table->float('precioinicial');
             $table->string('descripcion');
