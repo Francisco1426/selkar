@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class EstatusSeeder extends Seeder
+class EstatuSeeder extends Seeder
 {
 
     public function run()

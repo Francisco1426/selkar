@@ -48,7 +48,7 @@
                         <script>
                             Swal.fire(
                             'Exitoso!',
-                            '{{ session()->get('success') }}',
+                            '{{ session()->get('success')}}',
                             'success'
                             )
                         </script>

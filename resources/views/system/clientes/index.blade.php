@@ -38,7 +38,7 @@
                     </table>
                     @section('js')
                     <script>
-                        $('#clientes').DataTable({ 
+                        $('#clientes').DataTable({
                             "responsive": true,
                             "processing": true,
                             "serverSide": true,
@@ -63,7 +63,7 @@
                                     data: 'tipocliente'
                                 },
                                 {
-                                    data: 'estatus.nombre'
+                                    data: 'estatuscliente'
                                 },
                                 {
                                     data: 'id',

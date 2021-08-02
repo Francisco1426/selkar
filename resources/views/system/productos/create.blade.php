@@ -43,7 +43,7 @@
                             <div class="col-md-4">
                                 <label for="imagen">Elija una imagen</label>
                                 <div class="form-group">
-                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="file">
+                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="file" height=150 width=150>
                                 </div>
                                 <div id="preview"></div>
                                 @error('imagen')
@@ -94,11 +94,38 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
-                                <label for="precio" class="col-sm-1-12 col-form-label">Precio inicial:</label>
+                                <label for="dimension" class="col-sm-1-12 col-form-label">Dimension:</label>
                                 <div class="form-group">
-                                    <input type="number" class="form-control @error('precioinicial') is-invalid @enderror" name="precioinicial" id="precioinicial" value="{{old('precioinicial')}}" placeholder="Precio">
+                                    <input type="text" class="form-control" id="dimension" name="dimension" value="{{old('dimension')}}" placeholder="2.3 M">
                                 </div>
-                                @error('precioinicial')
+                                @error('dimension')
+                                <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label for="preciodistribuidor" class="col-sm-1-12 col-form-label">Precio distribuidor:</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('preciodistribuidor') is-invalid @enderror" name="preciodistribuidor" id="preciodistribuidor" value="{{old('preciodistribuidor')}}" placeholder="Precio">
+                                </div>
+                                @error('preciodistribuidor')
+                                <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label for="preciocontado" class="col-sm-1-12 col-form-label">Precio contado:</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('preciocontado') is-invalid @enderror" name="preciocontado" id="preciocontado" value="{{old('preciocontado')}}" placeholder="Precio">
+                                </div>
+                                @error('preciocontado')
+                                <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label for="preciopublico" class="col-sm-1-12 col-form-label">Precio publico:</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('preciopublico') is-invalid @enderror" name="preciopublico" id="preciopublico" value="{{old('preciopublico')}}" placeholder="Precio">
+                                </div>
+                                @error('preciopublico')
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
@@ -122,8 +149,8 @@
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="otro" {{ old('tipoproducto') === 'otro' ? 'checked' : '' }}>
-                                        Otro
+                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="Producto fabricacion" {{ old('tipoproducto') === 'Producto fabricacion' ? 'checked' : '' }}>
+                                        Producto fabricacion
                                     </label>
                                 </div>
                                 @error('tipoproducto')
@@ -131,7 +158,9 @@
                                 @enderror
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <div class="container col-md-12">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
                     </form>
                 </div>
             </div>

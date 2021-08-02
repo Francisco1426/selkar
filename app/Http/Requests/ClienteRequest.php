@@ -17,16 +17,13 @@ class ClienteRequest extends FormRequest
     {
         return [
             'razonsocial' => ['required'],
-            'rfc' => ['required'],
             'telefono' => ['required'],
             'celular' => ['required'],
             'email' => ['required'],
             'direccion' => ['required'],
-            'colonia' => ['required'],
-            'municipio' => ['required'],
-            'cp' => ['required'],
             'representante' => ['required'],
             'tipocliente' => ['required'],
+            'estatuscliente' => ['required'],
             'estatus_id' => ['required']
 
         ];
