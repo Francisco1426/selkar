@@ -7,6 +7,7 @@ use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\ClienteRequest;
+use PDF;
 
 
 class ClientesController extends Controller
@@ -66,6 +67,16 @@ class ClientesController extends Controller
                     ])
               )
               ->toJson();
+    }
+
+
+    public function getPdfClientes()
+    {
+
+            $clientepdf = Cliente::all();
+            $pdf = PDF::loadView('system.clientes.pdf', compact('clientepdf'));
+            return $pdf->download('pdf_clientes.pdf');
+
     }
 
 }

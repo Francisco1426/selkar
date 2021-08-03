@@ -17,6 +17,10 @@ Route::resource('procesos', ProcesosController::class);
 
 Route::resource('clientes', ClientesController::class);
 Route::get('datatables/clientes', [ClientesController::class,'RegistrosDatatables'])->name('clientes.datatables');
+
+Route::name('pdfclientes')->get('pdfclientes',[ClientesController::class,'getPdfClientes']);
+
+
 Route::get('datatables/categorias', [CategoriasController::class,'RegistrosDatatables'])->name('categorias.datatables');
 Route::get('datatables/productos',[ProductosController::class,'RegistrosDatatables'])->name('productos.datatables');
 Route::resource('categorias', CategoriasController::class);

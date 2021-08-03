@@ -17,6 +17,7 @@
                 </div>
                 <div class="panel-body">
                     <a href="{{ route('clientes.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Cliente</a>
+                    <a href="{{url('pdfclientes') }}"><button class="btn btn-danger"><i class="fas fa-file-pdf"></i></button></a>
                 </div>
             </div>
             <div class="card">
