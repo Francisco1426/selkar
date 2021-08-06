@@ -19,4 +19,9 @@ class Producto extends Model
     {
         return $this->belongsTo(Estatu::class);
     }
+
+    public function vehiculos()
+    {
+        return $this->hasMany(Vehiculo::class);
+    }
 }

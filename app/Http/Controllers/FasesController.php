@@ -31,30 +31,29 @@ class FasesController extends Controller
                 ->withSuccess("La fase $fase->nombre ha sido dada de alta satisfactoriamente");
     }
 
-    public function edit(fase $fase)
-    {
+    public function edit(fase $fase){
+
         return view('system.fases.edit',[
             'fase' => $fase,
-            'estatus' => Estatu::select('id', 'nombre')->get()
+            'estatus' => Estatu::select('id','nombre')->get()
         ]);
+        // $fase = Fase::findOrFail($id);
+        // return view('system.fases.edit', compact('fase'),[
+        //     'estatus' => Estatu::select('id', 'nombre')->get()
+        // ]);
     }
 
     public function update(FaseRequest $request, fase $fase)
     {
         $fase->update($request->validated());
         $fase->save();
-        return redirect()->route('fases.index')
-                        ->withSuccess("La fase $fase->nombre ha sido modificada con exito");
+        return redirect()
+            ->route('fases.index')
+            ->withSucces("La fase $fase->nombre se modifico satisfactoriamente");
+
     }
 
-    // public function destroy($id)
-    // {
-    //     $fase = Fase::findOrFail($id);
-    //     $fase->delete();
-    //     return redirect()->route('fases.index');
-
-    // }
-
+  
     public function RegistrosDatatables()
     {
         return datatables()

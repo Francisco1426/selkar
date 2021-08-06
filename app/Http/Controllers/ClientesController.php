@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estatu;
 use App\Models\Cliente;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\ClienteRequest;
@@ -22,6 +23,7 @@ class ClientesController extends Controller
     {
         return view('system.clientes.create', [
             'estatus' => Estatu::select('id', 'nombre')->get()
+           
 
         ]);
     }
