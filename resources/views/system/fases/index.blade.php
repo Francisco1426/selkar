@@ -13,7 +13,9 @@
                         <p class="panel-subtitle">Listado de fases</p>
                     </div>
                     <div class="panel-body">
-                        <a href="{{ route('fases.create') }}" class="btn btn-primary"><i class="fas fa-plus"> Crear fase</i></a>
+                        <a href="{{ route('fases.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Fase</a>
+                     <a href="{{url('pdffases') }}"><button class="btn btn-danger"><i class="fas fa-file-pdf"></i></button></a>
+
                     </div>
                 </div>
                 <div class="card">
@@ -70,7 +72,7 @@
                                             <i class="far fa-eye"></li>
                                             </a>`
                                         }
-                                    } 
+                                    }
                                     ]
                                 });
                                 function reloadTable(){

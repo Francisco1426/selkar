@@ -13,7 +13,7 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string('clave');
             $table->string('nombre');
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
             $table->foreignId('categorias_id')
                     ->references('id')
                     ->on('categorias');
@@ -22,7 +22,10 @@ class CreateProductosTable extends Migration
                     ->on('estatus');
             $table->integer('stock');
             $table->string('presentacion');
-            $table->float('precioinicial');
+            $table->string('dimension');
+            $table->float('preciodistribuidor');
+            $table->float('preciocontado');
+            $table->float('preciopublico');
             $table->string('descripcion');
             $table->string('tipoproducto');
             $table->timestamps();

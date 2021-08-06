@@ -1,4 +1,8 @@
 @extends('principal')
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.css
+">
+@endsection
 @section('contenido')
 <div class="main">
     <!-- MAIN CONTENT -->
@@ -19,19 +23,9 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control @error('razonsocial') is-invalid @enderror" name="razonsocial" id="razonsocial" value="{{ old('razonsocial')}}" placeholder="Ingrese el nombre de la empresa">
                                     @error('razonsocial')
-                                    <small class="text-danger"> {{ $message }} </small>
+                                         <small class="text-danger"> {{ $message }} </small>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="rfc" class="col-sm-1-12 col-form-label">Rfc</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control @error('rfc') is-invalid @enderror" name="rfc" id="rfc" value="{{ old('rfc')}}" placeholder="Ingrese el rfc">
-                                    @error('rfc')
-                                    <small class="text-danger"> {{ $message }} </small>
-                                    @enderror
-                                </div>
-
                             </div>
                             <div class="col-md-4">
                                 <label for="telefono" class="col-sm-1-12 col-form-label">Numero de telefono(Empresa)</label>
@@ -41,51 +35,13 @@
                                     <small class="text-danger"> {{ $message }} </small>
                                     @enderror
                                 </div>
-
                             </div>
-
                             <div class="col-md-4">
                                 <label for="email" class="col-sm-1-12 col-form-label">Email</label>
                                 <div class="form-group">
                                     <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email')}}" placeholder="Escriba el email">
                                     @error('email')
-                                    <small class="text-danger"> {{ $message }} </small>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="direccion" class="col-sm-1-12 col-form-label">Direccion</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" id="direccion" value="{{ old('direccion')}}" placeholder="Calle benito juarez">
-                                    @error('direccion')
-                                    <small class="text-danger"> {{ $message }} </small>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="colonia" class="col-sm-1-12 col-form-label">Colonia</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control @error('colonia') is-invalid @enderror" name="colonia" id="colonia" value="{{ old('colonia')}}" placeholder="Col Isidro fabela">
-                                    @error('colonia')
-                                    <small class="text-danger"> {{ $message }} </small>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="municipio" class="col-sm-1-12 col-form-label">Municipio</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control @error('municipio') is-invalid @enderror" name="municipio" id="municipio" value="{{ old('municipio')}}" placeholder="Calle benito juarez">
-                                    @error('municipio')
-                                    <small class="text-danger"> {{ $message }} </small>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="cp" class="col-sm-1-12 col-form-label">Codigo postal</label>
-                                <div class="form-group">
-                                    <input type="number" class="form-control @error('cp') is-invalid @enderror" name="cp" id="cp" value="{{ old('cp')}}" placeholder="52743">
-                                    @error('cp')
-                                    <small class="text-danger">El  Codigo postal es requerido </small>
+                                         <small class="text-danger"> {{ $message }} </small>
                                     @enderror
                                 </div>
                             </div>
@@ -94,7 +50,7 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control @error('representante') is-invalid @enderror" name="representante" id="representante" value="{{ old('representante')}}" placeholder="Omar Chong Lopez">
                                     @error('representante')
-                                    <small class="text-danger"> {{ $message }} </small>
+                                        <small class="text-danger"> {{ $message }} </small>
                                     @enderror
                                 </div>
                             </div>
@@ -103,7 +59,7 @@
                                 <div class="form-group">
                                     <input type="number" class="form-control @error('celular') is-invalid @enderror" name="celular" id="celular" value="{{ old('celular')}}" placeholder="Digite el numero">
                                     @error('celular')
-                                    <small class="text-danger"> {{ $message }} </small>
+                                        <small class="text-danger"> {{ $message }} </small>
                                     @enderror
                                 </div>
                             </div>
@@ -117,30 +73,59 @@
                                     @endforeach
                                 </select>
                                 @error('estatu_id')
-                                <small class="text-danger"> {{ $message }} </small>
+                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="col-md-12">
+                                <label for="direccion">Direccion</label>
+                                <div class="form-group">
+                                    <input type="hidden" name="direccion" id="direccion" value="{{old('direccion')}}">
+                                    <trix-editor input="direccion"></trix-editor>
+                                </div>
+                                @error('direccion')
+                                    <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="tipocliente" class="col-sm-1-12 col-form-label">Tipo de cliente</label>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Empresa" {{ old('tipocliente') === 'empresa' ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Empresa" {{ old('tipocliente') === 'Empresa' ? 'checked' : '' }}>
                                         Empresa
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Particular" {{ old('tipocliente') === 'particular' ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipocliente" id="tipocliente" value="Particular" {{ old('tipocliente') === 'Particular' ? 'checked' : '' }}>
                                         Particular
                                     </label>
                                 </div>
                                 @error('tipocliente')
-                                <small class="text-danger"> {{ $message }} </small>
+                                    <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
-
+                            <div class="form-group col-md-6">
+                                <label for="estatuscliente" class="col-sm-1-12 col-form-label">Estatus del cliente</label>
+                                <div class="form-check">
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        <input class="form-check-input @error('estatuscliente') is-invalid @enderror" type="radio" name="estatuscliente" id="estatuscliente" value="Prospecto" {{ old('estatuscliente') === 'Prospecto' ? 'checked' : '' }}>
+                                        Prospecto
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        <input class="form-check-input @error('estatuscliente') is-invalid @enderror" type="radio" name="estatuscliente" id="estatuscliente" value="Cliente" {{ old('estatuscliente') === 'Cliente' ? 'checked' : '' }}>
+                                        Cliente
+                                    </label>
+                                </div>
+                                @error('estatuscliente')
+                                    <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <div class="container col-md-12">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -148,4 +133,6 @@
     </div>
 </div>
 @endsection
-
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
+@endsection

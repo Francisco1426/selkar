@@ -7,13 +7,13 @@ use App\Http\Requests\FaseRequest;
 use App\Models\Estatu;
 use App\Models\Fase;
 use Illuminate\Routing\Controller;
+use PDF;
 
 class FasesController extends Controller
 {
     public function index()
     {
-        $fases = Fase::all();
-        return view('system.fases.index', compact('fases'));
+        return view('system.fases.index');
     }
 
     public function create()
@@ -51,22 +51,9 @@ class FasesController extends Controller
             ->route('fases.index')
             ->withSucces("La fase $fase->nombre se modifico satisfactoriamente");
 
-        // $fase = Fase::findOrFail($request->validated(), $id);
-        // $fase->nombre = $request->nombre;
-        // $fase->descripcion = $request->descripcion;
-        // $fase->estatus_id = $request->estatus_id;
-        // $fase->save();
-        // return redirect()->route('fases.index');
     }
 
-    // public function destroy($id)
-    // {
-    //     $fase = Fase::findOrFail($id);
-    //     $fase->delete();
-    //     return redirect()->route('fases.index');
-
-    // }
-
+  
     public function RegistrosDatatables()
     {
         return datatables()
@@ -77,6 +64,13 @@ class FasesController extends Controller
                     ])
                 )
                 ->toJson();
+    }
+
+    public function getPdfFases()
+    {
+        $fasepdf = Fase::all();
+        $pdf = PDf::loadView('system.fases.pdf',compact('fasepdf'));
+                return $pdf->download('pdf_fases.pdf');
     }
 
 }

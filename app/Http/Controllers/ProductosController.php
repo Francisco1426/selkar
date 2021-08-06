@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Producto;
-use App\Http\Requests\ProductoRequest;
-use App\Models\Categoria;
 use App\Models\Estatu;
+use App\Models\Producto;
+use PDF;
+use App\Models\Categoria;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Http\Requests\ProductoRequest;
 
 
 class ProductosController extends Controller
@@ -88,5 +89,18 @@ class ProductosController extends Controller
                     ])
             )
             ->toJson();
+    }
+
+    public function getPdfProductos()
+    {
+        $productopdf = Producto::all();
+        $pdf = PDF::loadView('system.productos.pdf', compact('productopdf'));
+        return $pdf->download('pdf_productos.pdf');
+    }
+
+
+    public function generaclave()
+    {
+        //
     }
 }

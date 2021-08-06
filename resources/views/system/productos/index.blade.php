@@ -18,6 +18,8 @@
                 </div>
                 <div class="panel-body">
                     <a href="{{route('productos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Producto</a>
+                    <a href="{{url('pdfproductos') }}"><button class="btn btn-danger"><i class="fas fa-file-pdf"></i></button></a>
+
                 </div>
             </div>
             <div class="card">
@@ -55,7 +57,7 @@
                                     data: 'imagen',
                                     render: function(data, type, full, meta){
                                         const ImagenPorDefecto = `https://www.amaltasindia.in/UploadPhoto/no_img.jpg`;
-                                        return `<img src="${full.imagen ?  `/imagen/${full.imagen}` : ImagenPorDefecto}" width="80" height="80">`
+                                        return `<img src="${full.imagen ?  `/imagen/${full.imagen}` : ImagenPorDefecto}" width="100" height="80">`
                                     }
 
                                 },
@@ -63,7 +65,7 @@
                                     data: 'nombre'
                                 },
                                 {
-                                    data: 'precioinicial'
+                                    data: 'preciopublico'
                                 },
                                 {
                                     data: 'categorias.nombre'

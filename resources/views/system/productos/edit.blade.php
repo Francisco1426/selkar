@@ -95,11 +95,29 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
-                                <label for="precio" class="col-sm-1-12 col-form-label">Precio inicial:</label>
+                                <label for="preciodistribuidor" class="col-sm-1-12 col-form-label">Precio distribuidor:</label>
                                 <div class="form-group">
-                                    <input type="number" class="form-control @error('precioinicial') is-invalid @enderror" name="precioinicial" id="precioinicial" value="{{$producto->precioinicial}}" placeholder="Precio">
+                                    <input type="number" class="form-control @error('preciodistribuidor') is-invalid @enderror" name="preciodistribuidor" id="preciodistribuidor" value="{{$producto->preciodistribuidor}}" placeholder="38,989.87">
                                 </div>
-                                @error('precioinicial')
+                                @error('preciodistribuidor')
+                                <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label for="preciocontado" class="col-sm-1-12 col-form-label">Precio contado:</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('preciocontado') is-invalid @enderror" name="preciocontado" id="preciocontado" value="{{$producto->preciocontado}}" placeholder="38,989.87">
+                                </div>
+                                @error('preciodistribuidor')
+                                <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label for="preciopublico" class="col-sm-1-12 col-form-label">Precio publico:</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('preciopublico') is-invalid @enderror" name="preciopublico" id="preciopublico" value="{{$producto->preciopublico}}" placeholder="38,989.87">
+                                </div>
+                                @error('preciopublico')
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
@@ -123,8 +141,8 @@
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="otro" {{ old('tipoproducto') == 'otro' ? 'checked': ( $producto->tipoproducto == 'otro' ? 'checked' : '' ) }}>
-                                        Otro
+                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="Producto fabricacion" {{ old('tipoproducto') == 'Producto fabricacion' ? 'checked': ( $producto->tipoproducto == 'Producto fabricacion' ? 'checked' : '' ) }}>
+                                        Producto Fabricacion
                                     </label>
                                 </div>
                                 @error('tipoproducto')
@@ -132,7 +150,9 @@
                                 @enderror
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <div class="container col-md-12">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
                     </form>
                 </div>
             </div>
