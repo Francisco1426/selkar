@@ -11,17 +11,14 @@ class Cliente extends Model
     protected $fillable = [
 
         'razonsocial',
-        'rfc',
         'telefono',
         'email',
         'direccion',
-        'colonia',
-        'municipio',
-        'cp',
         'representante',
         'celular',
         'estatus_id',
-        'tipocliente'
+        'tipocliente',
+        'estatuscliente'
     ];
 
     public function estatus()

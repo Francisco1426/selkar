@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMaterialesTable extends Migration
 {
-    
+
     public function up()
     {
         Schema::create('materiales', function (Blueprint $table) {
@@ -22,7 +22,7 @@ class CreateMaterialesTable extends Migration
         });
     }
 
-   
+
     public function down()
     {
         Schema::dropIfExists('materiales');

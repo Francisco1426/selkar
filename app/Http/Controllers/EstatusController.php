@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\EstatuRequest;
+use App\Http\Requests\EstatuRequest; 
 use App\Models\Estatu;
 use Illuminate\Routing\Controller;
 
@@ -41,10 +41,19 @@ class EstatusController extends Controller
         return redirect()->route('estatus.index');
     }
 
-    public function destroy($id)
+    // public function destroy($id)
+    // {
+    //     $estatu = Estatu::findOrFail($id);
+    //     $estatu->delete();
+    //     return redirect()->route('estatus.index');
+    // }
+
+    public function RegistrosDatatables()
     {
-        $estatu = Estatu::findOrFail($id);
-        $estatu->delete();
-        return redirect()->route('estatus.index');
+        return datatables()
+                ->eloquent(
+                    Estatu::query()
+                )
+                ->toJson();
     }
 }

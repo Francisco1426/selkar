@@ -26,6 +26,7 @@ class FaseRequest extends FormRequest
         return [
             'nombre' => ['required'],
             'descripcion' => ['required'],
+            'estatus_id' => ['required'],
         ];
     }
 }

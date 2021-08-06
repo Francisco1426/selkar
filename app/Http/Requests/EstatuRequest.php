@@ -16,8 +16,8 @@ class EstatuRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>['required', "regex:/^[A-Z][A-z,a-z, ,á,é,í,ó,ú]+$/"],
-            'descripcion' => ['required', "regex:/^[A-Z][A-z,a-z, ,á,é,í,ó,ú]+$/"],
+            'nombre'=>['required'],
+            'descripcion' => ['required'],
         ];
     }
 }

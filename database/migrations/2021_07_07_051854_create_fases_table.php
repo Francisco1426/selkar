@@ -14,7 +14,7 @@ class CreateFasesTable extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->foreignId('estatus_id')
-                    ->refrences('id')
+                    ->references('id')
                     ->on('estatus');
             $table->timestamps();
         });

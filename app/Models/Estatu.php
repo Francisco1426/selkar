@@ -8,17 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Estatu extends Model
 {
     use HasFactory;
-    protected $table = 'estatus';
+
     protected $fillable = [
         'nombre','descripcion'
     ];
+
     public function materiales()
     {
         return $this->hasOne(Material::class);
     }
-
-
-
 
     public function clientes()
     {
@@ -34,5 +32,9 @@ class Estatu extends Model
     public function productos()
     {
         return $this->hasOne(Producto::class);
+    }
+    public function fases()
+    {
+        return $this->hasOne(Fase::class);
     }
 }
