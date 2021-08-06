@@ -36,7 +36,7 @@
         <script src="{{asset('vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
         <script src="{{asset('vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
         <script src="{{asset('vendor/chartist/js/chartist.min.js')}}"></script>
-        <script src="{{asset('scripts/klorofil-common.js')}}"></script>
+        
 
         <!--datatables-->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -44,6 +44,7 @@
         <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js" integrity="sha512-cJMgI2OtiquRH4L9u+WQW+mz828vmdp9ljOcm/vKTQ7+ydQUktrPVewlykMgozPP+NUBbHdeifE6iJ6UVjNw5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         @if ( session()->has('success') )
                         <script>
                             Swal.fire(
