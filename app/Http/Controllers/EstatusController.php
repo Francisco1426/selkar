@@ -28,17 +28,27 @@ class EstatusController extends Controller
 
     }
 
-    public function edit($id){
-        $estatu = Estatu::findOrFail($id);
-        return view ('system.estatus.edit',compact('estatu'));
+    public function edit(estatu $estatus){
+
+        return view('system.estatus.edit',[
+            'estatu' => $estatus
+        ]);
+        // $estatu = Estatu::findOrFail($id);
+        // return view ('system.estatus.edit',compact('estatu'));
     }
 
-    public function update(Request $request, $id){
-        $estatu = Estatu::findOrFail($id);
-        $estatu -> nombre = $request -> nombre;
-        $estatu -> descripcion = $request -> descripcion;
-        $estatu -> save();
-        return redirect()->route('estatus.index');
+    public function update(EstatuRequest $request, estatu $estatus){
+
+        $estatus->update($request->validated());
+        $estatus->save();
+        return redirect()
+            ->route('estatus.index')
+            ->withSuccess("El estatu $estatus->nombre se modifico satisfactoriamente");
+        // $estatu = Estatu::findOrFail($id);
+        // $estatu -> nombre = $request -> nombre;
+        // $estatu -> descripcion = $request -> descripcion;
+        // $estatu -> save();
+        // return redirect()->route('estatus.index');
     }
 
     // public function destroy($id)

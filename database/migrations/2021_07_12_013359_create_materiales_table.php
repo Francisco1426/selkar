@@ -11,9 +11,11 @@ class CreateMaterialesTable extends Migration
     {
         Schema::create('materiales', function (Blueprint $table) {
             $table->id();
+            $table->string('clave');
             $table->text('nombre');
             $table->string('medida');
             $table->string('tipomaterial');
+            $table->unsignedInteger('existente');
             $table->text('descripcion');
             $table->foreignId('estatus_id')
                 ->references('id')

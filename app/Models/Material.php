@@ -11,7 +11,7 @@ class Material extends Model
     use HasFactory;
     protected $table='materiales';
     protected $fillable = [
-        'nombre','medida','tipomaterial','descripcion','estatus_id'
+       'clave', 'nombre','medida','tipomaterial','descripcion','existente','estatus_id'
     ];
 
     public function estatus()

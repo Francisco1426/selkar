@@ -19,6 +19,18 @@
                     <form action="{{ route('materiales.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
+
+                            <div class="col-md-6">
+                                <label for="clave" class="col-sm-1-12 col-form-label">Clave</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control @error('clave') is-invalid @enderror" name="clave" id="clave" value="" placeholder="Escribe la clave....">
+                                </div>
+                            
+                                @error('clave')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
                             <div class="col-md-6">
                                 <label for="nombre" class="col-sm-1-12 col-form-label">Nombre</label>
                                 <div class="form-group">
@@ -74,6 +86,18 @@
                                     <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
+
+                            <div class="col-md-6">
+                                <label for="existente" class="col-sm-1-12 col-form-label">Cantidad</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('existente') is-invalid @enderror" name="existente" id="existente" value="" placeholder="Escriba la cantidad....">
+                                </div>
+                            
+                                @error('existente')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
                             </div>
                             <div class="col-md-12">
                                 <label for="descripcion" class="col-sm-1-12 col-form-label">Descripcion</label>

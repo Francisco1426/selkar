@@ -1,0 +1,94 @@
+@extends('principal')
+@section('contenido')
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.css">
+@endsection
+
+<div class="main"> 
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <!-- OVERVIEW -->
+            <div class="panel panel-headline">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Registro de Vehiculos</h3>
+                    <p class="panel-subtitle">Lista de vehiculos</p>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ route('vehiculos.update', $vehiculo) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="nombre" class="col-sm-1-12 col-form-label">Nombre</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" id="nombre" value="{{$vehiculo->nombre}}" placeholder="Escriba el nombre....">
+                                </div>
+                            
+                                @error('nombre')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
+                                <label for="medida" class="col-sm-1-12 col-form-label">Marca</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control @error('marca') is-invalid @enderror" name="marca" id="marca" value="{{$vehiculo->marca}}" placeholder="Escribe la marca">
+                                </div>
+
+                                @error('marca')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="modelo" class="col-sm-1-12 col-form-label">Numero Serie</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('numeroserie') is-invalid @enderror" name="numeroserie" id="numeroserie" value="{{$vehiculo->numeroserie}}" placeholder="Escribe el modelo">
+                                </div>
+
+                                @error('numeroserie')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                <label for="estatus_id" class="col-md-6 col-form-label">Cliente</label>
+                                <select class="form-control  @error('cliente_id') is-invalid @enderror" name="cliente_id" id="cliente_id">
+                                    @foreach ($clientes as $cliente)
+                                    <option value="{{$cliente->id}}">{{$cliente->representante}}</option>
+                                    @endforeach                                    
+                                </select>
+                                @error('estatus_id')
+                                    <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="descripcion" class="col-sm-1-12 col-form-label">Descripcion</label>
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="{{$vehiculo->descripcion}}" placeholder="Descripcion....">
+                                    <trix-editor input="descripcion"></trix-editor>
+                                </div>
+
+                                @error('descripcion')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
+                        <div class="col-md-11">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>  
+@endsection
+    
+@endsection

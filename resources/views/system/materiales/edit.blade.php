@@ -15,23 +15,39 @@
                     <p class="panel-subtitle">Lista de materiales</p>
                 </div>
                 <div class="panel-body">
-                    <form action="{{ route('materiales.update',$material->id) }}" method="POST">
+                    
+                    <form action="{{ route('materiales.update', ['materiale'=>$material->id])  }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="form-row">
+
+                            <div class="col-md-6">
+                                <label for="clave" class="col-sm-1-12 col-form-label">Clave</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control @error('clave') is-invalid @enderror" name="clave" id="clave" value="{{ $material->clave }}" placeholder="Escribe la clave....">
+                                </div>
+                                @error('clave')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
                             <div class="col-md-6">
                                 <label for="nombre" class="col-sm-1-12 col-form-label">Nombre</label>
                                 <div class="form-group">
                                     <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" id="nombre" value="{{ $material->nombre }}" placeholder="Escriba el nombre....">
                                 </div>
-
+                                @error('nombre')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="medida" class="col-sm-1-12 col-form-label"> Unidad de Medida</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('app') is-invalid @enderror" name="medida" id="medida" value="{{ $material->medida}}" placeholder="Indique la medida....">
+                                    <input type="text" class="form-control @error('medida') is-invalid @enderror" name="medida" id="medida" value="{{ $material->medida}}" placeholder="Indique la medida....">
                                 </div>
-
+                                @error('medida')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
 
 
@@ -46,7 +62,7 @@
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled"></label>
-                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipomaterial" id="tipomaterial" value="Estructural" checked="" >
+                                        <input class="form-check-input @error('tipomaterial') is-invalid @enderror" type="radio" name="tipomaterial" id="tipomaterial" value="Estructural" checked="" >
                                         Estructural
                                 </div>
                                 @else
@@ -58,7 +74,7 @@
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled"></label>
-                                        <input class="form-check-input @error('tipocliente') is-invalid @enderror" type="radio" name="tipomaterial" id="tipomaterial" value="Estructural">
+                                        <input class="form-check-input @error('tipomaterial') is-invalid @enderror" type="radio" name="tipomaterial" id="tipomaterial" value="Estructural">
                                         Estructural
                                 </div>
                                 @endif
@@ -68,7 +84,7 @@
                                 @enderror
 
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label for="estatus_id" class="col-md-6 col-form-label">Estatus</label>
                                 <select class="form-control  @error('estatus_id') is-invalid @enderror" name="estatus_id" id="estatus_id">
                                     @foreach ($estatus as $estatu)
@@ -80,13 +96,25 @@
                                 @enderror
                             </div>
 
+                            <div class="col-md-6">
+                                <label for="cantidad" class="col-sm-1-12 col-form-label">Cantidad</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('cantidad') is-invalid @enderror" name="existente" id="existente" value="{{ $material->existente }}" placeholder="Escriba el nombre....">
+                                </div>
+                                @error('cantidad')
+                                    <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+
                             <div class="col-md-12">
                                 <label for="descripcion" class="col-sm-1-12 col-form-label">Descripcion</label>
                                 <div class="form-group">
                                     <input type="hidden" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="{{$material->descripcion}}" placeholder="Descripcion.">
                                     <trix-editor input="descripcion"></trix-editor>
                                 </div>
-
+                                @error('descripcion')
+                                    <small class="text-danger"> {{ $message }} </small>
+                                @enderror
                             </div>
                             
                         </div>
