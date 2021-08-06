@@ -7,6 +7,7 @@ use App\Models\Categoria;
 use App\Models\Estatu;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use PDF;
 
 class CategoriasController extends Controller
 {
@@ -58,5 +59,12 @@ class CategoriasController extends Controller
                     ])
             )
             ->toJson();
+    }
+
+    public function getPdfCategorias()
+    {
+        $categoriapdf = Categoria::all();
+        $pdf = PDF::loadView('system.categorias.pdf', compact('categoriapdf'));
+            return $pdf->download('pdf_categorias.pdf');
     }
 }
