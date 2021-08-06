@@ -1,5 +1,8 @@
 @extends('principal')
-
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+@endsection
 @section('contenido')
 
 <div class="main">
@@ -11,47 +14,80 @@
                     <p class="panel-subtitle">Llena todos los campos</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('materiales.create')}}" class="btn btn-primary">Nuevo Material</a>
+                    <a href="{{route('materiales.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Material</a>
                     <br><br>
                 </div>
             </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example" class="table table-striped" style="width:100%">
-                            <thead>
+                        <table id="materiales" class="table table-striped table-inverse mt-3 responsive">
+                            <thead class="thead-inverse bg-primary responsive">
                                 <tr>
                                     <th scope="col">Clave</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Unidad Medida</th>
                                     <th scope="col">Tipo Material</th>
-                                    <th scope="col">Descripcion</th>
-                                    <th scope="col">Estatus</th>
                                     <th scope="col">Operaciones</th>
                                 </tr>
                             </thead> 
                             <tbody>
-                                @foreach ($materiales as $material)
-                                    <tr>
-                                        <th scope="row">{{$material->id}}</th>
-                                        <td scope="col">{{$material->nombre}}</td>
-                                        <td scope="col">{{$material->medida}}</td>
-                                        <td scope="col">{{$material->tipomaterial}}</td>
-                                        <td scope="col">{{$material->descripcion}}</td>
-                                        <td scope="col">{{$material->estatus->nombre}}</td>
-                                        
-                                        <td scope="col">
-                                            <a href="{{route('materiales.edit', $material->id)}}" class="btn btn-success lnr lnr-pencil"></a>
-                                            <form action="{{route('materiales.destroy',$material->id)}}" method="post" style="display: inline-block;">
-                                                @csrf
-                                                @method('delete')
-                                                <input type="submit" class="btn btn-danger" value="Eliminar">
-                                            </form>
-                                           
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                
                             </tbody>
                         </table>
+                        @section('js')
+                        <script>
+                            $('#materiales').DataTable({
+                                "responsive":true,
+                                "processing":true,
+                                "serverSide":true,
+                                "autoWidth":false,
+                                language: {
+                                url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
+                            },
+                                "ajax":"{{route('materiales.datatables')}}",
+                                "columns":[{
+                                    data: 'id'
+                                },
+                                {
+                                    data:'nombre'
+                                },
+                                {
+                                    data: 'medida'
+                                },
+                                {
+                                    data:'tipomaterial'
+                                },
+                                {
+                                    data:'id',
+                                    render: function(data, type, full, meta){
+                                        return `
+                                            <a href="/materiales/${data}/edit"
+                                            class="btn btn-success"
+                                            ${full.deleted_at ? 'hidden' : ''}>
+                                            <i class="fas fa-edit"></i>
+                                            </a>
+                                            
+                                            <a href="/materiales/${data}/edit"
+                                            class="btn btn-danger"
+                                            ${full.deleted_at ? 'hidden' : ''}>
+                                            <i class="fas fa-trash"></i>
+                                            </a>
+                                            <a href="/materiales/${data}/edit"
+                                            class="btn btn-primary"
+                                            ${full.deleted_at ? 'hidden' : ''}>
+                                            <i class="far fa-eye"></li>
+                                            </a>`
+                                            
+                                    }
+                                }
+                                ]
+                            });
+
+                            function reloadTable(){
+                                $('#materiales').DataTable().ajax.reload();
+                            }
+                        </script>
+                        @endsection
                     </div>
                 </div>           
         </div>

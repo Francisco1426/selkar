@@ -17,6 +17,7 @@
                 </div>
                 <div class="panel-body">
                     <a href="{{ route('clientes.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Cliente</a>
+                    <a href="{{url('pdfclientes') }}"><button class="btn btn-danger"><i class="fas fa-file-pdf"></i></button></a>
                 </div>
             </div>
             <div class="card">
@@ -43,6 +44,9 @@
                             "processing": true,
                             "serverSide": true,
                             "autoWidth": false,
+                            language: {
+                                url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
+                            },
                             "ajax": "{{route('clientes.datatables')}}",
                             "columns": [{
                                     data: 'id'
@@ -60,7 +64,7 @@
                                     data: 'tipocliente'
                                 },
                                 {
-                                    data: 'estatus.nombre'
+                                    data: 'estatuscliente'
                                 },
                                 {
                                     data: 'id',
@@ -85,7 +89,6 @@
                                         `
                                     }
                                 }
-
                             ]
                         });
                         function reloadTable() {

@@ -7,6 +7,7 @@ use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\ClienteRequest;
+use PDF;
 
 
 class ClientesController extends Controller
@@ -14,8 +15,7 @@ class ClientesController extends Controller
     public function index()
     {
 
-        $cliente = Cliente::all();
-        return view('system.clientes.index', compact('cliente'));
+        return view('system.clientes.index');
     }
 
     public function create()
@@ -35,7 +35,8 @@ class ClientesController extends Controller
 
         $cliente = Cliente::create($request->validated());
         return redirect()
-            ->route('clientes.index');
+            ->route('clientes.index')
+            ->withSuccess("El cliente $cliente->razonsocial se guardo correctamente");
 
     }
 
@@ -52,7 +53,8 @@ class ClientesController extends Controller
         $cliente->update($request->validated());
         $cliente->save();
         return redirect()
-            ->route('clientes.index');
+            ->route('clientes.index')
+            ->withSuccess("El cliente $cliente->razonsocial se modifico correctamente");
     }
 
     public function RegistrosDatatables()
@@ -65,6 +67,16 @@ class ClientesController extends Controller
                     ])
               )
               ->toJson();
+    }
+
+
+    public function getPdfClientes()
+    {
+
+            $clientepdf = Cliente::all();
+            $pdf = PDF::loadView('system.clientes.pdf', compact('clientepdf'));
+            return $pdf->download('pdf_clientes.pdf');
+
     }
 
 }

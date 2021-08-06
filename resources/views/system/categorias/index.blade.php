@@ -14,6 +14,7 @@
                 </div>
                 <div class="panel-body">
                     <a href="{{ route('categorias.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Categoria</a>
+                    <a href="{{url('pdfcategorias') }}"><button class="btn btn-danger"><i class="fas fa-file-pdf"></i></button></a>
                 </div>
             </div>
             <div class="card">
@@ -37,6 +38,9 @@
                             "processing": true,
                             "serverSide": true,
                             "autoWidth": false,
+                            language: {
+                                url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
+                            },
                             "ajax": "{{route('categorias.datatables')}}",
                             "columns": [{
                                     data: 'id',

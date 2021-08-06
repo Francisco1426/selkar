@@ -5,16 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ProcesoSeeder extends Seeder
+class ProcesoSeeder
 {
-   
-    
-       
-
-
-
     
     public function run()
+
     {
         DB::table('procesos')->insert([
             'nombre'=>'En produccion',

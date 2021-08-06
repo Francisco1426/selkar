@@ -16,11 +16,17 @@ class ProductoRequest extends FormRequest
         return [
             'clave' => ['required'],
             'nombre' => ['required'],
-            'precio' => ['required'],
-            'imagen' => ["nullable", "image"],
-            'categorias_id' => ['required'],
-            'estatus_id' => ['required'],
-            'descripcion' => ['required']
+            'preciodistribuidor' => ['required'],
+            'preciocontado' => ['required'],
+            'preciopublico' => ['required'],
+            'dimension' => ['required'],
+            'stock' => ['required'],
+            'presentacion' => ['required'],
+            'imagen' => ["nullable","image"],
+            'categorias_id' => ['required','exists:categorias,id'],
+            'estatus_id' => ['required','exists:estatus,id'],
+            'descripcion' => ['required'],
+            'tipoproducto' => ['required']
         ];
     }
 }

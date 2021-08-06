@@ -12,11 +12,10 @@ class CreateProcesosTable extends Migration
         Schema::create('procesos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->text('descripcion');
+            $table->string('descripcion');
             $table->foreignId('estatus_id')
-                    ->references('id')
-                    ->on('estatus');
-            $table->timestamps();
+                  ->references('id')
+                  ->on('estatus');
         });
     }
 
