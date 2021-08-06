@@ -12,7 +12,8 @@ use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\MaterialVehiculoController;
 use App\Http\Controllers\VehiculosController;
 
-
+Auth::routes(['register' => false]);
+Route::middleware(['auth'])->group(function () {
 Route::get('/', [InicioController::class,'Inicio'])->name('Inicio');
 
 //Omar chong lopez
@@ -30,6 +31,8 @@ Route::get('datatables/categorias', [CategoriasController::class,'RegistrosDatat
 Route::resource('categorias', CategoriasController::class);
 Route::name('pdfcategorias')->get('pdfcategorias', [CategoriasController::class,'getPdfCategorias']);
 Route::resource('procesos', ProcesosController::class);
+Route::get('datatables/procesos',[ProcesosController::class,'RegistrosDatatables'])->name('procesos.datatables');
+
 
 //francisco
 Route::resource('materiales', MaterialesController::class);
@@ -64,3 +67,5 @@ Route::post('Modulomateriales/buscarmaterial',[MaterialVehiculoController::class
 
 Route::post('Modulomateriales/buscarvehiculo',[MaterialVehiculoController::class,'buscarvehiculo'])->name('Modulomateriales.buscarvehiculo');
 Route::post('Modulomateriales/searchvehiculo',[MaterialVehiculoController::class,'searchvehiculo'])->name('Modulomateriales.searchvehiculo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
