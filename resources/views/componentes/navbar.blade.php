@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
         <div class="brand">
             <a href=""><img src="{{asset('img/Logo.jpg')}}" width="150" heigth="100" alt="Klorofil Logo" class="img-responsive logo"></a>
         </div>
@@ -7,7 +7,7 @@
                 <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
             </div>
             <div id="navbar-menu">
-                
+
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
@@ -17,7 +17,7 @@
                             </li>
                         @endif
 
-                        
+
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -37,10 +37,10 @@
                                 </form>
                         </li>
                     @endguest
-                </ul>              
-                    
-                    
-              
+                </ul>
+
+
+
             </div>
         </div>
     </nav>

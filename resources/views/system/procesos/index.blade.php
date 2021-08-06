@@ -12,7 +12,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Reporte Procesos</h3>
-                    <p class="panel-subtitle">Listado de procesos</p>
+                    <p class="panel-subtitle">Listado de procesos local</p>
                 </div>
                 <div class="panel-body">
                     <a href="{{route('procesos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i>Crear Proceso</a>

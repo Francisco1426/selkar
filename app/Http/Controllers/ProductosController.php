@@ -41,7 +41,7 @@ class ProductosController extends Controller
        $producto=  Producto::create($producto, $request->validated());
         return redirect()
             ->route('productos.index')
-            ->withSuccess("El producto $producto->nombre se gurado correctamente");
+            ->withSuccess("El producto $producto->nombre se guardo correctamente");
     }
 
     public function edit(Producto $producto)
