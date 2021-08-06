@@ -30,22 +30,22 @@ class ProcesosController extends Controller
                     ->withSuccess("El proceso $proceso->nombre ha sido creado exitosamente");
     }
 
-    public function edit($id)
+    public function edit(proceso $proceso)
     {
-        $proceso = Proceso::findOrFail($id);
-        return view ('system.procesos.edit',compact('proceso'),[
+        return view('system.procesos.edit',[
+            'proceso' => $proceso,
             'estatus' => Estatu::select('id','nombre')->get()
+
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(ProcesoRequest $request, proceso $proceso)
     {
-        $proceso = Proceso::findOrFail($id);
-        $proceso->nombre = $request -> nombre;
-        $proceso->descripcion = $request -> descripcion;
-        $proceso->estatus_id = $request-> estatus_id;
-        $proceso->save();
-        return redirect()->route('procesos.index');
+        $proceso -> update ($request->validated());
+        $proceso -> save();
+        return redirect()
+        ->route('procesos.index')
+        ->withSuccess("El proceso $proceso->nombre ha sido modificado satisfactoriamente");
     }
 
    // public function destroy(Proceso $proceso)     

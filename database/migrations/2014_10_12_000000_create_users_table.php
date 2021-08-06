@@ -16,12 +16,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('estatus_id')
+            /*$table->foreignId('estatus_id')
                     ->refrences('id')
                     ->on('estatus');
             $table->foreignId('areas_id')
                     ->references('id')
-                    ->on('areas');
+                    ->on('areas');*/
 
             $table->timestamps();
         });

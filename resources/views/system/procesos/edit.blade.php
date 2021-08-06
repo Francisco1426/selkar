@@ -14,7 +14,7 @@
                         <p class="panel-subtitle">Listado de productos</p>
                     </div>
                     <div class="panel-body">
-                        <form action="{{ route('procesos.update',$proceso->id) }}" method="POST">
+                        <form action="{{ route('procesos.update',$proceso) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="form-row">

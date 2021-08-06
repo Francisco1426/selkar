@@ -12,8 +12,12 @@ use App\Http\Controllers\CategoriasController;
 
 
 
-Route::get('/', [InicioController::class,'Inicio'])->name('Inicio');
+Auth::routes(['register' => false]);
+Route::middleware(['auth'])->group(function () {
 
+
+
+Route::get('/', [InicioController::class,'Inicio'])->name('Inicio');
 Route::resource('productos', ProductosController::class);
 Route::resource('procesos', ProcesosController::class);
 Route::resource('clientes', ClientesController::class);
@@ -25,3 +29,8 @@ Route::resource('categorias', CategoriasController::class);
 Route::resource('materiales', MaterialesController::class);
 Route::resource('fases', FasesController::class);
 Route::resource('estatus', EstatusController::class);
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
