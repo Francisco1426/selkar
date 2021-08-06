@@ -10,6 +10,9 @@
                 <li><a href="{{route('fases.index')}}" class=""><i class="lnr lnr-rocket"></i> <span>Fases</span></a></li>
                 <li><a href="{{route('estatus.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Estatus</span></a></li>
                 <li><a href="{{route('procesos.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Procesos</span></a></li>
+                <li><a href="{{route('vehiculos.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Vehiculos</span></a></li>
+                <li><a href="{{route('Modulomateriales.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Modulo</span></a></li>
+
 
                 <li>
                     <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i>
