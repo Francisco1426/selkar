@@ -91,7 +91,7 @@
                             <div class="col-md-12">
                                 <label for="descripcion" class="col-sm-1-12 col-form-label">Observacion del Vehiculo</label>
                                 <div class="form-group">
-                                    <input type="hidden" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="" placeholder="Descripcion....">
+                                    <input type="hidden" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="{{old('descripcion')}}" placeholder="Descripcion">
                                     <trix-editor input="descripcion"></trix-editor>
                                 </div>
 
