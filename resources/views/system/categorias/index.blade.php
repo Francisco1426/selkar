@@ -10,7 +10,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Reporte Categorias</h3>
-                    <p class="panel-subtitle">Listado de categorias</p>
+                    <p class="panel-subtitle">Listado de categoriassss</p>
                 </div>
                 <div class="panel-body">
                     <a href="{{ route('categorias.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Categoria</a>

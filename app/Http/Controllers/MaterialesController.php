@@ -7,7 +7,7 @@ use App\Http\Requests\MaterialRequest;
 use App\Models\Estatu;
 use App\Models\Material;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
+
 
 class MaterialesController extends Controller
 {
@@ -33,31 +33,45 @@ class MaterialesController extends Controller
                 ->withSuccess("El material $material->nombre ha sido dado de alta satisfactoriamente");
     }
 
-    public function edit( $id)
+    public function edit(material $materiale)
     {
-       $material = Material::findOrFail($id);
-       return view('system.materiales.edit',compact('material'),[
-           'estatus' => Estatu::select('id', 'nombre')->get()
-       ]);
+        return view('system.materiales.edit',[
+            'material' => $materiale,
+            'estatus' => Estatu::select('id','nombre')->get()
+        ]);
+        
+    //    $material = Material::findOrFail($id);
+    //    return view('system.materiales.edit',compact('material'),[
+    //        'estatus' => Estatu::select('id', 'nombre')->get()
+    //    ]);
     }
 
     public function show($id)
     {
-        $material = Material::find($id);
-        dd($material);
+        $material = Material::findOrFail($id);
+        // dd($material);
         return view('system.materiales.show', compact('material'));
     }
-
-    public function update(MaterialRequest $request, $id)
+ 
+    public function update(MaterialRequest $request, material $materiale)
     {
-        $material = Material::findOrFail($id);
-        $material->nombre = $request->nombre;
-        $material->medida = $request->medida;
-        $material->tipomaterial = $request->tipomaterial;
-        $material->descripcion = $request->descripcion;
-        $material->estatus_id = $request->estatus_id;
-        $material->save();
-        return redirect()->route('materiales.index');
+
+        $materiale->update($request->validated());
+        $materiale->save();
+        return redirect()
+            ->route('materiales.index')
+            ->withSuccess("El material $materiale->nombre se modifico satisfactoriamente");
+
+        // $material = Material::findOrFail($id);
+        // $material->clave = $request->clave;
+        // $material->nombre = $request->nombre;
+        // $material->medida = $request->medida;
+        // $material->tipomaterial = $request->tipomaterial;
+        // $material->existente = $request->existente;
+        // $material->descripcion = $request->descripcion;
+        // $material->estatus_id = $request->estatus_id;
+        // $material->save();
+        // return redirect()->route('materiales.index');
     }
 
     // public function destroy($id)
