@@ -14,70 +14,63 @@
                         <p class="panel-subtitle">Listado de usuarios</p>
                     </div>
                     <div class="panel-body">
-                        <form action="{{ route('usuarios.store') }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="nombre" class="col-sm-1-12 col-form-label">Nombre</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control @error('nombre') is-invalid @enderror"
-                                            name="nombre" id="nombre" value="" placeholder="Escriba el nombre....">
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                            name="name" id="name" value="" placeholder="Escriba el nombre....">
                                     </div>
 
-                                    @error('nombre')
+                                    @error('name')
                                         <small class="text-danger">{{$message}}</small> 
                                     @enderror
 
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="nombre" class="col-sm-1-12 col-form-label">Correo</label>
+                                    <label for="email" class="col-sm-1-12 col-form-label">Email</label>
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('correo') is-invalid @enderror"
-                                            name="correo" id="correo" value="" placeholder="Escriba el correo....">
+                                            name="email" id="email" value="" placeholder="Escriba el correo....">
                                     </div>
 
-                                    @error('correo')
+                                    @error('email')
                                         <small class="text-danger">{{$message}}</small> 
                                     @enderror
 
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="nombre" class="col-sm-1-12 col-form-label">Contraseña</label>
+                                    <label for="password" class="col-sm-1-12 col-form-label">Password</label>
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('contraseña') is-invalid @enderror"
-                                            name="contraseña" id="contraseña" value="" placeholder="Escriba la contraseña....">
+                                            name="password" id="passwrod" value="" placeholder="Escriba la contraseña....">
                                     </div>
 
-                                    @error('contraseña')
+                                    @error('password')
                                         <small class="text-danger">{{$message}}</small> 
                                     @enderror
 
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="nombre" class="col-sm-1-12 col-form-label">Tipo de usuario</label>
+                                    <label for="tipousuarios" class="col-sm-1-12 col-form-label">Tipo de usuario</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control @error('usuario') is-invalid @enderror"
-                                            name="usuario" id="usuario" value="" placeholder="Tipo de usuario....">
+                                        <input type="text" class="form-control @error('tipousuario') is-invalid @enderror"
+                                            name="tipousuario" id="tipousuario" value="" placeholder="Tipo de usuario....">
                                     </div>
 
-                                    @error('usuario')
+                                    @error('tipousuario')
                                         <small class="text-danger">{{$message}}</small> 
                                     @enderror
 
                                 </div>
-
-                                
-
-                    
-                               
-                            </div>
-                            
-
+                           
+                            </div>  
                             <button type="submit" class="btn btn-success">Guardar</button>
-
                         </form>
                     </div>
                 </div>

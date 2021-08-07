@@ -9,8 +9,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EstatusController;
 use App\Http\Controllers\FasesController;
 use App\Http\Controllers\CategoriasController;
-
-
+use App\Http\Controllers\UsuariosController;
 
 Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
@@ -30,7 +29,7 @@ Route::resource('materiales', MaterialesController::class);
 Route::resource('fases', FasesController::class);
 Route::resource('estatus', EstatusController::class);
 
-
+Route::resource('usuarios', UsuariosController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });

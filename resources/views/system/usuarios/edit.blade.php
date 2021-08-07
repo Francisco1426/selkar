@@ -14,7 +14,7 @@
                         <p class="panel-subtitle">Listado de usuarios</p>
                     </div>
                     <div class="panel-body">
-                        <form action="{{ route('usuarios.store') }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <div class="form-row">
                                 <div class="col-md-6">
