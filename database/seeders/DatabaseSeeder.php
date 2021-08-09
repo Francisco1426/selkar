@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(MaterialSeeder::class);
         $this->call(ProductosSeeder::class);
         //$this->call(ProcesoSeeder::class);
+        $this->call(UsuarioSeeder::class);
 
         //$this->call(MaterialSeeder::class);
         //$this->call(FaseSeeder::class);
