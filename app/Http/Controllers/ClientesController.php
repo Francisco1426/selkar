@@ -23,13 +23,15 @@ class ClientesController extends Controller
     {
         return view('system.clientes.create', [
             'estatus' => Estatu::select('id', 'nombre')->get()
-           
+
 
         ]);
     }
-    public function show()
+    public function show($id)
     {
-        //return  view('system.clientes.edit');
+        $clientes = Cliente::findOrFail($id);
+        return view('system.clientes.show', compact ('clientes'));
+
     }
     public function store(ClienteRequest $request)
     {

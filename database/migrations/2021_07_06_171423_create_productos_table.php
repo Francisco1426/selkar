@@ -23,9 +23,9 @@ class CreateProductosTable extends Migration
             $table->integer('stock');
             $table->string('presentacion');
             $table->string('dimension');
-            $table->float('preciodistribuidor');
-            $table->float('preciocontado');
-            $table->float('preciopublico');
+            $table->double('preciodistribuidor');
+            $table->double('preciocontado');
+            $table->double('preciopublico');
             $table->string('descripcion');
             $table->string('tipoproducto');
             $table->timestamps();

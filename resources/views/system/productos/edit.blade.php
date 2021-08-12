@@ -95,15 +95,6 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
-                                <label for="preciodistribuidor" class="col-sm-1-12 col-form-label">Precio distribuidor:</label>
-                                <div class="form-group">
-                                    <input type="number" class="form-control @error('preciodistribuidor') is-invalid @enderror" name="preciodistribuidor" id="preciodistribuidor" value="{{$producto->preciodistribuidor}}" placeholder="38,989.87">
-                                </div>
-                                @error('preciodistribuidor')
-                                <small class="text-danger"> {{ $message }} </small>
-                                @enderror
-                            </div>
-                            <div class="col-md-4">
                                 <label for="dimension" class="col-sm-1-12 col-form-label">Dimension:</label>
                                 <div class="form-group">
                                     <input type="text" class="form-control @error('dimension') is-invalid @enderror" name="dimension" id="dimension" value="{{$producto->dimension}}" placeholder="2.5*24">
@@ -112,6 +103,16 @@
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
+                            <div class="col-md-4">
+                                <label for="preciodistribuidor" class="col-sm-1-12 col-form-label">Precio distribuidor:</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control @error('preciodistribuidor') is-invalid @enderror" name="preciodistribuidor" id="preciodistribuidor" value="{{$producto->preciodistribuidor}}" placeholder="38,989.87">
+                                </div>
+                                @error('preciodistribuidor')
+                                <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+
                             <div class="col-md-4">
                                 <label for="preciocontado" class="col-sm-1-12 col-form-label">Precio contado:</label>
                                 <div class="form-group">

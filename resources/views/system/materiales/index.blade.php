@@ -29,9 +29,9 @@
                                     <th scope="col">Tipo Material</th>
                                     <th scope="col">Operaciones</th>
                                 </tr>
-                            </thead> 
+                            </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                         @section('js')
@@ -66,7 +66,7 @@
                                             ${full.deleted_at ? 'hidden' : ''}>
                                             <i class="fas fa-edit"></i>
                                             </a>
-                                            
+
                                             <a href="/materiales/${data}/edit"
                                             class="btn btn-danger"
                                             ${full.deleted_at ? 'hidden' : ''}>
@@ -77,7 +77,7 @@
                                             ${full.deleted_at ? 'hidden' : ''}>
                                             <i class="far fa-eye"></li>
                                             </a>`
-                                            
+
                                     }
                                 }
                                 ]
@@ -89,9 +89,9 @@
                         </script>
                         @endsection
                     </div>
-                </div>           
+                </div>
         </div>
     </div>
 </div>
-    
+
 @endsection

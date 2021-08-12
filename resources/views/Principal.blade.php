@@ -23,8 +23,9 @@
     <!-- ICONS -->
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon.png')}}">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
 
 </head>
 
@@ -38,7 +39,8 @@
         <script src="{{asset('vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
         <script src="{{asset('vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
         <script src="{{asset('vendor/chartist/js/chartist.min.js')}}"></script>
-        
+
+
 
         <!--datatables-->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

@@ -43,9 +43,10 @@
                             <div class="col-md-4">
                                 <label for="imagen">Elija una imagen</label>
                                 <div class="form-group">
-                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="file" height=150 width=150>
+                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="file">
                                 </div>
                                 <div id="preview"></div>
+
                                 @error('imagen')
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
@@ -185,7 +186,8 @@
             // Le decimos que cuando este listo ejecute el código interno
             reader.onload = function() {
                 let preview = document.getElementById('preview'),
-                    image = document.createElement('img');
+
+                    image = document.createElement('img',{width:'50px', height:'50px'});
 
                 image.src = reader.result;
 

@@ -30,6 +30,13 @@ class Cliente extends Model
     {
         return $this->hasMany(Vehiculo::class);
     }
+    public function getRepresentanteAttribute($value)
+    {
+        return ucfirst($value);
+    }
 
-
+    public function getRazonsocialAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

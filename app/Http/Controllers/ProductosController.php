@@ -30,7 +30,6 @@ class ProductosController extends Controller
     {
         //dd($request->all());
         //$producto = Producto::create($request->validated());
-
         $producto = $request->all();
         if ($imagen = $request->file('imagen')) {
             $rutaGuardarImg = 'imagen/';
@@ -52,6 +51,13 @@ class ProductosController extends Controller
             'categorias' => Categoria::select('id', 'nombre')->get()
 
         ]);
+    }
+
+
+    public function show($id)
+    {
+        $productos = Producto::findOrFail($id);
+        return view('system.productos.show', compact ('productos'));
     }
 
     public function update(ProductoRequest $request,  producto $producto)

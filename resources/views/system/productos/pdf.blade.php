@@ -11,7 +11,8 @@
 </head>
 <body>
     <div class="container">
-        <img src="{{asset('img/logo.JPG')}}" alt="" width="110" height="100">
+        <img src="{{url('http://localhost/selkar/public/imagen/20210810180401.jpg')}}">
+
         <h2>
             <center>Reporte de productos</center>
         </h2>

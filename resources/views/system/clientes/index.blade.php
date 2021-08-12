@@ -81,7 +81,7 @@
                                                 ${full.deleted_at ? 'hidden' : ''}>
                                                 <i class="fas fa-trash"></i>
                                                 </a>
-                                                <a href="/clientes/${data}/edit"
+                                                <a href="/clientes/${data}"
                                                 class="btn btn-primary"
                                                 ${full.deleted_at ? 'hidden' : ''}>
                                                 <i class="far fa-eye"></i>

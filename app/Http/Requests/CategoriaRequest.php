@@ -17,8 +17,8 @@ class CategoriaRequest extends FormRequest
     {
         return [
             'nombre' => ['required'],
-            'estatus_id' => ['required'],
-            'descripcion' => ['required']
+            'estatus_id' => ['required','exists:estatus,id'],
+            'descripcion' => ['required','min:3']
         ];
     }
 }

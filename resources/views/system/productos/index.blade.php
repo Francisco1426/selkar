@@ -24,13 +24,15 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <table class="table table-striped table-inverse mt-3 responsive" id="productos">
+                    <table class="table table-striped table-inverse dt-responsive nowrap" style="width:100%" id="productos">
                         <thead class="thead-inverse bg-primary responsive">
                             <tr>
                                 <th>Clave</th>
                                 <th>Imagen</th>
                                 <th>Nombre</th>
-                                <th>Precio inicial</th>
+                                <th>Precio publico</th>
+                                <th>Precio publico</th>
+                                <th>Precio publico</th>
                                 <th>Categoria</th>
                                 <th>Estatus</th>
                                 <th>Operaciones</th>
@@ -55,7 +57,7 @@
                                 },
                                 {
                                     data: 'imagen',
-                                    render: function(data, type, full, meta){
+                                    render: function(data, type, full, meta) {
                                         const ImagenPorDefecto = `https://www.amaltasindia.in/UploadPhoto/no_img.jpg`;
                                         return `<img src="${full.imagen ?  `/imagen/${full.imagen}` : ImagenPorDefecto}" width="100" height="80">`
                                     }
@@ -63,6 +65,12 @@
                                 },
                                 {
                                     data: 'nombre'
+                                },
+                                {
+                                    data: 'preciodistribuidor'
+                                },
+                                {
+                                    data: 'preciocontado'
                                 },
                                 {
                                     data: 'preciopublico'
@@ -77,11 +85,24 @@
                                     data: 'id',
                                     render: function(data, type, full, meta) {
                                         return `
-                                                 <a href="/productos/${data}/edit"
+                                                <a href="/productos/${data}/edit"
                                                 class="btn btn-success"
                                                 ${full.deleted_at ? 'hidden' : ''}>
                                                 <i class="fas fa-edit"></i>
-                                                </a>`
+                                                </a>
+                                                <a href="/productos/${data}/edit"
+                                                class="btn btn-danger"
+                                                ${full.deleted_at ? 'hidden' : ''}>
+                                                <i class="fas fa-trash"></i>
+                                                </a>
+                                                <a href="/productos/${data}"
+                                                class="btn btn-primary"
+                                                ${full.deleted_at ? 'hidden' : ''}>
+                                                <i class="far fa-eye"></i>
+                                                </a>
+                                                    `
+
+
 
                                     }
                                 }

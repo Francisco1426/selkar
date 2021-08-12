@@ -13,8 +13,7 @@ class MaterialesController extends Controller
 {
     public function index()
     {
-        $materiales = Material::all();
-        return view('system.materiales.index', compact('materiales'));
+        return view('system.materiales.index');
 
     }
 
@@ -39,11 +38,8 @@ class MaterialesController extends Controller
             'material' => $materiale,
             'estatus' => Estatu::select('id','nombre')->get()
         ]);
-        
-    //    $material = Material::findOrFail($id);
-    //    return view('system.materiales.edit',compact('material'),[
-    //        'estatus' => Estatu::select('id', 'nombre')->get()
-    //    ]);
+
+
     }
 
     public function show($id)
@@ -52,7 +48,7 @@ class MaterialesController extends Controller
         // dd($material);
         return view('system.materiales.show', compact('material'));
     }
- 
+
     public function update(MaterialRequest $request, material $materiale)
     {
 
@@ -96,15 +92,15 @@ class MaterialesController extends Controller
     public function search(Request $request)
     {
           $term = $request->get('term');
-      
+
           $result = Material::where('medida', 'LIKE', '%'. $term. '%')
           ->select("medida")
           ->groupBy("medida")
           ->get();
- 
-          return response()->json($result);
-            
-    } 
 
-   
+          return response()->json($result);
+
+    }
+
+
 }

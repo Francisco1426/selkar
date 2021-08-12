@@ -24,4 +24,14 @@ class Producto extends Model
     {
         return $this->hasMany(Vehiculo::class);
     }
+    //accesor
+    public function getNombreAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }
