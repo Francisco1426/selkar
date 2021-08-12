@@ -66,11 +66,7 @@
                                             ${full.deleted_at ? 'hidden' : ''}>
                                             <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="/fases/${data}/edit"
-                                            class="btn btn-primary"
-                                            ${full.deleted_at ? 'hidden' : ''}>
-                                            <i class="far fa-eye"></li>
-                                            </a>`
+                                           `
                                         }
                                     }
                                     ]

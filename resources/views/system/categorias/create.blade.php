@@ -29,7 +29,6 @@
                             <div class="col-md-6">
                                 <label for="estatus_id" class="col-md-6 col-form-label">Estatus</label>
                                 <select class="form-control  @error('estatus_id') is-invalid @enderror" name="estatus_id" id="estatus_id">
-                                    <option>--Seleccione uno--</option>
                                     @foreach($estatus as $estatu)
                                     <option {{ old('estatu_id') == $estatu->id ? 'selected': ''}} value="{{$estatu->id}}">
                                         {{$estatu->nombre}}

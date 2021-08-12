@@ -26,7 +26,7 @@
                                     </div>
 
                                     @error('nombre')
-                                        <small class="text-danger">{{$message}}</small> 
+                                        <small class="text-danger">{{$message}}</small>
                                     @enderror
 
                                 </div>
@@ -40,11 +40,11 @@
                                     </select>
 
                                     @error('estatus_id')
-                                    <small class="text-danger">{{$message}}</small> 
+                                    <small class="text-danger">{{$message}}</small>
                                     @enderror
 
                                 </div>
-                                
+
                                 <div class="col-md-12">
                                     <label for="app" class="col-sm-1-12 col-form-label">Descripcion</label>
                                     <div class="form-group">
@@ -54,14 +54,11 @@
                                     </div>
 
                                     @error('descripcion')
-                                    <small class="text-danger">{{$message}}</small> 
+                                    <small class="text-danger">{{$message}}</small>
                                     @enderror
 
                                 </div>
-                               
                             </div>
-
-                            
                             <div class="col-md-11">
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Guardar</button>
