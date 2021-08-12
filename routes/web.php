@@ -15,7 +15,7 @@ use App\Http\Controllers\VehiculosController;
 
 Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
-Route::get('/', [InicioController::class,'Inicio'])->name('Inicio');
+Route::get('sistema', [InicioController::class,'Inicio'])->name('Inicio');
 
 //Omar chong lopez
 Route::resource('productos', ProductosController::class);
@@ -77,3 +77,24 @@ Route::post('Modulomateriales/editar',[MaterialVehiculoController::class,'editar
 Route::get('datables/Modulomateriales',[MaterialVehiculoController::class,'RegistrosDatatables'])->name('Modulomateriales.datatables');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
+
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('inicio');
+
+Route::get('/sobrenosotros', function () {
+    return view('sobre_nosotros');
+})->name('sobrenosotros');
+
+Route::get('/galeria',function(){
+    return view('galeria');
+})->name('galeria');
+
+Route::get('/contacto',function(){
+    return view('contacto');
+})->name('contacto');
+
+Route::get('/contact', [ContactUsFormController::class, 'createForm']);
+
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
