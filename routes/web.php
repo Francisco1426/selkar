@@ -15,7 +15,7 @@ use App\Http\Controllers\VehiculosController;
 
 Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
-Route::get('sistema', [InicioController::class,'Inicio'])->name('Inicio');
+Route::get('Inicio', [InicioController::class,'Inicio'])->name('Inicio');
 
 //Omar chong lopez
 Route::resource('productos', ProductosController::class);

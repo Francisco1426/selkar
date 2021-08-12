@@ -89,6 +89,8 @@
                 </li>
                 <li> <a href="{{route ('contacto') }}">Contáctenos</a>
                 </li>
+                <li> <a href="{{route ('Inicio') }}">Login</a>
+                </li>
               </ul>
             </div>
             <div class="search_icon">
