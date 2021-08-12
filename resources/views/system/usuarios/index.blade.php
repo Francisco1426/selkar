@@ -15,7 +15,7 @@
                     <p class="panel-subtitle">Listado todos los usuarios</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('usuarios.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i>Crear Uusuario</a>
+                    <a href="{{route('usuarios.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Crear Usuario</a>
                 </div>
             </div>
             <table id="usuarios" class="table table-striped table-inverse mt-3 responsive">
@@ -62,17 +62,9 @@
                                 <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a href="/usuarios/${data}/edit"
-                                class="btn btn-danger"
-                                ${full.deleted_at ? 'hidden' : ''}>
-                                <i class="fas fa-trash"></i>
-                                 </a>
 
-                                <a href="/usuarios/${data}/edit"
-                                class="btn btn-primary"
-                                ${full.deleted_at ? 'hidden' : ''}>
-                                <i class="far fa-eye"></i>
-                                 </a>`
+
+                                `
                         }
                     }
                     ]
