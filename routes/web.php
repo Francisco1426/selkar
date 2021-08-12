@@ -12,33 +12,9 @@ use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\MaterialVehiculoController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VehiculosController;
-use App\Http\Controllers\ContactUsFormController;
-use App\Http\Controllers\PaginaController;
 
-Route::get('inicio', function () {
-    return view('welcome');
-})->name('inicio');
-
-Route::get('/sobrenosotros', function () {
-    return view('sobre_nosotros');
-})->name('sobrenosotros');
-
-Route::get('/galeria',function(){
-    return view('galeria');
-})->name('galeria');
-
-Route::get('/contacto',function(){
-    return view('contacto');
-})->name('contacto');
-
-Route::get('/contact', [ContactUsFormController::class, 'createForm']);
-
-Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
-
-
-
 Route::get('/', [InicioController::class,'Inicio'])->name('Inicio');
 
 //Omar chong lopez

@@ -7,7 +7,7 @@
                     $rol=auth()->user()->rol;
                 @endphp
                 @if ($rol=="Admin")
-                    <li><a href="{{route('usuarios.index')}}" class=""><i class="fas fa-users-cog"></i> <span>Usuarios</span></a></li>
+                    <li><a href="{{route('usuarios.index')}}" class=""><i class="lnr lnr-user"></i> <span>Usuarios</span></a></li>
                 @endif
 
                 @if ($rol=="Admin"|| $rol=="Ventas")
@@ -23,8 +23,8 @@
                 @if ($rol=="Admin")
                 @endif
                 <li><a href="{{route('categorias.index')}}" class=""><i class="fas fa-dolly"></i> <span>Categorias</span></a></li>
-                <li><a href="{{route('procesos.index')}}" class=""><i class="fas fa-spinner"></i> <span>Procesos</span></a></li>
-                <li><a href="{{route('vehiculos.index')}}" class=""><i class="fas fa-truck-pickup"></i> <span>Vehiculos</span></a></li>
+                <li><a href="{{route('procesos.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Procesos</span></a></li>
+                <li><a href="{{route('vehiculos.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Vehiculos</span></a></li>
                 <li><a href="{{route('Modulomateriales.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Modulo</span></a></li>
             </ul>
         </nav>
