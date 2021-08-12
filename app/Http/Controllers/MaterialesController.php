@@ -11,6 +11,14 @@ use Illuminate\Routing\Controller;
 
 class MaterialesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ProduccionLogistica');
+
+    }
+
+
+
     public function index()
     {
         $materiales = Material::all();

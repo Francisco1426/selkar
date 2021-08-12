@@ -16,8 +16,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'areas_id',
         'estatus_id',
+        'rol',
 
     ];
 
@@ -40,5 +40,10 @@ class User extends Authenticatable
     public function estatus()
     {
         return $this->belongsTo(Estatu::class, 'estatus_id');
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
     }
 }

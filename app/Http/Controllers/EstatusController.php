@@ -10,6 +10,13 @@ use Illuminate\Routing\Controller;
 
 class EstatusController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ProduccionLogistica');
+
+    }
+    
+
     public function index(){
         $estatus = Estatu::all();
         return view ('system.estatus.index', compact('estatus'));

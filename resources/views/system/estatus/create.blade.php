@@ -14,7 +14,6 @@
                         <p class="panel-subtitle">Llena todos los campos</p>
                     </div>
                     <div class="panel-body">
-<<<<<<< HEAD
                     
 
             <div class="panel panel-headline">
@@ -24,8 +23,6 @@
                 </div>
                 <div class="panel-body">
 
-=======
->>>>>>> a8d47ddc456ec7f2bee9e33951113084c21e4b6d
                     <form action="{{ route('estatus.store')}}" method="POST">
                         @csrf
                         <div class="form-row">
@@ -41,12 +38,8 @@
                             <div class="col-md-12">
                                 <label for="nombre" class="col-sm-1-12 col-form-label">Descripcion</label>
                                 <div class="form-group">
-<<<<<<< HEAD
                                     <input type="text" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="{{old('descripcion')}}" placeholder="Escriba el nombre....">
-=======
-                                    <input type="hidden" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="{{old('descripcion')}}" placeholder="Escriba el nombre....">
                                     <trix-editor input="descripcion"></trix-editor>
->>>>>>> a8d47ddc456ec7f2bee9e33951113084c21e4b6d
                                 </div>
                                 @error('descripcion')
                                 <small class="text-danger">{{ $message }}</small>

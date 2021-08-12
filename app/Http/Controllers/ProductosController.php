@@ -13,6 +13,12 @@ use App\Http\Requests\ProductoRequest;
 
 class ProductosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ProduccionLogistica');
+
+    }
+    
     public function index()
     {
         return view('system.productos.index');

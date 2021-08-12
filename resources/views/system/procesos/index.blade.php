@@ -5,6 +5,7 @@
 @endsection
 @section('contenido')
 <div class="main">
+    @csrf
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
@@ -61,11 +62,9 @@
                                 <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a href="/procesos/${data}/edit"
-                                class="btn btn-danger"
-                                ${full.deleted_at ? 'hidden' : ''}>
-                                <i class="fas fa-trash"></i>
-                                 </a>
+                               <button class="btn ${full.deleted_at ? 'btn-second': 'btn-danger'}"
+                               ${full.deleted_at ? `onclick="activeRecord(${data}"`:`onclick="deleteRecord(${data}"`}>
+                               <i class="${full.deleted_at ? 'fas fa-power-off':'fas fa-trash-alt'}"></i></button>
 
                                 <a href="/procesos/${data}/edit"
                                 class="btn btn-primary"
@@ -76,6 +75,75 @@
                     }
                     ]
                 });
+
+                function deleteRecord(id)
+                {
+                    Swal.fire({
+                        title: 'Estas seguro de eliminar este proceso?',
+                        text: "No podras revertir cambios!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, eliminar empleado!',
+                        cancelButtonText: 'Cancelar!',
+                    }).then((result) => {
+                        if(result.isConfirmed){
+                            $.ajax({
+                                type: 'DELETE',
+                                url: `/procesos/${id}`,
+                                data:{
+                                    _token: $('[name="_token"]').val(),
+                                },
+                                success: res =>{
+                                    Swal.fire(
+                                        'Eliminado!',
+                                        `El proceso ${res.procesos.nombre} ha sido ${res.message} exitosamente.`,
+                                        'success'
+                                    );
+                                    reloadTable();
+                                },
+                                error: error => {
+                                    console.log(error);
+                                },
+                            });
+                        }
+                    });
+                }
+
+                function activeRecord(id){
+                    Swal.fire({
+                        title: 'Estas seguro que deseas activar este proceso?',
+                        text: "No podras reactivar los cambios!",
+                        icon: 'warning',
+                        showCancelButton:true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, activar proceso!',
+                        cancelButtonText: 'Cancelar!',
+                    }).then((result) =>{
+                        if(result.isConfirmed){
+                            $.ajax({
+                                type: 'PUT',
+                                url: `/procesos/${id}/active-record`,
+                                data:{
+                                    _token: $('[name="_token"]').val(),
+                                },
+                                success: res =>{
+                                    Swal.fire(
+                                        'Activado!',
+                                        `El proceso ${res.nombre} ha sido activado exitosamente`,
+                                        'success'
+                                    );
+                                    reloadTable();
+                                },
+                                error: error =>{
+                                    console.log(error);
+                                },
+                            });
+                        }
+                    });
+                }
 
                 function reloadTable(){
                     $('#procesos').DataTable().ajax.reload();

@@ -28,7 +28,7 @@
                                 @error('nombre')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </div>
+                            </div> 
                             <div class="col-md-6">
                                 <label for="medida" class="col-sm-1-12 col-form-label">Marca</label>
                                 <div class="form-group">
@@ -51,6 +51,17 @@
                                 @enderror
                             </div>
 
+                            <div class="col-md-6">
+                                <label for="modelo" class="col-sm-1-12 col-form-label">Fecha</label>
+                                <div class="form-group">
+                                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" name="fecha" id="fecha" value="{{$vehiculo->fecha}}" placeholder="Escribe el modelo">
+                                </div>
+
+                                @error('fecha')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
                             
                             <div class="col-md-6">
                                 <label for="estatus_id" class="col-md-6 col-form-label">Cliente</label>
@@ -63,6 +74,19 @@
                                     <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
+
+                            <div class="col-md-6">
+                                <label for="estatus_id" class="col-md-6 col-form-label">Producto</label>
+                                <select class="form-control  @error('cliente_id') is-invalid @enderror" name="producto_id" id="producto_id">
+                                    @foreach ($productos as $producto)
+                                    <option value="{{$producto->id}}">{{$producto->nombre}}</option>
+                                    @endforeach                                    
+                                </select>
+                                @error('estatus_id')
+                                    <small class="text-danger"> {{ $message }} </small>
+                                @enderror
+                            </div>
+
                             </div>
                             <div class="col-md-12">
                                 <label for="descripcion" class="col-sm-1-12 col-form-label">Descripcion</label>

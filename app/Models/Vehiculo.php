@@ -21,4 +21,15 @@ class Vehiculo extends Model
     {
         return $this->belongsTo(Producto::class);
     }
+
+    public function materialVehiculos()
+    {
+        return $this->belongsToMany(Material::class, 'material_vehiculos')
+                    ->withPivot([
+                        'cantidad',
+                        'observaciones',
+                        'fecha',
+                        'fase_id',
+                    ]);
+    }
 }

@@ -27,7 +27,7 @@ class VehiculosController extends Controller
 
     public function store(VehiculoRequest $request)
     {
-        dd($request->all());
+    
         $vehiculo = Vehiculo::create($request->validated());
         return redirect()
             ->route('vehiculos.index')
@@ -39,7 +39,8 @@ class VehiculosController extends Controller
     {
         return view('system.vehiculos.edit',[
             'vehiculo' => $vehiculo,
-            'clientes' => Cliente::select('id','representante')->get()
+            'clientes' => Cliente::select('id','representante')->get(),
+            'productos' => Producto::select('id','nombre')->get(),
         ]);
     }
 

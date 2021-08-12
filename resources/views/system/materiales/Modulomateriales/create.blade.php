@@ -16,7 +16,7 @@
                     <p class="panel-subtitle">Modulo de Control materiales</p>
                 </div>
                 <div class="panel-body">
-                    <form action="#" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('Modulomateriales.guardar')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
 
@@ -33,28 +33,31 @@
                                     <div class="col-md-4" hidden>
                                         <label for="estatus" class="col-sm-1-12 col-form-label">Clave</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="vehiculo_id" id="vehiculo_id" value="" placeholder="" readonly>
+                                            <input type="text" class="form-control @error('vehiculo_id') is-invalid @enderror" name="vehiculo_id" id="vehiculo_id" value="{{old('vehiculo_id')}}" placeholder="" readonly>
                                         </div>
+                                        @error('vehiculo_id')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                         
                                     <div class="col-md-4">
                                         <label for="estatus" class="col-sm-1-12 col-form-label">Vehiculo</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="nombre" id="vehiculo" value="" placeholder="" readonly>
+                                            <input type="text" class="form-control" name="nombre" id="vehiculo" value="{{old('nombre')}}" placeholder="" readonly>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <label for="estatus" class="col-sm-1-12 col-form-label">Marca</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="marca" id="marca" value="" placeholder="" readonly>
+                                            <input type="text" class="form-control" name="marca" id="marca" value="{{old('marca')}}" placeholder="" readonly>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <label for="estatus" class="col-sm-1-12 col-form-label">Producto</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="producto" id="producto" value="" placeholder="" readonly>
+                                            <input type="text" class="form-control" name="producto" id="producto" value="{{old('producto')}}" placeholder="" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -108,11 +111,8 @@
                             <div class="col-md-3">
                                 <label for="cantidad" class="col-sm-1-12 col-form-label">Cantidad</label>
                                 <div class="form-group">
-                                    <input type="number" class="form-control @error('cantidad') is-invalid @enderror" name="cantidad" id="cantidad" value="" placeholder="">
+                                    <input type="number" class="form-control" name="cantidad" id="cantidad" value="" placeholder="">
                                 </div>
-                                @error('cantidad')
-                                <small class="text-danger">{{ $message }}</small>   
-                                @enderror
                             </div>
 
                             <div class="col-md-3">
@@ -124,37 +124,26 @@
 
                             <div class="col-md-3">
                                 <label for="estatus_id" class="col-md-6 col-form-label">Fase</label>
-                                <select class="form-control  @error('fase_id') is-invalid @enderror" name="fase" id="fase">
+                                <select class="form-control" name="fase" id="fase">
                                     @foreach ($fases as $fase)
                                     <option value="{{$fase->id}}">{{$fase->nombre}}</option>
                                     @endforeach                                    
                                 </select>
-                                @error('fases_id')
-                                    <small class="text-danger"> {{ $message }} </small>
-                                @enderror
                             </div>
 
                             <div class="col-md-3">
                                 <label for="fecha" class="col-sm-1-12 col-form-label">Fecha</label>
                                 <div class="form-group">
-                                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" name="fecha" id="fecha" value="" placeholder="">
+                                    <input type="date" class="form-control" name="fecha" id="fecha" value="" placeholder="">
                                 </div>
-
-                                @error('fecha')
-                                <small class="text-danger">{{ $message }}</small>
-                                @enderror
                             </div>                            
                             </div>
                             <div class="col-md-12">
                                 <label for="descripcion" class="col-sm-1-12 col-form-label">Observacioes</label>
                                 <div class="form-group">
-                                    <input type="hidden" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" id="descripcion" value="" placeholder="Descripcion....">
+                                    <input type="hidden" class="form-control" name="descripcion" id="descripcion" value="" placeholder="Descripcion....">
                                     <trix-editor input="descripcion"></trix-editor>
                                 </div>
-
-                                @error('descripcion')
-                            <small class="text-danger">{{ $message }}</small>
-                            @enderror
                             </div>
 
                             <div class="col-md-12">
@@ -173,7 +162,41 @@
                                     <th>Vehiculo</th>
                                     <th>Acciones</th>
                                 </thead>
-                                <tbody></tbody>
+                                <tbody>
+                                    @if(old('id_material'))
+                                        @foreach (old('id_material') as $key => $id_material)
+                                            @php
+                                                $idunico = random_int(1,1000); 
+
+                                            @endphp
+                                            <tr id="tr-material{{$idunico}}">
+                                                <td>{{$id_material}}
+                                                </td>   
+                                                <td>{{old('nombre_material')[$key]}}</td> 
+                                                <td><input type="number" class="form-control" name="cantidad_material[]" id="input-editar-material-{{$idunico}}" value="{{old('cantidad_material')[$key]}}" readonly></td>  
+                                                <td>{{old('medida_material')[$key]}}</td> 
+                                                <td>{{old('vehiculo_material_numero')[$key]}}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" onclick="modificarMaterial({{$idunico}})" id="btn-editar-material-{{$idunico}}"><i class="fas fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger" onclick="eliminarMaterial({{$idunico}})" id="btn-eliminar-material-{{$idunico}}"> <i class="fas fa-trash"></i></button>
+                                                </td>
+                                                
+                                                <td hidden>
+                                                    <input type="text" class="form-control" name="id_material[]" value="{{$id_material}}" hidden>
+                                                    <input type="text" class="form-control" name="observaciones_material[]" value="{{old('observaciones_material')[$key]}}" hidden>
+                                                    <input type="text" class="form-control" name="fecha_material[]" value="{{old('fecha_material')[$key]}}" hidden>
+                                                    <input type="text" class="form-control" name="fases_material[]" value="{{old('fases_material')[$key]}}" hidden>
+                                                    <input type="text" class="form-control" name="vehiculo_material[]" value="{{old('vehiculo_material')[$key]}}" hidden>  
+                                                    <input type="text" class="form-control" name="nombre_material[]" value="{{old('nombre_material')[$key]}}" hidden>  
+                                                    <input type="text" class="form-control" name="medida_material[]" value="{{old('medida_material')[$key]}}" hidden> 
+                                                    <input type="text" class="form-control" name="vehiculo_material_numero[]" value="{{old('vehiculo_material_numero')[$key]}}" hidden>    
+
+                                                </td>
+                                
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                </tbody>
                             </table>
 
                         <div class="col-md-11">
@@ -295,26 +318,36 @@
             const nombre =$('#nombre').val()
             const medida =$('#medida').val()
             const vehiculo =$('#numeroserie').val()
-            const id_eliminar = `btn-eliminar-material-${idMaterial}`
-            const id = `btn-editar-material-${idMaterial}`
+            const idunico=  Math.floor(Math.random()*10000+1+idMaterial);
+            const id_eliminar = `btn-eliminar-material-${idunico}`
+            const id = `btn-editar-material-${idunico}`
+            const idinput = `input-editar-material-${idunico}`
+        
 
             const html = `
-            <tr>
+            <tr id="tr-material${idunico}">
                 <td>${idMaterial}
+                </td>   
+                <td>${nombre}</td> 
+                <td><input type="number" class="form-control" name="cantidad_material[]" id="${idinput}" value="${cantidad}" readonly></td>  
+                <td>${medida}</td> 
+                <td>${vehiculo}</td>
+                <td>
+                    <button type="button" class="btn btn-success" onclick="modificarMaterial(${idunico})" id="${id}"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" onclick="eliminarMaterial(${idunico})" id="${id_eliminar}"> <i class="fas fa-trash"></i></button>
+                </td>
+                
+                <td hidden>
                     <input type="text" class="form-control" name="id_material[]" value="${idMaterial}" hidden>
                     <input type="text" class="form-control" name="observaciones_material[]" value="${observaciones}" hidden>
                     <input type="text" class="form-control" name="fecha_material[]" value="${fecha}" hidden>
                     <input type="text" class="form-control" name="fases_material[]" value="${fases}" hidden>
-                    <input type="text" class="form-control" name="vehiculo_material[]" value="${vehiculo_id}" hidden>
-                </td>   
-                <td>${nombre}</td> 
-                <td><input type="number" class="form-control" name="cantidad_material[]" id="input-cantidad-${id}" value="${cantidad}" readonly></td>  
-                <td>${medida}</td> 
-                <td>${vehiculo}</td>
-                <td>
-                    <button type="button" class="btn btn-warning" onclick="modificarMaterial(${id})" id="${id}">Modificar</button>
-                    <button type="button" class="btn btn-danger" onclick="eliminarMaterial(${id_eliminar})" id="${id_eliminar}">Eliminar</button>
-                </td> 
+                    <input type="text" class="form-control" name="vehiculo_material[]" value="${vehiculo_id}" hidden>  
+                    <input type="text" class="form-control" name="nombre_material[]" value="${nombre}" hidden>  
+                    <input type="text" class="form-control" name="medida_material[]" value="${medida}" hidden> 
+                    <input type="text" class="form-control" name="vehiculo_material_numero[]" value="${vehiculo}" hidden>   
+                </td>
+
             </tr>
             
             `
@@ -324,13 +357,13 @@
                
         })
 
-        function modificarMaterial(id){
-            
+        function modificarMaterial(input){
+            $(`#input-editar-material-${input}`).removeAttr("readonly")
         }
 
-        function eliminarrMaterial(id){
-
-}
+        function eliminarMaterial(id){
+            $(`#tr-material${id}`).remove()
+        }
     </script>
 @endsection
 

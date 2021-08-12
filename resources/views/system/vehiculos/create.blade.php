@@ -66,7 +66,7 @@
 
                             <div class="col-md-6">
                                 <label for="estatus_id" class="col-md-6 col-form-label">Cliente</label>
-                                <select class="form-control  @error('clientes_id') is-invalid @enderror" name="clientes_id" id="clientes_id">
+                                <select class="form-control  @error('clientes_id') is-invalid @enderror" name="cliente_id" id="clientes_id">
                                     @foreach ($clientes as $cliente)
                                     <option value="{{$cliente->id}}">{{$cliente->representante}}</option>
                                     @endforeach                                    
