@@ -12,6 +12,7 @@ use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\MaterialVehiculoController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VehiculosController;
+use App\Http\Controllers\ContactUsFormController;
 
 Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
