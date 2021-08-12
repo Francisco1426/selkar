@@ -11,7 +11,6 @@
 </head>
 <body>
     <div class="container">
-        <img src="{{asset('img/logo.JPG')}}" alt="" width="110" height="100">
         <h2>
             <center>Reporte de clientes</center>
         </h2>
