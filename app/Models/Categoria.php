@@ -21,4 +21,9 @@ class Categoria extends Model
    {
        return $this->hasMany(Producto::class);
    }
+
+   public function getNombreAttribute($value)
+   {
+       return ucfirst($value);
+   }
 }

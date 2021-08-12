@@ -15,7 +15,7 @@
                     <p class="panel-subtitle">Listado de procesos local</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('procesos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i>Crear Proceso</a>
+                    <a href="{{route('procesos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Crear Proceso</a>
                 </div>
             </div>
             <table id="procesos" class="table table-striped table-inverse mt-3 responsive">
@@ -65,12 +65,6 @@
                                 class="btn btn-danger"
                                 ${full.deleted_at ? 'hidden' : ''}>
                                 <i class="fas fa-trash"></i>
-                                 </a>
-
-                                <a href="/procesos/${data}/edit"
-                                class="btn btn-primary"
-                                ${full.deleted_at ? 'hidden' : ''}>
-                                <i class="far fa-eye"></i>
                                  </a>`
                         }
                     }
