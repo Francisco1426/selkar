@@ -8,49 +8,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de clientes</title>
     <style>
-        body{
-    font-family: Arial;
-}
-#main-container{
-margin:150px auto;
-width: 600px;
-}
+        body {
+            font-family: Arial;
+        }
 
-table{
-background-color:white;
-text-align: left;
-border-collapse: collapse;
-width: 100%;
-}
+        #main-container {
+            margin: 150px auto;
+            width: 600px;
+        }
 
-th, td{
+        table {
+            background-color: white;
+            text-align: left;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-padding: 5px;
-}
-thead{
-background-color: #232f3e;
-border-bottom: solid 5px #232f3e;
-color: white;
-}
-tr:nth-child(even){
-background-color: #ddd;
-}
+        th,
+        td {
 
-tr:hover td{
-background-color: #369681;
-color: white;
-}
+            padding: 5px;
+        }
 
-h2{
-    color: 000000;
-     font-size: 20px;
-     font-family: Arial;
-     text-decoration-line: underline;
-    padding: 20px;
-   }
+        thead {
+            background-color: #232f3e;
+            border-bottom: solid 5px #232f3e;
+            color: white;
+        }
 
+        tr:nth-child(even) {
+            background-color: #ddd;
+        }
+
+        tr:hover td {
+            background-color: #369681;
+            color: white;
+        }
+
+        h2 {
+            color: 000000;
+            font-size: 20px;
+            font-family: Arial;
+            text-decoration-line: underline;
+            padding: 20px;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>
@@ -80,5 +84,4 @@ h2{
         </table>
     </div>
 </body>
-
 </html>
