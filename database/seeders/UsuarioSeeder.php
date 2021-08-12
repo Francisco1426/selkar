@@ -14,6 +14,7 @@ class UsuarioSeeder extends Seeder
             'name'=>'Selkar',
             'email'=>'al221810633@gmail.com',
             'password'=>'selkar12345',
+            'rol' => 'Ventas',
             'created_at'=>date('Y-m-d H:i:s'),
             'updated_at'=>date('Y-m-d H:i:s'),
         ]);
@@ -21,6 +22,7 @@ class UsuarioSeeder extends Seeder
             'name'=>'Selkar',
             'email'=>'al221811717@gmail.com',
             'password'=>'selkar12345',
+            'rol' => 'Admin',
             'created_at'=>date('Y-m-d H:i:s'),
             'updated_at'=>date('Y-m-d H:i:s'),
         ]);
