@@ -13,6 +13,11 @@ use PDF;
 
 class ClientesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("Ventas");
+    }
+    
     public function index()
     {
 

@@ -16,9 +16,10 @@ class CreateProcesosTable extends Migration
             $table->foreignId('estatus_id')
                   ->references('id')
                   ->on('estatus');
-                  $table->timestamps();
-
+            $table->timestamps();
+            $table->softDeletes();
         });
+
     }
 
     public function down()

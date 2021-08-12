@@ -48,11 +48,43 @@ class ProcesosController extends Controller
         ->withSuccess("El proceso $proceso->nombre ha sido modificado satisfactoriamente");
     }
 
-   // public function destroy(Proceso $proceso)     
-   // {
-      //  $proceso->delete();
-      //  return redirect()->route('procesos.index');
-    //}
+   public function destroy(Proceso $proceso)     
+   {
+       $message = "Desactiva";
+       if(sizeof($proceso->consultations) < 1){
+           $proceso->forceDelete();
+           $message = "Eliminada definitivamente";
+       }
+
+       $proceso->delete();
+
+       if(request()->ajax()){
+           return response()->json([
+               'proceso' => $proceso,
+               'message' => $message,
+           ],201);
+       }
+       return redirect()
+       ->route('procesos.index')
+       ->withSucces("El proceso $proceso->nombre se ha dado de baja exitosamente");
+    }
+
+    public function activeRecord($id)
+    {
+        $proceso = Proceso::onlyTrashed()
+            ->find($id)
+            ->restore();
+
+        if(request()->ajax()){
+            return response()->json([
+                'proceso' => $proceso,
+            ],201);
+        }
+
+        return redirect()
+            ->route('procesos.index')
+            ->withSuccess("El proceso $proceso->nombre se ha dado de baja exitosamente");
+    }
 
     public function RegistrosDatatables()
     {

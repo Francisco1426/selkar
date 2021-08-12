@@ -11,6 +11,13 @@ use PDF;
 
 class FasesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ProduccionLogistica');
+
+    }
+
+
     public function index()
     {
         return view('system.fases.index');

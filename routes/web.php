@@ -10,6 +10,7 @@ use App\Http\Controllers\FasesController;
 use App\Http\Controllers\ProcesosController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\MaterialVehiculoController;
+use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VehiculosController;
 
 Auth::routes(['register' => false]);
@@ -31,6 +32,7 @@ Route::get('datatables/categorias', [CategoriasController::class,'RegistrosDatat
 Route::resource('categorias', CategoriasController::class);
 Route::name('pdfcategorias')->get('pdfcategorias', [CategoriasController::class,'getPdfCategorias']);
 Route::resource('procesos', ProcesosController::class);
+Route::put('procesos/{id}/active-record',[ProcesosController::class,'activeRecord'])->name('procesos.active-record');
 Route::get('datatables/procesos',[ProcesosController::class,'RegistrosDatatables'])->name('procesos.datatables');
 
 
@@ -50,6 +52,7 @@ Route::name('pdffases')->get('pdffases',[FasesController::class,'getPdfFases']);
 //Eduardo
 Route::resource('estatus', EstatusController::class);
 Route::get('datatables/estatus',[EstatusController::class,'RegistrosDatatables'])->name('estatus.datatables');
+Route::get('datatables/usuarios',[UsuariosController::class,'RegistrosDatatables'])->name('usuarios.datatables');
 
 
 Route::get('autocomplete',[MaterialesController::class,'getMaterial'])->name('autocomplete');
@@ -59,6 +62,8 @@ Route::post('materiales/search', [MaterialesController::class,'search'])->name('
 Route::resource('vehiculos', VehiculosController::class);
 Route::get('datatables/vehiculos',[VehiculosController::class,'RegistrosDatatables'])->name('vehiculos.datatables');
 
+Route::resource('usuarios',UsuariosController::class);
+
 
 // -------------------Modulo de control materiales
 Route::resource('Modulomateriales', MaterialVehiculoController::class);
@@ -67,5 +72,8 @@ Route::post('Modulomateriales/buscarmaterial',[MaterialVehiculoController::class
 
 Route::post('Modulomateriales/buscarvehiculo',[MaterialVehiculoController::class,'buscarvehiculo'])->name('Modulomateriales.buscarvehiculo');
 Route::post('Modulomateriales/searchvehiculo',[MaterialVehiculoController::class,'searchvehiculo'])->name('Modulomateriales.searchvehiculo');
+Route::post('Modulomateriales/guardar',[MaterialVehiculoController::class,'guardar'])->name('Modulomateriales.guardar');
+Route::post('Modulomateriales/editar',[MaterialVehiculoController::class,'editar'])->name('Modulomateriales.editar');
+Route::get('datables/Modulomateriales',[MaterialVehiculoController::class,'RegistrosDatatables'])->name('Modulomateriales.datatables');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });

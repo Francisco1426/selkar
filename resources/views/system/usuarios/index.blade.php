@@ -12,7 +12,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Reporte Usuarios</h3>
-                    <p class="panel-subtitle">Listado de usuarios</p>
+                    <p class="panel-subtitle">Listado todos los usuarios</p>
                 </div>
                 <div class="panel-body">
                     <a href="{{route('usuarios.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i>Crear Uusuario</a>
@@ -21,9 +21,10 @@
             <table id="usuarios" class="table table-striped table-inverse mt-3 responsive">
                 <thead class="thead-inverse bg-primary responsive">
                     <tr>
+                        <th>Clave</th>
                         <th>Nombre</th>
-                        <th>Correo/th>
-                        <th>Contraseña</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -40,13 +41,16 @@
                     "ajax":"{{route('usuarios.datatables')}}",
                     "columns":[
                     {
-                        data: 'nombre'
+                        data: 'id'
                     },
                     {
-                        data: 'correo'
+                        data: 'name'
                     },
                     {
-                        data: 'contraseña'
+                        data: 'email'
+                    },
+                    {
+                        data: 'rol'
                     },
                     {
                         data:'id',
