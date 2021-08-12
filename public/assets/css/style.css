@@ -1450,7 +1450,11 @@ div#pallax_slider {
 }
 
 .dott_star {
+<<<<<<< HEAD
 	background-image: url('../img/star_dots.png');
+=======
+	background-image: url('../images/star_dots.png');
+>>>>>>> main
 	width: 100%;
 	background-position: center center;
 	height: 100%;
@@ -1463,7 +1467,11 @@ div#pallax_slider {
 }
 
 .clouds {
+<<<<<<< HEAD
 	background-image: url('../img/claud.png');
+=======
+	background-image: url('../images/claud.png');
+>>>>>>> main
 	width: 100%;
 	background-position: center center;
 	height: 100%;
@@ -1505,7 +1513,11 @@ div#pallax_slider {
 }
 
 .blue_layer_bottom {
+<<<<<<< HEAD
 	background-image: url('../img/blue_layer_bottom.png');
+=======
+	background-image: url('../images/blue_layer_bottom.png');
+>>>>>>> main
 	height: 132px;
 	width: 100%;
 	background-position: center bottom;
@@ -1520,7 +1532,11 @@ div#pallax_slider {
 }
 
 body.light_blue #full_slider.full_slider_inner {
+<<<<<<< HEAD
 	background: url('../img/star_bg2.png');
+=======
+	background: url('../images/star_bg2.png');
+>>>>>>> main
 	background-size: cover;
 }
 
@@ -1598,7 +1614,11 @@ body.light_blue #full_slider.full_slider_inner {
 section.quality_ser_bg {
 	background-repeat: repeat-x !important;
 	background-position: bottom center !important;
+<<<<<<< HEAD
 	background: url(../img/bg_patter_1.png);
+=======
+	background: url(../images/bg_patter_1.png);
+>>>>>>> main
 }
 
 .about_info {
@@ -1620,7 +1640,11 @@ section.quality_ser_bg {
 section.dottad_star_bg {
 	background-repeat: no-repeat !important;
 	background-position: bottom right !important;
+<<<<<<< HEAD
 	background-image: url('../img/gray_dotts.png');
+=======
+	background-image: url('../images/gray_dotts.png');
+>>>>>>> main
 }
 
 #subscribe_form input {
@@ -1642,7 +1666,11 @@ section.dottad_star_bg {
 
 .grow_business {
 	background-position: right bottom !important;
+<<<<<<< HEAD
 	background: url(../img/bg_patter_2.png);
+=======
+	background: url(../images/bg_patter_2.png);
+>>>>>>> main
 	background-repeat: no-repeat;
 }
 
@@ -2025,7 +2053,11 @@ section.dottad_star_bg {
 }
 
 .stars_dottat {
+<<<<<<< HEAD
 	background: url('../img/star_dots.png');
+=======
+	background: url('../images/star_dots.png');
+>>>>>>> main
 }
 
 .only_parallax {
@@ -2641,7 +2673,11 @@ span.skill {
 }
 
 .mechanic .price_table_active .price_head {
+<<<<<<< HEAD
 	background: url('../img/mechanic_service/slide4.jpg');
+=======
+	background: url('../images/mechanic_service/slide4.jpg');
+>>>>>>> main
 	background-size: cover;
 }
 
@@ -2652,7 +2688,11 @@ span.skill {
 
 #default_theme .banner_slider {
 	min-height: 270px;
+<<<<<<< HEAD
 	background-image: url('../im/inner_banner_bg.png');
+=======
+	background-image: url('../images/inner_banner_bg.png');
+>>>>>>> main
 	background-position: center center;
 }
 
@@ -3205,13 +3245,21 @@ span.skill {
 	-------------------------------------------------------------------*/
 
 .testmonial_section {
+<<<<<<< HEAD
 	background-image: url('../img/it_service/test_bg.png');
+=======
+	background-image: url('../images/it_service/test_bg.png');
+>>>>>>> main
 	background-size: cover;
 	padding-bottom: 185px;
 }
 
 .cleaning .testmonial_section {
+<<<<<<< HEAD
 	background-image: url('../img/cleaning_service/test_bg.png');
+=======
+	background-image: url('../images/cleaning_service/test_bg.png');
+>>>>>>> main
 	background-size: cover;
 	padding-bottom: 185px;
 }
@@ -3478,7 +3526,11 @@ footer ul.social_icons {
 
 .gross_layout::after {
 	position: absolute;
+<<<<<<< HEAD
 	background: url(../img/it_service/dark_bg_img.png);
+=======
+	background: url(../images/it_service/dark_bg_img.png);
+>>>>>>> main
 	width: 35%;
 	height: 100%;
 	right: 0;
@@ -3503,7 +3555,11 @@ footer ul.social_icons {
 
 .gross_layout.right_gross_layout::after {
 	position: absolute;
+<<<<<<< HEAD
 	background: url(../img/it_service/dark_bg_img2.png);
+=======
+	background: url(../images/it_service/dark_bg_img2.png);
+>>>>>>> main
 	width: 35%;
 	height: 100%;
 	left: 0;
@@ -3611,14 +3667,22 @@ footer ul.social_icons {
 }
 
 .inner_banner_section {
+<<<<<<< HEAD
 	background: url('../img/it_service/inner_page_banner.png');
+=======
+	background: url('../images/it_service/inner_page_banner.png');
+>>>>>>> main
 	min-height: 245px;
 	background-size: cover;
 	background-position: center center;
 }
 
 .cleaning .inner_banner_section {
+<<<<<<< HEAD
 	background: url('../img/cleaning_service/inner_page_banner.png');
+=======
+	background: url('../images/cleaning_service/inner_page_banner.png');
+>>>>>>> main
 	min-height: 245px;
 	background-size: cover;
 	background-position: top center;

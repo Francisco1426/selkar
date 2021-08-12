@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="nombre">Producto:</label>
-                            <input class="form-control" type="text" value="{{$productos->nombre}}" readonly>
+                            {{$productos->nombre}}
                         </div>
                         <div class="col-md-4">
                             <label for="">Categoria:</label>
@@ -29,32 +29,32 @@
                         </div>
                         <div class="col-md-4">
                             <label for="">Estatus</label>
-                            <input class="form-control" type="text" value="{{$productos->estatus->nombre}}" readonly>
+                            {{$productos->estatus->nombre}}
                         </div>
                         <div class="col-md-4">
                             <label for="">Stock</label>
-                            <input class="form-control" type="text" value="{{$productos->stock}}" readonly>
+                            {{$productos->stock}}
                         </div>
                         <div class="col-md-4">
                             <label for="">Presentacion</label>
-                            <input class="form-control" type="text" value="{{$productos->presentacion}}" readonly>
+                            {{$productos->presentacion}}
                         </div>
                         <div class="col-md-4">
                             <label for="">Dimension</label>
-                            <input class="form-control" type="text" value="{{$productos->dimension}}" readonly>
+                            {{$productos->dimension}}
                         </div>
                         <div class="col-md-4">
                             <label for="">Precio distribuidor</label>
-                            <input class="form-control" type="text" value="{{$productos->preciodistribuidor}}" readonly>
+                            {{$productos->preciodistribuidor}}
                         </div>
                         <div class="col-md-4">
                             <label for="">Precio contado</label>
-                            <input class="form-control" type="text" value="{{$productos->preciocontado}}" readonly>
+                            {{$productos->preciocontado}}
 
                         </div>
                         <div class="col-md-4">
                             <label for="">Precio publico</label>
-                            <input class="form-control" type="text" value="{{$productos->preciopublico}}" readonly>
+                            {{$productos->preciopublico}}
                         </div>
                         <div class="col-md-4">
                             <label for="">Descripcion</label>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="">Tipo de producto</label>
-                            <input class="form-control" type="text" value="{{$productos->tipoproducto}}" readonly>
+                            {{$productos->tipoproducto}}
                         </div>
                     </div>
 

@@ -28,6 +28,7 @@ class CreateProductosTable extends Migration
             $table->double('preciopublico');
             $table->string('descripcion');
             $table->string('tipoproducto');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
