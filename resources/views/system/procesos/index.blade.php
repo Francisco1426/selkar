@@ -62,9 +62,7 @@
                                 <i class="fas fa-edit"></i>
                                 </a>
 
-                               <button class="btn ${full.deleted_at ? 'btn-second': 'btn-danger'}"
-                               ${full.deleted_at ? `onclick="activeRecord(${data}"`:`onclick="deleteRecord(${data}"`}>
-                               <i class="${full.deleted_at ? 'fas fa-power-off':'fas fa-trash-alt'}"></i></button>
+                            
 
                                 `
                         }

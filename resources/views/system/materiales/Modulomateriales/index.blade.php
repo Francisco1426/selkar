@@ -14,7 +14,7 @@
                     <p class="panel-subtitle">Llena todos los campos</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('vehiculos.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i>Numero Vehiculo</a>
+                    <a href="{{route('Modulomateriales.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i>Ver Modulo</a>
                     <br><br>
                 </div>
             </div>

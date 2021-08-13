@@ -76,7 +76,11 @@
                                                 <i class="fas fa-edit"></i>
                                                 </a>
 
+<<<<<<< HEAD
 
+=======
+                                            
+>>>>>>> 1f632c1fda930a45468ead49ca35687e0353dd93
                                                 <a href="/clientes/${data}"
                                                 class="btn btn-primary"
                                                 ${full.deleted_at ? 'hidden' : ''}>

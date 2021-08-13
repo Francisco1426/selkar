@@ -60,7 +60,19 @@
                                 class="btn btn-success"
                                 ${full.deleted_at ? 'hidden' : ''}>
                                 <i class="fas fa-edit"></i>
+<<<<<<< HEAD
                                 </a>`
+=======
+                                </a>
+
+                                
+
+                                <a href="/usuarios/${data}/edit"
+                                class="btn btn-primary"
+                                ${full.deleted_at ? 'hidden' : ''}>
+                                <i class="far fa-eye"></i>
+                                 </a>`
+>>>>>>> 1f632c1fda930a45468ead49ca35687e0353dd93
                         }
                     }
                     ]

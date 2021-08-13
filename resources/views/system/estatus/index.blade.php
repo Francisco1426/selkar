@@ -61,9 +61,18 @@
                                 ${full.deleted_at ? 'hidden' : ''}>
                                 <i class="fas fa-edit"></i>
                                 </a>
+<<<<<<< HEAD
 
 
                                 `
+=======
+                                
+                                <a href="/estatus/${data}/edit"
+                                class="btn btn-primary"
+                                ${full.deleted_at ? 'hidden' : ''}>
+                                <i class="far fa-eye"></li>
+                                </a>`
+>>>>>>> 1f632c1fda930a45468ead49ca35687e0353dd93
                         }
                     }
                     ]
