@@ -40,14 +40,21 @@
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
-                            <div class="col-md-4">
-                                <label for="imagen">Elija una imagen</label>
-                                <div class="form-group">
-                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="file">
+                            <div class="form-group col-md-4">
+                                <label for="tipoproducto" class="col-sm-1-12 col-form-label">Tipo de producto</label>
+                                <div class="form-check">
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="Producto comercial" {{ old('tipoproducto') === 'Producto comercial' ? 'checked' : '' }}>
+                                        Producto comercial
+                                    </label>
                                 </div>
-                                <div id="preview"></div>
-
-                                @error('imagen')
+                                <div class="form-check">
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="Producto fabricacion" {{ old('tipoproducto') === 'Producto fabricacion' ? 'checked' : '' }}>
+                                        Producto fabricacion
+                                    </label>
+                                </div>
+                                @error('tipoproducto')
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
@@ -140,21 +147,14 @@
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
-                            <div class="form-group col-md-12">
-                                <label for="tipoproducto" class="col-sm-1-12 col-form-label">Tipo de producto</label>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="Producto comercial" {{ old('tipoproducto') === 'Producto comercial' ? 'checked' : '' }}>
-                                        Producto comercial
-                                    </label>
+
+                            <div class="col-md-12">
+                                <label for="imagen">Elija una imagen</label>
+                                <div class="form-group">
+                                    <input type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen" id="file">
                                 </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        <input class="form-check-input @error('tipoproducto') is-invalid @enderror" type="radio" name="tipoproducto" id="tipoproducto" value="Producto fabricacion" {{ old('tipoproducto') === 'Producto fabricacion' ? 'checked' : '' }}>
-                                        Producto fabricacion
-                                    </label>
-                                </div>
-                                @error('tipoproducto')
+                                <div id="preview"></div>
+                                @error('imagen')
                                 <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
@@ -187,7 +187,10 @@
             reader.onload = function() {
                 let preview = document.getElementById('preview'),
 
-                    image = document.createElement('img',{width:'50px', height:'50px'});
+                    image = document.createElement('img', {
+                        width: '50px',
+                        height: '50px'
+                    });
 
                 image.src = reader.result;
 

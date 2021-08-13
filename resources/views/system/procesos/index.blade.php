@@ -66,11 +66,7 @@
                                ${full.deleted_at ? `onclick="activeRecord(${data}"`:`onclick="deleteRecord(${data}"`}>
                                <i class="${full.deleted_at ? 'fas fa-power-off':'fas fa-trash-alt'}"></i></button>
 
-                                <a href="/procesos/${data}/edit"
-                                class="btn btn-primary"
-                                ${full.deleted_at ? 'hidden' : ''}>
-                                <i class="far fa-eye"></i>
-                                 </a>`
+                                `
                         }
                     }
                     ]

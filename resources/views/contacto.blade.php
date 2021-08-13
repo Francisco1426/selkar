@@ -1,9 +1,5 @@
 @include ('vista1')
-
 <!-- inner page banner -->
-
-
-
 <div class="container col-md-10 mt-5">
     <div class="card">
         <div class="card-body">

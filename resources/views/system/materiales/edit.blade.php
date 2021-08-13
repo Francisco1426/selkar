@@ -15,7 +15,7 @@
                     <p class="panel-subtitle">Lista de materiales</p>
                 </div>
                 <div class="panel-body">
-                    
+
                     <form action="{{ route('materiales.update', ['materiale'=>$material->id])  }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
@@ -56,7 +56,7 @@
                                 @if($material->tipomaterial=='Estructural')
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                
+
                                         <input class="form-check-input @error('tipomaterial') is-invalid @enderror" type="radio" name="tipomaterial" id="tipomaterial" value="Acabado" >
                                         Acabado
                                 </div>
@@ -68,7 +68,7 @@
                                 @else
                                 <div class="form-check">
                                     <label class="form-check-label" for="flexRadioDisabled">
-                
+
                                         <input class="form-check-input @error('tipomaterial') is-invalid @enderror" type="radio" name="tipomaterial" id="tipomaterial" value="Acabado" checked="">
                                         Acabado
                                 </div>
@@ -89,7 +89,7 @@
                                 <select class="form-control  @error('estatus_id') is-invalid @enderror" name="estatus_id" id="estatus_id">
                                     @foreach ($estatus as $estatu)
                                    <option value="{{$estatu->id}}">{{$estatu->nombre}}</option>
-                                   @endforeach                                    
+                                   @endforeach
                                 </select>
                                 @error('estatu_id')
                                     <small class="text-danger"> {{ $message }} </small>
@@ -116,7 +116,7 @@
                                     <small class="text-danger"> {{ $message }} </small>
                                 @enderror
                             </div>
-                            
+
                         </div>
                         <div class="col-md-11">
                             <div class="form-group">
@@ -143,7 +143,7 @@
         // });
         $(document).ready(function() {
            $("#medida").autocomplete({
-            
+
                source: function(request, response) {
                    $.ajax({
                    url: "{{route('materiales.search')}}",
@@ -156,8 +156,8 @@
                    success: function(data){
                       var resp = $.map(data,function(obj){
                            return obj.medida;
-                      }); 
-        
+                      });
+
                       response(resp);
                    }
                });
@@ -165,7 +165,8 @@
            minLength: 1
         });
        });
-        
-    //    </script>   
+
+    //    </script>
 @endsection
 @endsection
+

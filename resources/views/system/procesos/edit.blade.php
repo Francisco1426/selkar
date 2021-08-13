@@ -18,7 +18,7 @@
                             @csrf
                             @method('PUT')
                             <div class="form-row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="nombre" class="col-sm-1-12 col-form-label">Nombre</label>
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('nombre') is-invalid @enderror"

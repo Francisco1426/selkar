@@ -38,9 +38,6 @@
                         </li>
                     @endguest
                 </ul>
-
-
-
             </div>
         </div>
     </nav>

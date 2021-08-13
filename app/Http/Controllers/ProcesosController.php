@@ -48,10 +48,10 @@ class ProcesosController extends Controller
         ->withSuccess("El proceso $proceso->nombre ha sido modificado satisfactoriamente");
     }
 
-   public function destroy(Proceso $proceso)     
+   public function destroy(Proceso $proceso)
    {
        $message = "Desactiva";
-       if(sizeof($proceso->consultations) < 1){
+       if(sizeof($proceso->estatus) < 1){
            $proceso->forceDelete();
            $message = "Eliminada definitivamente";
        }

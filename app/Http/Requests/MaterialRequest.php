@@ -14,7 +14,7 @@ class MaterialRequest extends FormRequest
     public function rules()
     {
         return [
-            'clave' => ['required'],
+            'clave' => ['required','regex:/^[A-Z]{3}[-][0-9]+/'],
             'nombre' => ['required'],
             'medida' => ['required'],
             'tipomaterial' => ['required'],

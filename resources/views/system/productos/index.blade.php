@@ -19,6 +19,8 @@
                 <div class="panel-body">
                     <a href="{{route('productos.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar Producto</a>
                     <a href="{{url('pdfproductos') }}"><button class="btn btn-danger"><i class="fas fa-file-pdf"></i></button></a>
+                    <a href="{{url('pdfprecios') }}"><button class="btn btn-danger"><i class="fas fa-file-pdf"></i></button></a>
+
 
                 </div>
             </div>

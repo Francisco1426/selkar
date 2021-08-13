@@ -22,6 +22,8 @@ Route::get('Inicio', [InicioController::class,'Inicio'])->name('Inicio');
 Route::resource('productos', ProductosController::class);
 Route::name('pdfproductos')->get('pdfproductos',[ProductosController::class,'getPdfProductos']);
 Route::get('datatables/productos',[ProductosController::class,'RegistrosDatatables'])->name('productos.datatables');
+Route::name('pdfprecios')->get('pdfprecios',[ProductosController::class,'listaPreciosProductos']);
+
 
 //Omar Chong Lopez
 Route::resource('clientes', ClientesController::class);

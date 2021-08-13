@@ -76,11 +76,7 @@
                                                 <i class="fas fa-edit"></i>
                                                 </a>
 
-                                                <a href="/clientes/${data}/edit"
-                                                class="btn btn-danger"
-                                                ${full.deleted_at ? 'hidden' : ''}>
-                                                <i class="fas fa-trash"></i>
-                                                </a>
+
                                                 <a href="/clientes/${data}"
                                                 class="btn btn-primary"
                                                 ${full.deleted_at ? 'hidden' : ''}>

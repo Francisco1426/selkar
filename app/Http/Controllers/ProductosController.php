@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Estatu;
 use App\Models\Producto;
-use PDF;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ProductoRequest;
 
 
@@ -18,7 +19,7 @@ class ProductosController extends Controller
         $this->middleware('ProduccionLogistica');
 
     }
-    
+
     public function index()
     {
         return view('system.productos.index');
@@ -110,6 +111,13 @@ class ProductosController extends Controller
         return $pdf->download('pdf_productos.pdf');
     }
 
+    public function listaPreciosProductos()
+    {
+        $listaprecio = Producto::select('productos.id','productos.nombre','productos.dimension','productos.preciodistribuidor','productos.preciocontado','productos.preciopublico')->get();
+        $pdf = PDF::loadView('system.productos.listaprecios',compact('listaprecio'));
+        $ldate = date('Y-m-d H:i:s');
+        return $pdf->download('pdf_listaprecios.pdf');
+    }
 
     public function generaclave()
     {
