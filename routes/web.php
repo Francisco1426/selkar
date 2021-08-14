@@ -24,6 +24,10 @@ Route::name('pdfproductos')->get('pdfproductos',[ProductosController::class,'get
 Route::get('datatables/productos',[ProductosController::class,'RegistrosDatatables'])->name('productos.datatables');
 Route::name('pdfprecios')->get('pdfprecios',[ProductosController::class,'listaPreciosProductos']);
 
+Route::put('productos/{id}/active-record',[ProductosController::class, 'activeRecord']);
+Route::put('fases/{id}/active-record',[FasesController::class, 'activeRecord']);
+Route::put('clientes/{id}/active-record',[ClientesController::class, 'activeRecord']);
+Route::put('categorias/{id}/active-record',[CategoriasController::class, 'activeRecord']);
 
 //Omar Chong Lopez
 Route::resource('clientes', ClientesController::class);

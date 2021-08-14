@@ -14,7 +14,7 @@
                     <p class="panel-subtitle">Llena todos los campos</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('Modulomateriales.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i>Ver Modulo</a>
+                    <a href="{{route('Modulomateriales.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Asignar materiales</a>
                     <br><br>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                                     <th>Operacion</th>
 
 
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,5 +86,5 @@
     </div>
 </div>
 
-    
+
 @endsection

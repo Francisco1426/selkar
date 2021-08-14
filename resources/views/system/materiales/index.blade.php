@@ -46,7 +46,7 @@
                             },
                                 "ajax":"{{route('materiales.datatables')}}",
                                 "columns":[{
-                                    data: 'id'
+                                    data: 'clave'
                                 },
                                 {
                                     data:'nombre'
@@ -67,10 +67,7 @@
                                             <i class="fas fa-edit"></i>
                                             </a>
 
-<<<<<<< HEAD
-=======
-                                            
->>>>>>> 1f632c1fda930a45468ead49ca35687e0353dd93
+
                                             <a href="/materiales/${data}"
                                             class="btn btn-primary"
                                             ${full.deleted_at ? 'hidden' : ''}>

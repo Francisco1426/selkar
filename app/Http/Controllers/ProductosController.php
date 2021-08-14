@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ProductoRequest;
+use Carbon\Carbon;
+
 
 
 class ProductosController extends Controller
@@ -35,16 +37,42 @@ class ProductosController extends Controller
 
     public function store(ProductoRequest $request)
     {
-        //dd($request->all());
-        //$producto = Producto::create($request->validated());
-        $producto = $request->all();
+        $consecutivo = Producto::latest('id')->first();
+        if($consecutivo){
+            $consecutivo = $consecutivo->id+1;
+        }
+        else {
+        $consecutivo = 1;
+        }
+            $fecha = Carbon::now()->format("my");
+            $nombre = $request->nombre;
+            $nombreproducto=strtoupper( substr($nombre, 0, 3));
+            $clave = "$nombreproducto-$fecha-$consecutivo";
         if ($imagen = $request->file('imagen')) {
             $rutaGuardarImg = 'imagen/';
             $imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenProducto);
-            $producto['imagen'] = "$imagenProducto";
+            $imagen = "$imagenProducto";
         }
-       $producto=  Producto::create($producto, $request->validated());
+        else {
+            $imagen=null;
+        }
+       $producto=  Producto::create([
+        'clave' => $clave,
+        'nombre' => $request->nombre,
+        'preciodistribuidor' => $request->preciodistribuidor,
+        'preciocontado' => $request->preciocontado,
+        'preciopublico' => $request->preciopublico,
+        'dimension' => $request->dimension,
+        'stock' => $request->stock,
+        'presentacion' =>$request->presentacion,
+        'imagen' =>$imagen,
+        'categorias_id' =>$request->categorias_id,
+        'estatus_id' => $request->estatus_id,
+        'descripcion' => $request->descripcion,
+        'tipoproducto' => $request->tipoproducto,
+       ]);
+       $producto->save();
         return redirect()
             ->route('productos.index')
             ->withSuccess("El producto $producto->nombre se guardo correctamente");
@@ -88,14 +116,42 @@ class ProductosController extends Controller
 
     public function destroy(Producto $producto)
     {
-        //
+        $message="Desactivada";
+       if( sizeof($producto->vehiculos) < 1 )
+        {
+           $producto->forceDelete();
+           $message = "Eliminada definitivamente";
+        }
+      $producto->delete();
+      if(request()->ajax()){
+          return response()->json([
+              'producto' => $producto,
+              'message' => $message,
+          ],201 );
+      }
+      return redirect ()
+            ->route("productos.index")
+            ->withSuccess("El producto $producto->nombre se ha dado de baja exitosamente");
     }
-
+    public function activeRecord($id){
+        $producto = Producto::onlyTrashed()
+            ->find($id)
+            ->restore();
+        if((request()->ajax())){
+            return response()->json([
+                'producto' => $producto,
+            ],201 );
+        }
+        return redirect()
+        ->route("productos.index")
+        ->withSuccess("El producto $producto->nombre se ha dado de baja exitosamente");
+}
     public function RegistrosDatatables()
     {
         return datatables()
             ->eloquent(
                 Producto::query()
+                ->withTrashed()
                     ->with([
                         'categorias',
                         'estatus'
@@ -119,8 +175,5 @@ class ProductosController extends Controller
         return $pdf->download('pdf_listaprecios.pdf');
     }
 
-    public function generaclave()
-    {
-        //
-    }
+
 }

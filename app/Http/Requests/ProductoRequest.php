@@ -14,7 +14,7 @@ class ProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'clave' => ['required','regex:/^[A-Z]{3}[-][0-9]{4}[-][0-9]+/'],
+            'clave' => ['nullable'],
             'nombre' => ['required'],
             'preciodistribuidor' => ['required'],
             'preciocontado' => ['required'],

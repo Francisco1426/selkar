@@ -24,8 +24,8 @@
                 @endif
                 <li><a href="{{route('categorias.index')}}" class=""><i class="fas fa-dolly"></i> <span>Categorias</span></a></li>
                 <li><a href="{{route('procesos.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Procesos</span></a></li>
-                <li><a href="{{route('vehiculos.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Vehiculos</span></a></li>
-                <li><a href="{{route('Modulomateriales.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Modulo</span></a></li>
+                <li><a href="{{route('vehiculos.index')}}" class=""><i class="fas fa-truck-moving"></i> <span>Vehiculos</span></a></li>
+                <li><a href="{{route('Modulomateriales.index')}}" class=""><i class="fas fa-ad"></i> <span>Modulo de materiales</span></a></li>
             </ul>
         </nav>
     </div>

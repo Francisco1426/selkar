@@ -14,7 +14,7 @@
                     <p class="panel-subtitle">Llena todos los campos</p>
                 </div>
                 <div class="panel-body">
-                    <a href="{{route('vehiculos.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i>Numero Vehiculo</a>
+                    <a href="{{route('vehiculos.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar Vehiculo</a>
                     <br><br>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                                                 <i class="fas fa-edit"></i>
                                                 </a>
 
-                                            
+
                                                 <a href="/vehiculos/${data}"
                                                 class="btn btn-primary"
                                                 ${full.deleted_at ? 'hidden' : ''}>
@@ -89,5 +89,5 @@
     </div>
 </div>
 
-    
+
 @endsection

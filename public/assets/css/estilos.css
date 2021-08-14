@@ -1,0 +1,86 @@
+*{
+    margin: 0px ;
+    padding: 0px;
+}
+#hero-container{
+    height: 600px;
+}
+#hero-background{
+    background-color: #232f3e;
+    position: absolute;
+    width: 0;
+    height: 600px;
+    transition: 1s ease-in-out;
+}
+.btn{
+    padding: .75rem 2rem;
+}
+#hero-text{
+    opacity: 0;
+    transition: 2s ease-in-out ;
+}
+#hero-img{
+    width: 100%;
+    max-width: 250px;
+    opacity: 0;
+    z-index: 1000;
+    transition: 2s ease-in-out;
+}
+#lines{
+    opacity: 0;
+}
+.spin{
+    width: 100%;
+    max-width: 450px;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+
+    }
+    to{
+        transform: rotate(360deg);
+    }
+
+}
+.img-container {
+    display: flex;
+    justify-content: center;
+    min-height: 600px;
+    align-items: center;
+}
+
+
+/*Iconos de las redes sociales*/
+
+.container-redes {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-redes a {
+    margin-top: 4px;
+}
+
+.container-redes img {
+    width: 60px;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+    border-radius: 100%;
+    transition: all 300ms;
+}
+
+.container-redes a:hover img {
+    background: rgba(0, 0, 0, 0.10);
+}
+
+

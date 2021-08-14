@@ -22,6 +22,7 @@ class CreateClientesTable extends Migration
                     ->on('estatus');
             $table->string('tipocliente');
             $table->string('estatuscliente');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

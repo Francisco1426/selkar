@@ -60,12 +60,13 @@ class FasesController extends Controller
 
     }
 
-  
+
     public function RegistrosDatatables()
     {
         return datatables()
                 ->eloquent(
                     Fase::query()
+                    ->withTrashed()
                     ->with([
                         'estatus'
                     ])
@@ -79,5 +80,37 @@ class FasesController extends Controller
         $pdf = PDf::loadView('system.fases.pdf',compact('fasepdf'));
                 return $pdf->download('pdf_fases.pdf');
     }
+    public function destroy(Fase $fase)
+    {
+        $message="Desactivada";
+       if( sizeof($fase->estatus) < 1 )
+        {
+           $fase->forceDelete();
+           $message = "Eliminada definitivamente";
+        }
+      $fase->delete();
+      if(request()->ajax()){
+          return response()->json([
+              'fase' => $fase,
+              'message' => $message,
+          ],201 );
+      }
+      return redirect ()
+            ->route("fases.index")
+            ->withSuccess("La fase $fase->nombre se ha dado de baja exitosamente");
+    }
+    public function activeRecord($id){
+        $fase = Fase::onlyTrashed()
+            ->find($id)
+            ->restore();
+        if((request()->ajax())){
+            return response()->json([
+                'fase' => $fase,
+            ],201 );
+        }
+        return redirect()
+        ->route("fases.index")
+        ->withSuccess("El producto $fase->nombre se ha dado de baja exitosamente");
+}
 
 }

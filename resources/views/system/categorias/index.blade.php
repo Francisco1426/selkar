@@ -63,6 +63,12 @@
                                                 ${full.deleted_at ? 'hidden' : ''}>
                                                 <i class="fas fa-edit"></i>
                                                 </a>
+                                                <button class="btn ${full.deleted_at ? 'btn-success' : 'btn-danger'}"
+                            ${full.deleted_at ? `onclick="activeRecord(${data})"` : `onclick="deleteRecord(${data})"`}
+                            onclick="deleteRecord(${data})"
+                            >
+                            <i class="${full.deleted_at ? 'fas fa-power-off' : 'fas fa-trash-alt'}"></i>
+                            </button>
                                             `
                                     }
                                 }
@@ -70,6 +76,75 @@
                             ]
 
                         });
+
+                        function deleteRecord(id) {
+                            Swal.fire({
+                                title: 'Estas seguro de eliminar esta categoria?',
+                                text: "No podras revertir cambios!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Si, eliminar categoria!',
+                                cancelButtonText: 'Cancelar!',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $.ajax({
+                                        type: 'DELETE',
+                                        url: `/categorias/${id}`,
+                                        data: {
+                                            _token: $('[name="_token"]').val(),
+                                        },
+                                        success: res => {
+                                            Swal.fire(
+                                                'Eliminado!',
+                                                `La categoria ${res.categoria.nombre} ha sido ${res.message} exitosamente.`,
+                                                'success'
+                                            );
+                                            reloadTable();
+                                        },
+                                        error: error => {
+                                            console.log(error);
+                                        },
+                                    });
+
+                                }
+                            });
+                        }
+
+                        function activeRecord(id) {
+                            Swal.fire({
+                                title: 'Estas seguro que deseas activar esta categoria?',
+                                text: "No podras revertir cambios!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Si, activar categoria!',
+                                cancelButtonText: 'Cancelar!',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $.ajax({
+                                        type: 'PUT',
+                                        url: `/categorias/${id}/active-record`,
+                                        data: {
+                                            _token: $('[name="_token"]').val(),
+                                        },
+                                        success: res => {
+                                            Swal.fire(
+                                                'Activado!',
+                                                `La categoria ${res.categoria.nombre} ha sido activado exitosamente.`,
+                                                'success'
+                                            );
+                                            reloadTable();
+                                        },
+                                        error: error => {
+                                            console.log(error);
+                                        },
+                                    });
+                                }
+                            });
+                        }
 
                         function reloadTable() {
                             $('#categorias').DataTable().ajax.reload();

@@ -36,7 +36,7 @@ class CategoriasController extends Controller
     {
         return view('system.categorias.edit', [
             'categoria' => $categoria,
-            'estatus' => Estatu::select('id','nombre')->get()
+            'estatus' => Estatu::select('id', 'nombre')->get()
         ]);
     }
 
@@ -45,15 +45,47 @@ class CategoriasController extends Controller
         $categoria->update($request->validated());
         $categoria->save();
         return redirect()
-                ->route('categorias.index')
-                ->withSuccess("La ctaegoria $categoria->nombre se modifico correctamente");
+            ->route('categorias.index')
+            ->withSuccess("La categoria $categoria->nombre se modifico correctamente");
     }
-
+    public function destroy(Categoria $categoria)
+    {
+        $message = "Desactivada";
+        if (sizeof($categoria->productos) < 1) {
+            $categoria->forceDelete();
+            $message = "Eliminada definitivamente";
+        }
+        $categoria->delete();
+        if (request()->ajax()) {
+            return response()->json([
+                'categoria' => $categoria,
+                'message' => $message,
+            ], 201);
+        }
+        return redirect()
+            ->route("categorias.index")
+            ->withSuccess("La categoria $categoria->nombre se ha dado de baja exitosamente");
+    }
+    public function activeRecord($id)
+    {
+        $categoria = Categoria::onlyTrashed()
+            ->find($id)
+            ->restore();
+        if ((request()->ajax())) {
+            return response()->json([
+                'categoria' => $categoria,
+            ], 201);
+        }
+        return redirect()
+            ->route("categorias.index")
+            ->withSuccess("La categoria $categoria->nombre se ha dado de baja exitosamente");
+    }
     public function RegistrosDatatables()
     {
         return datatables()
             ->eloquent(
                 Categoria::query()
+                ->withTrashed()
                     ->with([
                         'estatus'
                     ])
@@ -65,6 +97,9 @@ class CategoriasController extends Controller
     {
         $categoriapdf = Categoria::all();
         $pdf = PDF::loadView('system.categorias.pdf', compact('categoriapdf'));
-            return $pdf->download('pdf_categorias.pdf');
+        return $pdf->download('pdf_categorias.pdf');
     }
+
+
+
 }

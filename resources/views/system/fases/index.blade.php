@@ -66,11 +66,91 @@
                                             ${full.deleted_at ? 'hidden' : ''}>
                                             <i class="fas fa-edit"></i>
                                             </a>
+                                            <a href="/productos/${data}"
+                                                class="btn btn-primary"
+                                                ${full.deleted_at ? 'hidden' : ''}>
+                                                <i class="far fa-eye"></i>
+                                                </a>
+                                                </a>
+                            <button class="btn ${full.deleted_at ? 'btn-success' : 'btn-danger'}"
+                            ${full.deleted_at ? `onclick="activeRecord(${data})"` : `onclick="deleteRecord(${data})"`}
+                            onclick="deleteRecord(${data})"
+                            >
+                            <i class="${full.deleted_at ? 'fas fa-power-off' : 'fas fa-trash-alt'}"></i>
+                            </button>
                                            `
                                         }
                                     }
                                     ]
                                 });
+                                function deleteRecord(id) {
+                        Swal.fire({
+                            title: 'Estas seguro de eliminar esta fase?',
+                            text: "No podras revertir cambios!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Si, eliminar fase!',
+                            cancelButtonText: 'Cancelar!',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    type: 'DELETE',
+                                    url: `/fases/${id}`,
+                                    data: {
+                                        _token: $('[name="_token"]').val(),
+                                    },
+                                    success: res => {
+                                        Swal.fire(
+                                            'Eliminado!',
+                                            `La fase ${res.fase.nombre} ha sido ${res.message} exitosamente.`,
+                                            'success'
+                                        );
+                                        reloadTable();
+                                    },
+                                    error: error => {
+                                        console.log(error);
+                                    },
+                                });
+
+                            }
+                        });
+                    }
+
+                    function activeRecord(id) {
+                        Swal.fire({
+                            title: 'Estas seguro que deseas activar esta fase?',
+                            text: "No podras revertir cambios!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Si, activar mascota!',
+                            cancelButtonText: 'Cancelar!',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    type: 'PUT',
+                                    url: `/fases/${id}/active-record`,
+                                    data: {
+                                        _token: $('[name="_token"]').val(),
+                                    },
+                                    success: res => {
+                                        Swal.fire(
+                                            'Activado!',
+                                            `La fase ${res.fase.nombre} ha sido activado exitosamente.`,
+                                            'success'
+                                        );
+                                        reloadTable();
+                                    },
+                                    error: error => {
+                                        console.log(error);
+                                    },
+                                });
+                            }
+                        });
+                    }
                                 function reloadTable(){
                                     $('#fases').DataTable().ajax.reload()
                                 }

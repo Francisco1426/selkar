@@ -25,7 +25,7 @@
                             <div class="col-md-4">
                                 <label for="app" class="col-sm-1-12 col-form-label">Clave:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="clave" name="clave" value="{{$producto->clave}}" placeholder=" Escriba la clave">
+                                    <input type="text" class="form-control" id="clave" readonly name="clave" value="{{$producto->clave}}" placeholder=" Escriba la clave">
                                 </div>
                                 @error('clave')
                                 <small class="text-danger"> {{ $message }} </small>

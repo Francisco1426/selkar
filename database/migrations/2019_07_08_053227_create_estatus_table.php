@@ -13,6 +13,7 @@ class CreateEstatusTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

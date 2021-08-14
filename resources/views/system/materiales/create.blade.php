@@ -23,7 +23,7 @@
                             <div class="col-md-6">
                                 <label for="clave" class="col-sm-1-12 col-form-label">Clave</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('clave') is-invalid @enderror" name="clave" id="clave" value="{{ old('clave')}}" placeholder="" Escribe la clave....">
+                                    <input type="text" class="form-control @error('clave') is-invalid @enderror" name="clave" id="clave" value="{{ old('clave')}}" placeholder="LAM-10">
                                 </div>
 
                                 @error('clave')

@@ -76,21 +76,93 @@
                                                 <i class="fas fa-edit"></i>
                                                 </a>
 
-<<<<<<< HEAD
-
-=======
-                                            
->>>>>>> 1f632c1fda930a45468ead49ca35687e0353dd93
                                                 <a href="/clientes/${data}"
                                                 class="btn btn-primary"
                                                 ${full.deleted_at ? 'hidden' : ''}>
                                                 <i class="far fa-eye"></i>
                                                 </a>
+
+                            <button class="btn ${full.deleted_at ? 'btn-success' : 'btn-danger'}"
+                            ${full.deleted_at ? `onclick="activeRecord(${data})"` : `onclick="deleteRecord(${data})"`}
+                            onclick="deleteRecord(${data})"
+                            >
+                            <i class="${full.deleted_at ? 'fas fa-power-off' : 'fas fa-trash-alt'}"></i>
+                            </button>
                                         `
                                     }
                                 }
                             ]
                         });
+
+                        function deleteRecord(id) {
+                            Swal.fire({
+                                title: 'Estas seguro de eliminar este cliente?',
+                                text: "No podras revertir cambios!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Si, eliminar cliente!',
+                                cancelButtonText: 'Cancelar!',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $.ajax({
+                                        type: 'DELETE',
+                                        url: `/clientes/${id}`,
+                                        data: {
+                                            _token: $('[name="_token"]').val(),
+                                        },
+                                        success: res => {
+                                            Swal.fire(
+                                                'Eliminado!',
+                                                `El cliente ${res.cliente.razonsocial} ha sido ${res.message} exitosamente.`,
+                                                'success'
+                                            );
+                                            reloadTable();
+                                        },
+                                        error: error => {
+                                            console.log(error);
+                                        },
+                                    });
+
+                                }
+                            });
+                        }
+
+                        function activeRecord(id) {
+                            Swal.fire({
+                                title: 'Estas seguro que deseas activar esta cliente?',
+                                text: "No podras revertir cambios!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Si, activar mascota!',
+                                cancelButtonText: 'Cancelar!',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $.ajax({
+                                        type: 'PUT',
+                                        url: `/clientes/${id}/active-record`,
+                                        data: {
+                                            _token: $('[name="_token"]').val(),
+                                        },
+                                        success: res => {
+                                            Swal.fire(
+                                                'Activado!',
+                                                `El clientes ${res.cliente.razonsocial} ha sido activado exitosamente.`,
+                                                'success'
+                                            );
+                                            reloadTable();
+                                        },
+                                        error: error => {
+                                            console.log(error);
+                                        },
+                                    });
+                                }
+                            });
+                        }
+
                         function reloadTable() {
                             $('#clientes').DataTable().ajax.reload();
                         }

@@ -16,6 +16,7 @@ class CreateCategoriasTable extends Migration
             $table->foreignId('estatus_id')
                   ->references('id')
                   ->on('estatus');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

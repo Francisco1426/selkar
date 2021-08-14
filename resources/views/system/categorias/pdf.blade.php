@@ -5,7 +5,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/tabla.css')}}">
     <title>Reporte de categorias</title>
     <style>
         body{
@@ -71,7 +70,7 @@ h2{
                     <td>{{$categoria->id}}</td>
                     <td>{{$categoria->nombre}}</td>
                     <td>{{$categoria->descripcion}}</td>
-                    <td>{{$categoria->estatus_id}}</td>
+                    <td>{{$categoria->estatus->nombre}}</td>
                 </tr>
                 @endforeach
             </tbody>

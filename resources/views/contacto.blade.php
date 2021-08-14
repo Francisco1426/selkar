@@ -64,8 +64,10 @@
                     <input type="submit" name="send" value="Enviar" class="btn btn-success">
                 </div>
             </form>
+
         </div>
     </div>
+
 </div>
 <br>
 <div id="inner_banner" class="section inner_banner_section">

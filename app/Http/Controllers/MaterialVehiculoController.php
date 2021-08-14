@@ -14,22 +14,14 @@ use Illuminate\Auth\Events\Validated;
 
 class MaterialVehiculoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index()
     {
         $vehiculo = MaterialVehiculo::all(); 
         return view('system.materiales.Modulomateriales.index', compact('vehiculo'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('system.materiales.Modulomateriales.create',[
@@ -37,34 +29,19 @@ class MaterialVehiculoController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MaterialVehiculo  $materialVehiculo
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(MaterialVehiculo $materialVehiculo)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\MaterialVehiculo  $materialVehiculo
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($vehiculo)
     {
         $vehiculo= Vehiculo::findOrFail($vehiculo)->with('materialVehiculos')->first();
@@ -74,24 +51,13 @@ class MaterialVehiculoController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MaterialVehiculo  $materialVehiculo
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, MaterialVehiculo $materialVehiculo)
     {
         
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MaterialVehiculo  $materialVehiculo
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(MaterialVehiculo $materialVehiculo)
     {
         //

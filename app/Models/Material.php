@@ -18,4 +18,8 @@ class Material extends Model
     {
         return $this->belongsTo(Estatu::class);
     }
+    public function getNombreAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

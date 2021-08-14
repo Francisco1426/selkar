@@ -17,7 +17,7 @@ class ClientesController extends Controller
     {
         $this->middleware("Ventas");
     }
-    
+
     public function index()
     {
 
@@ -65,12 +65,44 @@ class ClientesController extends Controller
             ->route('clientes.index')
             ->withSuccess("El cliente $cliente->razonsocial se modifico correctamente");
     }
-
+    public function destroy(Cliente $cliente)
+    {
+        $message="Desactivada";
+       if( sizeof($cliente->vehiculos) < 1 )
+        {
+           $cliente->forceDelete();
+           $message = "Eliminada definitivamente";
+        }
+      $cliente->delete();
+      if(request()->ajax()){
+          return response()->json([
+              'cliente' => $cliente,
+              'message' => $message,
+          ],201 );
+      }
+      return redirect ()
+            ->route("clientes.index")
+            ->withSuccess("El cliente $cliente->razonsocial se ha dado de baja exitosamente");
+    }
+    public function activeRecord($id){
+        $cliente = Cliente::onlyTrashed()
+            ->find($id)
+            ->restore();
+        if((request()->ajax())){
+            return response()->json([
+                'cliente' => $cliente,
+            ],201 );
+        }
+        return redirect()
+        ->route("clientes.index")
+        ->withSuccess("El producto $cliente->razonsocial se ha dado de baja exitosamente");
+}
     public function RegistrosDatatables()
     {
        return datatables()
               ->eloquent(
                     Cliente::query()
+                    ->withTrashed()
                     ->with([
                         'estatus'
                     ])

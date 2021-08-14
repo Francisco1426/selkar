@@ -11,15 +11,15 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(EstatuSeeder::class);
         $this->call(CategoriasSeeder::class);
+        $this->call(ProcesoSeeder::class);
         $this->call(ClienteSeeder::class);
         $this->call(FaseSeeder::class);
-
-        //$this->call(MaterialSeeder::class);
+        $this->call(MaterialSeeder::class);
         $this->call(ProductosSeeder::class);
-        //$this->call(ProcesoSeeder::class);
         $this->call(UsuarioSeeder::class);
+        $this->call(VehiculoSeeder::class);
 
-        //$this->call(MaterialSeeder::class);
+
         // \App\Models\User::factory(10)->create();
     }
 }
