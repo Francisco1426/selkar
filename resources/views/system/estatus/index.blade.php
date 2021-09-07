@@ -35,39 +35,39 @@
             @section('js')
             <script>
                 $('#estatus').DataTable({
-                    "responsive":true,
-                    "processing":true,
-                    "serverSide":true,
-                    "autoWidth":false,
+                    "responsive": true,
+                    "processing": true,
+                    "serverSide": true,
+                    "autoWidth": false,
                     language: {
-                                url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
-                            },
-                    "ajax":"{{route('estatus.datatables')}}",
-                    "columns":[{
-                        data: 'id'
+                        url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json",
                     },
-                    {
-                        data: 'nombre'
-                    },
-                    {
-                        data: 'descripcion'
-                    },
-                    {
-                        data:'id',
-                        render: function(data, type, full, meta){
-                            return `
+                    "ajax": "{{route('estatus.datatables')}}",
+                    "columns": [{
+                            data: 'id'
+                        },
+                        {
+                            data: 'nombre'
+                        },
+                        {
+                            data: 'descripcion'
+                        },
+                        {
+                            data: 'id',
+                            render: function(data, type, full, meta) {
+                                return `
                                 <a href="/estatus/${data}/edit"
                                 class="btn btn-success"
                                 ${full.deleted_at ? 'hidden' : ''}>
                                 <i class="fas fa-edit"></i>
                                 </a>
                                 `
+                            }
                         }
-                    }
                     ]
                 });
 
-                function reloadTable(){
+                function reloadTable() {
                     $('#estatus').DataTable().ajax.reload();
                 }
             </script>
