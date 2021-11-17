@@ -11,7 +11,7 @@ class Cliente extends Model
 {
     use HasFactory, softDeletes;
     protected $fillable = [
-
+        'nombre',
         'razonsocial',
         'telefono',
         'email',

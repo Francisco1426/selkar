@@ -1,18 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InicioController;
-use App\Http\Controllers\MaterialesController;
-use App\Http\Controllers\ProductosController;
-use App\Http\Controllers\ClientesController;
-use App\Http\Controllers\EstatusController;
 use App\Http\Controllers\FasesController;
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\EstatusController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProcesosController;
-use App\Http\Controllers\CategoriasController;
-use App\Http\Controllers\MaterialVehiculoController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\VehiculosController;
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\MaterialesController;
+use App\Http\Controllers\CotizacionesController;
 use App\Http\Controllers\ContactUsFormController;
+use App\Http\Controllers\MaterialVehiculoController;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
@@ -41,6 +43,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('procesos', ProcesosController::class);
     Route::put('procesos/{id}/active-record', [ProcesosController::class, 'activeRecord'])->name('procesos.active-record');
     Route::get('datatables/procesos', [ProcesosController::class, 'RegistrosDatatables'])->name('procesos.datatables');
+    //omar chong lopez
+    Route::resource('cotizaciones',CotizacionesController::class);
+    Route::post('Cotizaciones/buscarcliente', [CotizacionesController::class, 'buscarcliente'])->name('Cotizaciones.buscarcliente');
+    Route::post('Cotizaciones/searchcliente', [CotizacionesController::class, 'searchcliente'])->name('Cotizaciones.searchcliente');
+
 
 
     //francisco

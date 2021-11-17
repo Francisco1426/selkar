@@ -23,7 +23,7 @@
                             <div class="col-md-12">
                                 <label for="estatus" class="col-sm-1-12 col-form-label">Buscar Vehiculo (Numero de Serie)</label>
                                 <div class="input-group">
-                                    <input type="search" class="form-control" name="numeroserie" id="numeroserie" placeholder="Busca el vehiculo..." >
+                                    <input type="search" class="form-control" name="numeroserie" id="numeroserie" placeholder="Busca el vehiculo...">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-primary" id="btn-seleccionar-vehiculo">Seleccionar</button>
                                     </span>
@@ -66,7 +66,7 @@
                             <div class="col-md-12">
                                 <label for="estatus" class="col-sm-1-12 col-form-label">Buscar Material (Nombre)</label>
                                 <div class="input-group">
-                                    <input type="search" class="form-control" name="nombre" id="nombre" placeholder="Busca el material..." >
+                                    <input type="search" class="form-control" name="nombre" id="nombre" placeholder="Busca el material...">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-primary" id="btn-seleccionar-material">Seleccionar</button>
                                     </span>
@@ -137,23 +137,23 @@
                                     <input type="date" class="form-control" name="fecha" id="fecha" value="" placeholder="">
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="descripcion" class="col-sm-1-12 col-form-label">Observacioes</label>
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="descripcion" id="descripcion" value="" placeholder="Descripcion....">
+                                <trix-editor input="descripcion"></trix-editor>
                             </div>
-                            <div class="col-md-12">
-                                <label for="descripcion" class="col-sm-1-12 col-form-label">Observacioes</label>
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="descripcion" id="descripcion" value="" placeholder="Descripcion....">
-                                    <trix-editor input="descripcion"></trix-editor>
-                                </div>
-                            </div>
+                        </div>
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <button type="button" id="btn-agregar-material" class="btn btn-primary float-rigth">Agregar</button>
-                                </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="button" id="btn-agregar-material" class="btn btn-primary float-rigth">Agregar</button>
                             </div>
+                        </div>
 
-                            <h2 class="text-center h2 mt-3"><b>Lista de Materiales para el Vehiculo a trabajar</b></h2>
-                            <table id="lista-materiales" class="table table-striped"">
+                        <h2 class="text-center h2 mt-3"><b>Lista de Materiales para el Vehiculo a trabajar</b></h2>
+                        <table id="lista-materiales" class="table table-striped"">
                                 <thead>
                                     <th>Clave</th>
                                     <th>Nombre</th>
@@ -169,35 +169,35 @@
                                                 $idunico = random_int(1,1000);
 
                                             @endphp
-                                            <tr id="tr-material{{$idunico}}">
-                                                <td>{{$id_material}}
-                                                </td>
-                                                <td>{{old('nombre_material')[$key]}}</td>
-                                                <td><input type="number" class="form-control" name="cantidad_material[]" id="input-editar-material-{{$idunico}}" value="{{old('cantidad_material')[$key]}}" readonly></td>
-                                                <td>{{old('medida_material')[$key]}}</td>
-                                                <td>{{old('vehiculo_material_numero')[$key]}}</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success" onclick="modificarMaterial({{$idunico}})" id="btn-editar-material-{{$idunico}}"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-danger" onclick="eliminarMaterial({{$idunico}})" id="btn-eliminar-material-{{$idunico}}"> <i class="fas fa-trash"></i></button>
-                                                </td>
+                                            <tr id=" tr-material{{$idunico}}">
+                            <td>{{$id_material}}
+                            </td>
+                            <td>{{old('nombre_material')[$key]}}</td>
+                            <td><input type="number" class="form-control" name="cantidad_material[]" id="input-editar-material-{{$idunico}}" value="{{old('cantidad_material')[$key]}}" readonly></td>
+                            <td>{{old('medida_material')[$key]}}</td>
+                            <td>{{old('vehiculo_material_numero')[$key]}}</td>
+                            <td>
+                                <button type="button" class="btn btn-success" onclick="modificarMaterial({{$idunico}})" id="btn-editar-material-{{$idunico}}"><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger" onclick="eliminarMaterial({{$idunico}})" id="btn-eliminar-material-{{$idunico}}"> <i class="fas fa-trash"></i></button>
+                            </td>
 
-                                                <td hidden>
-                                                    <input type="text" class="form-control" name="id_material[]" value="{{$id_material}}" hidden>
-                                                    <input type="text" class="form-control" name="observaciones_material[]" value="{{old('observaciones_material')[$key]}}" hidden>
-                                                    <input type="text" class="form-control" name="fecha_material[]" value="{{old('fecha_material')[$key]}}" hidden>
-                                                    <input type="text" class="form-control" name="fases_material[]" value="{{old('fases_material')[$key]}}" hidden>
-                                                    <input type="text" class="form-control" name="vehiculo_material[]" value="{{old('vehiculo_material')[$key]}}" hidden>
-                                                    <input type="text" class="form-control" name="nombre_material[]" value="{{old('nombre_material')[$key]}}" hidden>
-                                                    <input type="text" class="form-control" name="medida_material[]" value="{{old('medida_material')[$key]}}" hidden>
-                                                    <input type="text" class="form-control" name="vehiculo_material_numero[]" value="{{old('vehiculo_material_numero')[$key]}}" hidden>
+                            <td hidden>
+                                <input type="text" class="form-control" name="id_material[]" value="{{$id_material}}" hidden>
+                                <input type="text" class="form-control" name="observaciones_material[]" value="{{old('observaciones_material')[$key]}}" hidden>
+                                <input type="text" class="form-control" name="fecha_material[]" value="{{old('fecha_material')[$key]}}" hidden>
+                                <input type="text" class="form-control" name="fases_material[]" value="{{old('fases_material')[$key]}}" hidden>
+                                <input type="text" class="form-control" name="vehiculo_material[]" value="{{old('vehiculo_material')[$key]}}" hidden>
+                                <input type="text" class="form-control" name="nombre_material[]" value="{{old('nombre_material')[$key]}}" hidden>
+                                <input type="text" class="form-control" name="medida_material[]" value="{{old('medida_material')[$key]}}" hidden>
+                                <input type="text" class="form-control" name="vehiculo_material_numero[]" value="{{old('vehiculo_material_numero')[$key]}}" hidden>
 
-                                                </td>
+                            </td>
 
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                </tbody>
-                            </table>
+                            </tr>
+                            @endforeach
+                            @endif
+                            </tbody>
+                        </table>
 
                         <div class="col-md-11">
                             <div class="form-group">
@@ -215,116 +215,116 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
 
-    <script>
-        $(document).ready(function (){
-            $("#nombre").autocomplete({
-                source: function(request, response){
-                    $.ajax({
-                        url: "{{route('Modulomateriales.search')}}",
-                        type: "POST",
-                        data: {
-                            term : request.term,
-                            _token:$("input[name= _token]").val()
-                        },
-                        dataType:"json",
-                        success: function(data){
-                            var resp = $.map(data, function(obj){
-                                return obj.nombre;
-                            });
+<script>
+    $(document).ready(function() {
+        $("#nombre").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: "{{route('Modulomateriales.search')}}",
+                    type: "POST",
+                    data: {
+                        term: request.term,
+                        _token: $("input[name= _token]").val()
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        var resp = $.map(data, function(obj) {
+                            return obj.nombre;
+                        });
 
-                            response(resp);
-                        }
-                    });
-                },
-                minLength: 1
-            });
+                        response(resp);
+                    }
+                });
+            },
+            minLength: 1
         });
+    });
 
-        $(document).ready(function(){
-            $("#numeroserie").autocomplete({
-                source: function(request, response){
-                    $.ajax({
-                        url: "{{route('Modulomateriales.searchvehiculo')}}",
-                        type: "POST",
-                        data:{
-                            term: request.term,
-                            _token:$("input[name=_token]").val()
-                        },
-                        dataType:"json",
-                        success: function(data){
-                            var resp = $.map(data, function(obj){
-                                return obj.numeroserie;
-                            });
+    $(document).ready(function() {
+        $("#numeroserie").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: "{{route('Modulomateriales.searchvehiculo')}}",
+                    type: "POST",
+                    data: {
+                        term: request.term,
+                        _token: $("input[name=_token]").val()
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        var resp = $.map(data, function(obj) {
+                            return obj.numeroserie;
+                        });
 
-                            response(resp);
-                        }
-                    });
-                },
-                minLength:1
-            });
+                        response(resp);
+                    }
+                });
+            },
+            minLength: 1
         });
+    });
 
 
-        $('#btn-seleccionar-material').click(function(){
-            const material = $('#nombre').val()
-            // console.log(material)
-            $.ajax({
-                url: "{{route('Modulomateriales.buscarmaterial')}}",
-                type: "POST",
-                data: {
-                    material : material,
-                    _token:$("input[name= _token]").val()
-                },
-                success:function(data){
-                    console.log(data)
-                    $('#material_id').val(data.id ?? "Sin datos")
-                    $('#clave').val(data.clave ?? "Sin datos")
-                    $('#tipomaterial').val(data.tipomaterial ?? "Sin datos")
-                    $('#medida').val(data.medida ?? "Sin datos")
-                    $('#estatus').val(data.estatus ? data.estatus.nombre: "Sin datos")
-                    $('#existente').val(data.existente ?? "Sin datos")
-                }
-            })
-        });
-
-        $('#btn-seleccionar-vehiculo').click(function(){
-            const vehiculo = $('#numeroserie').val()
-
-            $.ajax({
-                url: "{{route('Modulomateriales.buscarvehiculo')}}",
-                type: "POST",
-                data: {
-                    vehiculo: vehiculo,
-                    _token:$("input[name= _token]").val()
-                },
-                success:function(data){
-                    console.log(data)
-                    $('#vehiculo_id').val(data.id ?? "Sin datos")
-                    $('#vehiculo').val(data.nombre ?? "Sin datos")
-                    $('#marca').val(data.marca ?? "Sin datos")
-                    $('#producto').val(data.producto ? data.producto.nombre: "Sin datos")
-
-                }
-            })
+    $('#btn-seleccionar-material').click(function() {
+        const material = $('#nombre').val()
+        // console.log(material)
+        $.ajax({
+            url: "{{route('Modulomateriales.buscarmaterial')}}",
+            type: "POST",
+            data: {
+                material: material,
+                _token: $("input[name= _token]").val()
+            },
+            success: function(data) {
+                console.log(data)
+                $('#material_id').val(data.id ?? "Sin datos")
+                $('#clave').val(data.clave ?? "Sin datos")
+                $('#tipomaterial').val(data.tipomaterial ?? "Sin datos")
+                $('#medida').val(data.medida ?? "Sin datos")
+                $('#estatus').val(data.estatus ? data.estatus.nombre : "Sin datos")
+                $('#existente').val(data.existente ?? "Sin datos")
+            }
         })
+    });
 
-        $("#btn-agregar-material").click(function(){
-            const idMaterial = $('#material_id').val()
-            const cantidad = $('#cantidad').val()
-            const observaciones = $('#descripcion').val()
-            const fecha = $('#fecha').val()
-            const fases = $('#fase').val()
-            const vehiculo_id = $('#vehiculo_id').val()
-            const nombre =$('#nombre').val()
-            const medida =$('#medida').val()
-            const vehiculo =$('#numeroserie').val()
-            const idunico=  Math.floor(Math.random()*10000+1+idMaterial);
-            const id_eliminar = `btn-eliminar-material-${idunico}`
-            const id = `btn-editar-material-${idunico}`
-            const idinput = `input-editar-material-${idunico}`
+    $('#btn-seleccionar-vehiculo').click(function() {
+        const vehiculo = $('#numeroserie').val()
+
+        $.ajax({
+            url: "{{route('Modulomateriales.buscarvehiculo')}}",
+            type: "POST",
+            data: {
+                vehiculo: vehiculo,
+                _token: $("input[name= _token]").val()
+            },
+            success: function(data) {
+                console.log(data)
+                $('#vehiculo_id').val(data.id ?? "Sin datos")
+                $('#vehiculo').val(data.nombre ?? "Sin datos")
+                $('#marca').val(data.marca ?? "Sin datos")
+                $('#producto').val(data.producto ? data.producto.nombre : "Sin datos")
+
+            }
+        })
+    })
+
+    $("#btn-agregar-material").click(function() {
+        const idMaterial = $('#material_id').val()
+        const cantidad = $('#cantidad').val()
+        const observaciones = $('#descripcion').val()
+        const fecha = $('#fecha').val()
+        const fases = $('#fase').val()
+        const vehiculo_id = $('#vehiculo_id').val()
+        const nombre = $('#nombre').val()
+        const medida = $('#medida').val()
+        const vehiculo = $('#numeroserie').val()
+        const idunico = Math.floor(Math.random() * 10000 + 1 + idMaterial);
+        const id_eliminar = `btn-eliminar-material-${idunico}`
+        const id = `btn-editar-material-${idunico}`
+        const idinput = `input-editar-material-${idunico}`
 
 
-            const html = `
+        const html = `
             <tr id="tr-material${idunico}">
                 <td>${idMaterial}
                 </td>
@@ -353,18 +353,18 @@
             `
 
 
-            $("#lista-materiales tbody").append(html)
+        $("#lista-materiales tbody").append(html)
 
-        })
+    })
 
-        function modificarMaterial(input){
-            $(`#input-editar-material-${input}`).removeAttr("readonly")
-        }
+    function modificarMaterial(input) {
+        $(`#input-editar-material-${input}`).removeAttr("readonly")
+    }
 
-        function eliminarMaterial(id){
-            $(`#tr-material${id}`).remove()
-        }
-    </script>
+    function eliminarMaterial(id) {
+        $(`#tr-material${id}`).remove()
+    }
+</script>
 @endsection
 
 @endsection

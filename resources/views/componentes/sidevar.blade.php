@@ -26,6 +26,7 @@
                 <li><a href="{{route('procesos.index')}}" class=""><i class="fas fa-info-circle"></i> <span>Procesos</span></a></li>
                 <li><a href="{{route('vehiculos.index')}}" class=""><i class="fas fa-truck-moving"></i> <span>Vehiculos</span></a></li>
                 <li><a href="{{route('Modulomateriales.index')}}" class=""><i class="fas fa-ad"></i> <span>Modulo de materiales</span></a></li>
+                <li><a href="{{route('cotizaciones.index')}}" class=""><i class="fas fa-ad"></i> <span>Cotizaciones</span></a></li>
             </ul>
         </nav>
     </div>

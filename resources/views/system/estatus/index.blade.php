@@ -66,7 +66,6 @@
                         }
                     ]
                 });
-
                 function reloadTable() {
                     $('#estatus').DataTable().ajax.reload();
                 }
@@ -75,5 +74,4 @@
         </div>
     </div>
 </div>
-
 @endsection
