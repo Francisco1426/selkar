@@ -138,6 +138,7 @@
                                         <th scope="col">Precio unitario</th>
                                         <th scope="col">Descuento</th>
                                         <th scope="col">Total</th>
+                                        <th scope="col">Total con descuento</th>
                                         <th scope="col">Opciones</th>
                                     </tr>
                                 </thead>
@@ -145,10 +146,11 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Caja seca</td>
-                                        <td>2</td>
-                                        <td>$70000</td>
-                                        <td>%5</td>
-                                        <td>$66500</td>
+                                        <td><input type="text" class="form-control" name="cantidad" onChange="calculardescuento();"></td>
+                                        <td><input type="text" class="form-control" name="precio" onChange="calculardescuento();"></td>
+                                        <td><input type="text" class="form-control" name="descuento" readonly></td>
+                                        <td><input type="text" class="form-control" name="total" readonly></td>
+                                        <td><input type="text" class="form-control" name="preciofinal" readonly></td>
                                         <td><i class="fas fa-trash-alt"></i></td>
 
                                     </tr>
@@ -213,6 +215,19 @@
             }
         })
     })
+   
+    function calculardescuento() {
+
+        var descuento = 10;
+        var cantidad = $("input[name=cantidad]").val();
+        var precio = $("input[name=precio]").val();
+        var preciodescuento = (cantidad * precio);
+        var preciofinal = (preciodescuento * descuento / 100); //200
+        var preciocondescuento = (preciofinal - preciodescuento);
+        $("input[name=descuento]").val(descuento);
+        $("input[name=total]").val(preciodescuento);
+        $("input[name=preciofinal]").val(preciocondescuento);
+    }
 </script>
 
 @endsection

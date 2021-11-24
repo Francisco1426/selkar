@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Cotizacion extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'titulo',
+        'cliente_id',
+        'producto_id'
+    ];
+    
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
 }

@@ -32,6 +32,12 @@ class Cliente extends Model
     {
         return $this->hasMany(Vehiculo::class);
     }
+    
+    public function cotizaciones()
+    {
+        return $this->hasMany(Cotizacion::class);
+    }
+
     public function getRepresentanteAttribute($value)
     {
         return ucfirst($value);
