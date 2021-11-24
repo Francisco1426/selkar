@@ -76,6 +76,11 @@ Route::post('Modulomateriales/searchvehiculo',[MaterialVehiculoController::class
 Route::post('Modulomateriales/guardar',[MaterialVehiculoController::class,'guardar'])->name('Modulomateriales.guardar');
 Route::post('Modulomateriales/editar',[MaterialVehiculoController::class,'editar'])->name('Modulomateriales.editar');
 Route::get('datables/Modulomateriales',[MaterialVehiculoController::class,'RegistrosDatatables'])->name('Modulomateriales.datatables');
+
+Route::get('obtenercategorias',[InicioController::class,'obtenercategorias']);
+
+Route::get('obtenerestatus',[InicioController::class,'obtenerestatus']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 

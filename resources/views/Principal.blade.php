@@ -13,7 +13,7 @@
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/linearicons/style.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/chartist/css/chartist-custom.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('vendor/chartist/css/chartist-custom.css')}}"> --}}
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
