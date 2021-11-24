@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriasSeeder::class);
         $this->call(ProcesoSeeder::class);
         $this->call(ClienteSeeder::class);
+<<<<<<< HEAD
         $this->call(FaseSeeder::class);
         $this->call(MaterialSeeder::class);
         $this->call(ProductosSeeder::class);
@@ -21,6 +22,12 @@ class DatabaseSeeder extends Seeder
         $this->call(CotizacionSeeder::class);
         $this->call(DetallecotizacionSeeder::class);
 
+=======
+        $this->call(MaterialSeeder::class);
+        $this->call(ProductosSeeder::class);
+        //$this->call(ProcesoSeeder::class);
+        // $this->call(UsuarioSeeder::class);
+>>>>>>> Francisco
 
         // \App\Models\User::factory(10)->create();
     }
