@@ -13,15 +13,18 @@ class CreateDetallecotizacionesTable extends Migration
             $table->id();
             $table->string('cantidad');
             $table->date('fecha');
-            $table->float('precio_unitario');
+            $table->double('precio_unitario');
             $table->string('descripcion');
             $table->string('descuento');
-            $table->float('precio_total');
+            $table->double('precio_total');
             $table->string('vigencia');
             $table->string('tiempo_estimado');
             $table->foreignId('cotizacion_id')
                     ->references('id')
                     ->on('cotizaciones');
+            $table->foreignId('producto_id')
+            ->references('id')
+            ->on('productos');
             $table->timestamps();
         });
     }

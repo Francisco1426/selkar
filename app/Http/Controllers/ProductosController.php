@@ -18,7 +18,7 @@ class ProductosController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('ProduccionLogistica');
+        //$this->middleware('ProduccionLogistica');
 
     }
 

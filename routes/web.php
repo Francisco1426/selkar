@@ -48,6 +48,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('Cotizaciones/buscarcliente', [CotizacionesController::class, 'buscarcliente'])->name('Cotizaciones.buscarcliente');
     Route::post('Cotizaciones/searchcliente', [CotizacionesController::class, 'searchcliente'])->name('Cotizaciones.searchcliente');
 
+    Route::post('Cotizaciones/buscarproducto', [CotizacionesController::class, 'buscarproducto'])->name('Cotizaciones.buscarproducto');
+    Route::post('Cotizaciones/searchproducto', [CotizacionesController::class, 'searchproducto'])->name('Cotizaciones.searchproducto');
+
 
 
     //francisco
@@ -84,26 +87,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('Modulomateriales/search', [MaterialVehiculoController::class, 'search'])->name('Modulomateriales.search');
     Route::post('Modulomateriales/buscarmaterial', [MaterialVehiculoController::class, 'buscarmaterial'])->name('Modulomateriales.buscarmaterial');
 
-<<<<<<< HEAD
     Route::post('Modulomateriales/buscarvehiculo', [MaterialVehiculoController::class, 'buscarvehiculo'])->name('Modulomateriales.buscarvehiculo');
     Route::post('Modulomateriales/searchvehiculo', [MaterialVehiculoController::class, 'searchvehiculo'])->name('Modulomateriales.searchvehiculo');
     Route::post('Modulomateriales/guardar', [MaterialVehiculoController::class, 'guardar'])->name('Modulomateriales.guardar');
     Route::post('Modulomateriales/editar', [MaterialVehiculoController::class, 'editar'])->name('Modulomateriales.editar');
     Route::get('datables/Modulomateriales', [MaterialVehiculoController::class, 'RegistrosDatatables'])->name('Modulomateriales.datatables');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
-Route::post('Modulomateriales/buscarvehiculo',[MaterialVehiculoController::class,'buscarvehiculo'])->name('Modulomateriales.buscarvehiculo');
-Route::post('Modulomateriales/searchvehiculo',[MaterialVehiculoController::class,'searchvehiculo'])->name('Modulomateriales.searchvehiculo');
-Route::post('Modulomateriales/guardar',[MaterialVehiculoController::class,'guardar'])->name('Modulomateriales.guardar');
-Route::post('Modulomateriales/editar',[MaterialVehiculoController::class,'editar'])->name('Modulomateriales.editar');
-Route::get('datables/Modulomateriales',[MaterialVehiculoController::class,'RegistrosDatatables'])->name('Modulomateriales.datatables');
-
-Route::get('obtenercategorias',[InicioController::class,'obtenercategorias']);
-
-Route::get('obtenerestatus',[InicioController::class,'obtenerestatus']);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> Francisco
 });
 
 

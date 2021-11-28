@@ -17,6 +17,30 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <table class="table table-striped table-inverse table-responsive">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>ID</th>
+                        <th>Clave</th>
+                        <th>Titulo</th>
+                        <th>Vendedor</th>
+                        <th>Cliente</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($cotizaciones as $cotizacion)
+                            <tr>
+                                <td>{{ $cotizacion->id }}</td>
+                                <td>{{ $cotizacion->clave }}</td>
+                                <td>{{ $cotizacion->titulo }}</td>
+                                <td>{{ $cotizacion->vendedor }}</td>
+                                <td>{{ $cotizacion->cliente->razonsocial }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection

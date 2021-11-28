@@ -11,13 +11,12 @@ class CreateCotizacionesTable extends Migration
     {
         Schema::create('cotizaciones', function (Blueprint $table) {
             $table->id();
+            $table->string('clave');
+            $table->string('vendedor');
             $table->string('titulo');
             $table->foreignId('cliente_id')
                     ->references('id')
                     ->on('clientes');
-            $table->foreignId('producto_id')
-                    ->references('id')
-                    ->on('productos');
             $table->timestamps();
         });
     }

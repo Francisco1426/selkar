@@ -11,9 +11,10 @@ class CotizacionSeeder extends Seeder
     public function run()
     {
         DB::table('cotizaciones')->insert([
+            'clave' => '12346',
+            'vendedor' => 'Omar',
             'titulo' => 'Cotizacion caja seca',
             'cliente_id' => 1,
-            'producto_id' => 2,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
 

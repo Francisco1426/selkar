@@ -20,6 +20,7 @@ class DetallecotizacionSeeder extends Seeder
             'vigencia' => '30 dias',
             'tiempo_estimado' =>  '45 dias habiles',
             'cotizacion_id' => 1,
+            'producto_id' => 2,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
 
